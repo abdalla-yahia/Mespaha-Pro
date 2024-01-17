@@ -145,11 +145,9 @@ p{
     width: 100%;
     padding-top: 25px ;
     z-index: 999;
-    /* display: flex; */
     justify-content: space-evenly;
     flex-wrap: wrap;
     transition: 1s;
-    /* gap: 2px; */
     
     i{
       color:#1b7dd8;
@@ -376,9 +374,9 @@ p{
       top: 10px;
       color: red;
       cursor: pointer;
+      font-size: 20px;
     }
-    i.fa-window-minimize,
-    i.fa-window-maximize{
+    i.mini-max{
       position: absolute;
       left: 40px !important;
       top: 5px !important;
@@ -485,8 +483,19 @@ p{
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+.mini-max {
+  animation: updown .5s ease-in-out infinite alternate;
+  
+}
+@keyframes updown {
+  0%{
+    transform: translateY(-5px);
+  }
+  100%{
+    transform: translateY(5px);
 
-
+  }
+}
 @keyframes top-bootom {
     0%{
       height: 0%;
@@ -529,7 +538,7 @@ p{
   .navbar{
     top:0%;
   &.active{
-    top: -14%;
+    top: -24%;
   }
 }
 }
