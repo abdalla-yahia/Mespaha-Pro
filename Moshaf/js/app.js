@@ -31,12 +31,10 @@ const btn_loop   = document.querySelector('.btn_loop'                   );
 const select_input   = document.querySelector('.select_input'                   );
 const select_btn   = document.querySelector('.select_btn'                   );
 const qaryea_image   = document.querySelector('.qaryea_image'                   );
-const Select_jozz   = document.querySelector('#Select_jozz'                   );
+// const Select_jozz   = document.querySelector('#Select_jozz'                   );
 const Select_part   = document.querySelector('#Select_part'                   );
 
-
-
-var link = document.querySelector("link[rel~='icon']");
+let link = document.querySelector("link[rel~='icon']");
 
 //Fetch The Data From Api Folder
 let data= '';
@@ -52,7 +50,7 @@ let counter = localStorage.getItem('counter_aya_loop') || 0;
 
 
 //Selected Audio Qaryea Name  
-let Qaryea =localStorage.getItem('Qaryea') || 'saad-ghamdy';
+let Qaryea =localStorage.getItem('Qaryea')||'alfirdwsiy2018_gmav_201807';
 let info  ='';
 
 
@@ -68,25 +66,24 @@ AjzaaName.map(ele =>{
   let option = document.createElement('option');
   option.innerHTML =` الجزء ${Object.values(ele)[0]}`
   option.value = Object.keys(ele)[0];
-  Select_jozz.appendChild(option);
+  // Select_jozz.appendChild(option);
   
 })
 
-
-
-
+qaryea_image.src = `./images/Qarea_images/${Qaryea}.jpg`;
 //MAin Functions
 setTimeout(()=>{
-  let test = 'https://archive.org/download/alfirdwsiy2018_gmav_201807/001.zip/001002.mp3'
-  select_input.value = Qaryea;
-  Select_jozz.value = localStorage.getItem('jozzOnDropdown');
-  qaryea_image.src = `./images/Qarea_images/${Qaryea}.jpg`;
   if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
-};
- link.href = `./images/Qarea_images/${Qaryea}.jpg`
+      link = document.createElement('link');
+      link.rel = 'sheet image';
+      document.head.appendChild(link);
+    };
+    link.href = `./images/Qarea_images/2.jpg` ;
+    
+  
+  select_input.value = Qaryea;
+  // Select_jozz.value = localStorage.getItem('jozzOnDropdown');
+  
       //Define Variable Of Number Of Sora In Database
        //Get the Parts Of Jozz 
     let parts =[];
@@ -103,7 +100,6 @@ parts.map(e=>{
     jozz++
   }
 });
-console.log(parts)
 
 let num =localStorage.getItem('Sora_Number') || 0;
 //Define Varibals To Get Number Of Aya In Specific Sora
@@ -122,14 +118,9 @@ let num =localStorage.getItem('Sora_Number') || 0;
         localStorage.setItem('Sora_Number',0)
         
         //Define Sorce Audio Of Qarea
-        if(Qaryea === 'saad-ghamdy'){
-          audio.src ='.'+ data[0].array[0].path;
-        }else{
-          let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-          // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
+        if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
           audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-          // https://archive.org/download/alfirdwsiy2018_gmav_201807/001.zip/001002.mp3
         };
       }
       
@@ -251,13 +242,10 @@ let num =localStorage.getItem('Sora_Number') || 0;
         passmalla_audio.addEventListener('ended',()=>{
           
      //Define Sorce Audio Of Qarea
-          if(Qaryea === 'saad-ghamdy'){
-            audio.src ='.'+ data[+num].array[s].path;
-    }else{
-      let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-      // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
-      audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-    }
+          if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
+        };
           audio.play();
           counter--;
           if(counter <= 0){
@@ -273,24 +261,18 @@ let num =localStorage.getItem('Sora_Number') || 0;
             counter--;
             audio.classList.add('play')
      //Define Sorce Audio Of Qarea
-            if(Qaryea === 'saad-ghamdy'){
-      audio.src ='.'+ data[+num].array[s].path;
-    }else{
-      let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-      // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
-      audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-    }
+            if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
+        };
             audio.play();
             }else{
               audio.classList.add('play')
      //Define Sorce Audio Of Qarea
-              if(Qaryea === 'saad-ghamdy'){
-      audio.src ='.'+ data[+num].array[s].path;
-    }else{
-      let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-      // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
-      audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-    }
+              if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
+        };
               audio.play();
               z++
               s++
@@ -314,13 +296,10 @@ let num =localStorage.getItem('Sora_Number') || 0;
         if(ss.children[+z]){
             Sora_Aya.value = +z
      //Define Sorce Audio Of Qarea
-            if(Qaryea === 'saad-ghamdy'){
-      audio.src ='.'+ data[num].array[s].path;
-    }else{
-      let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-      // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
-      audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-    }
+            if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
+        };
             ss.children[z].classList.add('active')
             Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[Sora_Aya.value-1].aya} </span> </div> ${tafSora[Sora_Aya.value-1].text}`;
             localStorage.setItem('Aya_Number',z)
@@ -421,7 +400,6 @@ let num =localStorage.getItem('Sora_Number') || 0;
             aya.prepend(signOfJozz)}
           }
             )
-            console.log(info)
         //Set Tafseer For This Aya 
         Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[f-1].aya} </span> </div> ${tafSora[f-1].text}`;
         //When Prees On Aya Playing Sound Of It
@@ -433,13 +411,10 @@ let num =localStorage.getItem('Sora_Number') || 0;
             ss.childNodes.forEach(el=>el.classList.remove('active'))
               localStorage.setItem('Aya_Number',z)
         //Define Sorce Audio Of Qarea
-              if(Qaryea === 'saad-ghamdy'){
-              audio.src ='.'+ data[num].array[i].path;
-              }else{
-                    let partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
-                    // audio.src =`./Qarea-audio/${Qaryea}/${partOne}/${partOne+partTwo}.mp3`;
-                    audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
-                    }
+              if(Qaryea !== ''){
+          partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+          audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
+        };
                     ss.children[z].classList.add('active')
                 Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[Sora_Aya.value-1].aya} </span> </div> ${tafSora[Sora_Aya.value-1].text}`;
                 window.scrollTo({
@@ -771,4 +746,3 @@ function isAudioPlaying(){
       window.location.reload();
     })
   })
-  console.log(Qaryea)
