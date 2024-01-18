@@ -16,6 +16,7 @@ body{
 
 .ss{
   max-width: 90%;
+  z-index: 1;
     margin: 20px;
     margin-top: 110px;
     margin-bottom: 25%;
@@ -27,35 +28,81 @@ body{
     border: 60px solid transparent;
     border-image: url('../images/round-3.avif') 170 round ;
     .passmalla {
-      font-size: 50px;
-      margin-bottom: 50px;
+      background-color: #f9f0e1;
+      position: relative;
+      font-size: 80px;
+      width: 50%;
+      height: 150px;
+      margin:0 auto 80px auto;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background-color: #94b6b7;
       font-weight: 400;
       font-style: normal;
       border: 30px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg')  80 round ;
+      border-image: url('../images/round-3.avif')  80 round ;
+      &::before{
+        content: '';
+        position: absolute;
+        right: -18%;
+        border: 70px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        transform: rotate(45deg);
+        z-index: -2;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        left: -18%;
+        border: 70px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        transform: rotate(45deg);
+        z-index: -2;
+      }
+      
       >.passmallaText {
-        font-size: 70px;
+        font-size: 50px;
         font-family: 'Amiri Quran';
         font-family: "Reem Kufi Ink", sans-serif;
-      color: rgb(29, 8, 75);
+        position: absolute;
+        bottom:-150%;
     }
     >.passmalla_title{
-      width: 10%;
-      font-size: 25px;
+      position: relative;
+      width: 20%;
+      height: 30%;
+      font-size: 20px;
       padding: 30px;
       text-wrap: wrap;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #7d0d23;
+      font-weight: 700;
+      z-index: 1;
       background-color: transparent;
       line-height: 1.2;
-      /* border: 20px solid transparent;
-    border-image: url('../images/round-3.avif') 120 repeat ; */
+      border: 20px solid transparent;
+      border-image:url('../images/round-3.avif') 120 round;
+      &::before{
+        content: '';
+        position: absolute;
+        right: -80%;
+        border: 28px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        left: -80%;
+        border: 28px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
     }
     }
 }
@@ -90,28 +137,29 @@ p{
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      left: -15%;
+      left: -13.5%;
       color: #000000;
+      background-color: #f9f0e1;
       border: 20px solid transparent;
       border-image: url('../images/round-3.avif') 120 round ;
       border-radius: 50%;
       &::before{
         content: '';
         position: absolute;
-        top: -110%;
-        width: 0px;
-        height: 0px;
-        border: 50px solid ;
-        border-color: transparent transparent #be5064 transparent;
+        top: -50%;
+        border: 35px solid red;
+        border-image: url('../images/round-3.avif') 90 round ;
+        transform: rotate(45deg);
+        z-index: -1;
       }
       &::after{
         content: '';
         position: absolute;
-        bottom: -110%;
-        width: 0px;
-        height: 0px;
-        border: 50px solid ;
-        border-color:#be5064 transparent transparent  transparent;
+        bottom: -50%;
+        border: 35px solid red;
+        border-image: url('../images/round-3.avif') 90 round ;
+        transform: rotate(45deg);
+        z-index: -1;
       }
     }
     &.active{
@@ -152,6 +200,10 @@ p{
     i{
       color:#1b7dd8;
       cursor: pointer;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
     }
     
       #navbarSupportedContent {
@@ -375,6 +427,10 @@ p{
       color: red;
       cursor: pointer;
       font-size: 20px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
     }
     i.mini-max{
       position: absolute;
@@ -550,34 +606,13 @@ p{
   line-height: 2;
   padding: 5px;
   .passmalla {
-    font-size: 50px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #94b6b7;
-    font-weight: 400;
-    font-style: normal;
     border: 20px solid rgb(13, 11, 11);
-    border-image: url('../images/title-3.jpg')  60 round ;
+    border-image: url('../images/round-3.avif')  60 round ;
     >.passmallaText {
       font-size: 50px;
-      font-family: "Reem Kufi Ink", sans-serif ;
-    color: rgb(29, 8, 75);
+    bottom: -100%;
   }
-  >.passmalla_title{
-    width: 10%;
-    font-size: 25px;
-    padding: 30px;
-    text-wrap: wrap;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    line-height: 1.2;
-   
-  }
+ 
 }
   p{
     font-size: 30px;
@@ -588,8 +623,8 @@ p{
     .sign_of_jozz{
       width: 100px;
       height: 150px;
-      position: absolute;
       font-size: 18px;
+      position: absolute;
       font-weight: bolder;
       font-family: 'Amiri';
       line-height: 1;
@@ -598,28 +633,19 @@ p{
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      left: -17.5%;
+      left: -16%;
       color: #000000;
-      border: 15px solid transparent;
+      border: 18px solid transparent;
       border-image: url('../images/round-3.avif') 120 round ;
-      border-radius: 50%;
       &::before{
-        content: '';
-        position: absolute;
-        top: -95%;
-        width: 0px;
-        height: 0px;
-        border: 50px solid ;
-        border-color: transparent transparent #be5065 transparent;
+        top: -45%;
+        border: 32px solid red;
+        border-image: url('../images/round-3.avif') 80 round ;
       }
       &::after{
-        content: '';
-        position: absolute;
-        bottom: -95%;
-        width: 0px;
-        height: 0px;
-        border: 50px solid ;
-        border-color:#be5065 transparent transparent  transparent;
+        bottom: -45%;
+        border: 32px solid red;
+        border-image: url('../images/round-3.avif') 80 round ;
       }
     }
     &.active{
@@ -669,69 +695,39 @@ p{
 @media (min-width:991px) and (max-width: 1280px) {
   .ss{
     margin: 20px;
-    max-width: 85%;
+    max-width: 90%;
     margin-top: 110px;
-    position: relative;
     margin-bottom: 25%;
-    padding: 18px !important;
     text-align: justify;
     line-height: 2;
-    border: 50px solid transparent;
-    border-image:url('../images/round-3.avif') 150 round  ;
     .passmalla {
-      font-size: 35px;
-      width: 100%;
-      margin-bottom: 40px;
-      text-align: center;
-      justify-content: space-evenly;
-      border: 30px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg')  65 round ;
+      border: 20px solid rgb(13, 11, 11);
+      border-image: url('../images/round-3.avif')  60 round ;
       >.passmallaText {
-        font-size: 55px;
-        font-family: "Reem Kufi Ink", sans-serif;
-        color: rgb(29, 8, 75);
-      }
-      >.passmalla_title{
-        font-size: 22px;
-        width: 3%;
-      }
+        font-size: 40px;
+      bottom: -100%;
     }
+   
+  }
     p{
       font-size: 25px;
       .sign_of_jozz{
-        width: 70px;
-        height: 120px;
-        position: absolute;
-        font-size: 15px;
-        font-weight: bolder;
+        width: 80px;
+        height: 150px;
+        left: -14.5%;
+        font-size: 14px;
         line-height: 1.5;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        left: -18%;
-        color: #000000;
-        border: 6px solid transparent;
+        border: 15px solid transparent;
         border-image: url('../images/round-3.avif') 70 round ;
-        border-radius: 50%;
         &::before{
-          content: '';
-          position: absolute;
-          top: -70%;
-          width: 0px;
-          height: 0px;
-          border: 35px solid ;
-          border-color: transparent transparent #be5065 transparent;
+          top: -35%;
+          border: 28px solid red;
+          border-image: url('../images/round-3.avif') 120 round ;
         }
         &::after{
-          content: '';
-          position: absolute;
-          bottom: -70%;
-          width: 0px;
-          height: 0px;
-          border: 35px solid ;
-          border-color:#be5065 transparent transparent  transparent;
+          bottom: -35%;
+          border: 28px solid red;
+          border-image: url('../images/round-3.avif') 120 round ;
         }
       }
     }
@@ -779,29 +775,16 @@ p{
     margin: 20px;
     margin-top: 110px;
     margin-bottom: 25%;
-    padding: 18px !important;
-    text-align: justify;
     line-height: 2;
-    border: 40px solid transparent;
-    border-image:url('../images/round-3.avif') 140 round  ;
     .passmalla {
-      font-size: 30px;
-      width: 100%;
-      margin-bottom: 40px;
-      text-align: center;
-      justify-content: space-evenly;
-      border: 30px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg') 80 round ;
+      width: 80%;
+      border: 20px solid rgb(13, 11, 11);
+      border-image: url('../images/round-3.avif')  60 round ;
       >.passmallaText {
-        font-size: 45px;
-        font-family: "Reem Kufi Ink", sans-serif;
-        color: rgb(29, 8, 75);
-      }
-      >.passmalla_title{
-        font-size: 18px;
-        width: 3%;
-      }
+        font-size: 30px;
+      bottom: -100%;
     }
+  }
     div.parent-simbole{
       font-size: 30px;
   }
@@ -811,39 +794,21 @@ p{
   p{
     font-size: 23px;
     .sign_of_jozz{
-      width: 50px;
+      width: 65px;
       height: 100px;
-      position: absolute;
       font-size: 12px;
-      font-weight: bolder;
-      line-height: 1.5;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      left: -13%;
-      color: #000000;
-      border: 6px solid transparent;
+      left: -13.5%;
+      border: 8px solid transparent;
       border-image: url('../images/round-3.avif') 70 round ;
-      border-radius: 50%;
       &::before{
-        content: '';
-        position: absolute;
-        top: -62%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color: transparent transparent #be5065 transparent;
+        top: -38%;
+        border: 25px solid red;
+        border-image: url('../images/round-3.avif') 90 round ;
       }
       &::after{
-        content: '';
-        position: absolute;
-        bottom: -62%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color:#be5065 transparent transparent  transparent;
+        bottom: -38%;
+        border: 25px solid red;
+        border-image: url('../images/round-3.avif') 90 round ;
       }
     }
   }
@@ -879,30 +844,21 @@ p{
     margin: 20px;
     margin-top: 90px;
     margin-bottom: 25%;
-    padding: 15px !important;
-    text-align: justify;
-    position: relative;
+    padding: 5px;
     line-height: 2;
-    border: 35px solid transparent;
-    border-image:url('../images/round-3.avif') 140 round  ;
+   
     .passmalla {
-      font-size: 30px;
-      width: 100%;
-      margin-bottom: 40px;
-      text-align: center;
-      justify-content: space-evenly;
-      border: 18px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg') 120 round ;
+      width: 80%;
+      border: 20px solid rgb(13, 11, 11);
+      border-image: url('../images/round-3.avif')  60 round ;
       >.passmallaText {
-        font-size: 25px;
-        font-family: 'Amiri Quran';
-        color: rgb(29, 8, 75);
-      }
-      >.passmalla_title{
-        font-size: 15px;
-        width: 3%;
-      }
+        font-size: 30px;
+      bottom: -100%;
     }
+    .passmalla_title{
+      font-size: 16px ;
+    }
+  }
     div.parent-simbole{
       font-size: 28px;
   }
@@ -912,39 +868,22 @@ p{
     p{
       font-size: 23px;
       .sign_of_jozz{
-        width: 50px;
-        height: 100px;
-        position: absolute;
-        font-size: 12px;
-        font-weight: bolder;
-        line-height: 1.5;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        width: 70px;
+        height: 130px;
+        font-size: 14px;
         left: -20%;
         color: #000000;
-        border: 6px solid transparent;
+        border: 12px solid transparent;
         border-image: url('../images/round-3.avif') 70 round ;
-        border-radius: 50%;
         &::before{
-          content: '';
-          position: absolute;
-          top: -62%;
-          width: 0px;
-          height: 0px;
-          border: 25px solid ;
-          border-color: transparent transparent #be5065 transparent;
+          top: -35%;
+          border: 25px solid red;
+          border-image: url('../images/round-3.avif') 120 round ;
         }
         &::after{
-          content: '';
-          position: absolute;
-          bottom: -62%;
-          width: 0px;
-          height: 0px;
-          border: 25px solid ;
-          border-color:#be5065 transparent transparent  transparent;
+          bottom: -35%;
+          border: 25px solid red;
+          border-image: url('../images/round-3.avif') 120 round ;
         }
       }
     }
@@ -1003,7 +942,7 @@ p{
 }
 .ss{
     position: relative;
-    max-width: 85%;
+    max-width: 80%;
     margin: 20px;
     margin-top: 70px;
     margin-bottom: 25%;
@@ -1012,23 +951,44 @@ p{
     line-height: 2.5;
     border: 30px solid transparent;
     border-image:url('../images/round-3.avif') 140 round  ;
+   
     .passmalla {
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-      justify-content: space-around;
-      border: 15px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg') 70 round ;
-      >.passmallaText {
-        font-size: 18px;
-        color: rgb(243, 2, 14);
-        font-weight: bolder;
+      width: 80%;
+      border: 20px solid rgb(13, 11, 11);
+      border-image: url('../images/round-3.avif')  60 round ;
+      &::before{
+        right: -22%;
+        border: 50px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
       }
-      >.passmalla_title{
-        display: none !important;
+      &::after{
+        left: -22%;
+        border: 50px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
       }
-     
+    >.passmallaText {
+        font-size: 25px;
+        bottom: -80%;
     }
+    .passmalla_title{
+      font-size: 13px ;
+      border: 12px solid transparent;
+      border-image:url('../images/round-3.avif') 120 round;
+      z-index: 1;
+      &::before{
+        right: -50%;
+        border: 18px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        z-index: -1;
+      }
+      &::after{
+        left: -50%;
+        border: 18px solid transparent;
+        border-image:url('../images/round-3.avif') 120 round;
+        z-index: -1;
+      }
+    }
+  }
     p{
       font-size: 18px;
     }
@@ -1043,40 +1003,24 @@ p{
     font-size: 18px;
     line-height: 1.5;
     .sign_of_jozz{
-      width: 50px;
-      height: 100px;
+      width: 60px;
+      height: 120px;
       position: absolute;
       font-size: 12px;
-      font-weight: bolder;
-      /* font-family: 'Amiri'; */
-      line-height: 1.5;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
-      left: -20%;
-      color: #000000;
-      border: 5px solid transparent;
-      border-image: url('../images/round-3.avif') 80 round ;
-      border-radius: 50%;
+      left: -26%;
+      border:11px solid transparent;
+      border-image: url('../images/round-3.avif') 120 round ;
+      
       &::before{
-        content: '';
-        position: absolute;
-        top: -61%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color: transparent transparent #be5065 transparent;
+        top: -30%;
+        border: 20px solid red;
+        border-image: url('../images/round-3.avif') 120 round ;
       }
       &::after{
-        content: '';
-        position: absolute;
-        bottom: -61%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color:#be5065 transparent transparent  transparent;
+        bottom: -30%;
+        border: 20px solid red;
+        border-image: url('../images/round-3.avif') 120 round ;
       }
     }
   }
@@ -1168,7 +1112,6 @@ font-size: 15px;
     }
     &.active{
       top: -30.2%;
-      /* justify-content: space-evenly; */
     }
   }
 .loop_box,.qaryea_box,.search_box{
@@ -1186,20 +1129,27 @@ font-size: 15px;
     border: 20px solid transparent;
     border-image:url('../images/round-3.avif') 160 round  ;
     .passmalla {
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-      justify-content: space-around;
-      border: 10px solid rgb(13, 11, 11);
-      border-image: url('../images/title-3.jpg') 70 round ;
-      >.passmallaText {
+      width: 80%;
+      height: 100px;
+      border: 15px solid rgb(13, 11, 11);
+      border-image: url('../images/round-3.avif') 120 round ;
+
+    >.passmallaText {
         font-size: 18px;
-        font-family: "Reem Kufi Ink", sans-serif;
-        font-weight: bolder;
-      }
-      
-     
+        bottom: -90%;
     }
+    .passmalla_title{
+      font-size: 13px ;
+      border: 2px solid transparent;
+      border-image:url('../images/round-3.avif') 120 round;
+      z-index: 1;
+      &::before,
+      &::after{
+        border: none;
+      }
+
+    }
+  }
     div.parent-simbole{
       font-size: 20px;
   }
@@ -1213,38 +1163,21 @@ font-size: 15px;
     .sign_of_jozz{
       width: 50px;
       height: 100px;
-      position: absolute;
-      font-size: 12px !important;
-      font-weight: bolder;
-      /* font-family: 'Amiri'; */
-      line-height: 1;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      left: -27.5%;
+      font-size: 11px !important;
+      left: -27%;
       color: #000000;
-      border: 5px solid transparent;
+      border: 8px solid transparent;
       border-image: url('../images/round-3.avif') 80 round ;
       border-radius: 50%;
       &::before{
-        content: '';
-        position: absolute;
-        top: -61%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color: transparent transparent #be5065 transparent;
+        top: -30%;
+        border: 19px solid red;
+        border-image: url('../images/round-3.avif') 120 round ;
       }
       &::after{
-        content: '';
-        position: absolute;
-        bottom: -61%;
-        width: 0px;
-        height: 0px;
-        border: 25px solid ;
-        border-color:#be5065 transparent transparent  transparent;
+        bottom: -30%;
+        border: 19px solid red;
+        border-image: url('../images/round-3.avif') 120 round ;
       }
     }
   }
