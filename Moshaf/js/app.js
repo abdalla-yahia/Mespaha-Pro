@@ -33,6 +33,7 @@ const select_btn           = document.querySelector('.select_btn'               
 const qaryea_image         = document.querySelector('.qaryea_image'                 );
 const Select_jozz          = document.querySelector('#Select_jozz'                  );
 const Select_part          = document.querySelector('#Select_part'                  );
+const loading              = document.querySelector('.loading'                      );
 let link                   = document.querySelector("link[rel~='icon']"             );
  
 //Fetch The Data From Api Folder
