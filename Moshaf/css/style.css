@@ -136,7 +136,8 @@ p{
     cursor: pointer;
     display: inline;
     margin-bottom: 50px;
-    .sign_of_jozz{
+    .sign_of_jozz,
+    .sign_of_sajda{
       width: 100px;
       height: 150px;
       position: absolute;
@@ -175,31 +176,13 @@ p{
       }
     }
     .sign_of_sajda{
-      width: 100px;
+      color: red !important;
       height: 100px;
-      position: absolute;
-      font-size: 15px;
-      font-weight: bolder;
-      font-family: 'Amiri';
-      line-height: 1;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      left: -13.5%;
-      color: #d81414;
-      background-color: #f9f0e1;
-      border: 20px solid transparent;
-      border-image: url('../images/round-3.avif') 120 round ;
       &::before{
-        content: '';
-        position: absolute;
         top: -90%;
-        border: 35px solid red;
-        border-image: url('../images/round-3.avif') 90 round ;
-        transform: rotate(45deg);
-        z-index: -1;
+      }
+      &::after{
+        display: none;
       }
     
     }
@@ -447,7 +430,8 @@ p{
   }
 }
 }
-.tafsesr_box_parent,.search_results{
+.tafsesr_box_parent,
+.search_results{
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -496,6 +480,7 @@ p{
 }
 .tafsesr_box_parent >div.parent-simbole{
     position: absolute;
+    margin-top: 17px;
     top: 10%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -674,7 +659,8 @@ p{
     cursor: pointer;
     display: inline;
     margin-bottom: 50px;
-    .sign_of_jozz{
+    .sign_of_jozz,
+    .sign_of_sajda{
       width: 100px;
       height: 150px;
       font-size: 18px;
@@ -700,6 +686,12 @@ p{
         bottom: -45%;
         border: 32px solid red;
         border-image: url('../images/round-3.avif') 80 round ;
+      }
+    }
+    .sign_of_sajda{
+      height: 90px ;
+      &::before{
+        top: -90%;
       }
     }
     &.active{
@@ -765,7 +757,8 @@ p{
   }
     p{
       font-size: 25px;
-      .sign_of_jozz{
+      .sign_of_jozz,
+      .sign_of_sajda{
         width: 80px;
         height: 150px;
         left: -14.5%;
@@ -782,6 +775,12 @@ p{
           bottom: -35%;
           border: 28px solid red;
           border-image: url('../images/round-3.avif') 120 round ;
+        }
+      }
+      .sign_of_sajda{
+        height: 90px ;
+        &::before{
+          top: -65%;
         }
       }
     }
@@ -847,7 +846,8 @@ p{
   }
   p{
     font-size: 23px;
-    .sign_of_jozz{
+    .sign_of_jozz,
+    .sign_of_sajda{
       width: 65px;
       height: 100px;
       font-size: 12px;
@@ -863,6 +863,12 @@ p{
         bottom: -38%;
         border: 25px solid red;
         border-image: url('../images/round-3.avif') 90 round ;
+      }
+    }
+    .sign_of_sajda{
+      height: 80px ;
+      &::before{
+        top: -50%;
       }
     }
   }
@@ -921,7 +927,8 @@ p{
   }
     p{
       font-size: 23px;
-      .sign_of_jozz{
+      .sign_of_jozz,
+      .sign_of_sajda{
         width: 70px;
         height: 130px;
         font-size: 14px;
@@ -938,6 +945,12 @@ p{
           bottom: -35%;
           border: 25px solid red;
           border-image: url('../images/round-3.avif') 120 round ;
+        }
+      }
+      .sign_of_sajda{
+        height: 80px ;
+        &::before{
+          top: -55%;
         }
       }
     }
@@ -1043,9 +1056,7 @@ p{
       }
     }
   }
-    p{
-      font-size: 18px;
-    }
+   
     div.parent-simbole{
       font-size: 20px;
   }
@@ -1056,7 +1067,8 @@ p{
   p{
     font-size: 18px;
     line-height: 1.5;
-    .sign_of_jozz{
+    .sign_of_jozz,
+    .sign_of_sajda{
       width: 60px;
       height: 120px;
       position: absolute;
@@ -1077,74 +1089,45 @@ p{
         border-image: url('../images/round-3.avif') 120 round ;
       }
     }
+    .sign_of_sajda{
+      height: 80px ;
+      &::before{
+        top: -55%;
+      }
+    }
   }
   p.active{
     border-radius: 10px;
 }
   div.parent-simbole{
-    position: relative;
-    display: inline-block;
     font-size: 25px;
 }
 
-span.child-simbole{
-position: absolute;
-top: 60%;
-left: 45%;
-transform: translate(-50%, -50%);
-font-size: 15px;
-}
-
 .tafsesr_box_parent{
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
-  left: 0;
-  background-color: #d8c0c0;
-  z-index: 999;
-  height: 6%;
   font-size: 20px;
-  text-align: justify;
   padding:10px 10px;
   line-height: 2;
-  overflow-y: auto;
-  color: #000000;
-  border: 7px solid ;
-  border-image: url('../images/القرآن\ الكريم\ للجوال.jpeg') 20 round;
-
 #tafsesr_box{
   margin-top: 20px;
-  font-family: 'Amiri', serif;
 }
 }
 .tafsesr_box_parent >div.parent-simbole{
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 30px;
-}
-.tafsesr_box_parent >div.parent-simbole:before{
-  content: '';
-  width: 100px;
-  height: 3px;
-  background-color: green;
-  top: 40px;
-  left: 42px;
-  position: absolute;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
-.tafsesr_box_parent >div.parent-simbole:after{
-  content: '';
-  width: 100px;
-  height: 3px;
-  background-color: green;
-  top: 40px;
-  right: 42px;
-  position: absolute;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
+  font-size: 40px;
+  &::before
+  ,&::after{
+    top:45% !important;
+    margin: 5px;
+    width: 100px;
+    height: 3px;
+    left: 42px;
+  }
+  &::after{
+    right: 42px;
+
+  }
+  .child-simbole{
+    font-size: 20px;
+  }
 }
 .search_results{
   top: 17%;
@@ -1215,12 +1198,12 @@ font-size: 15px;
   p{
     font-size: 15px !important;
     line-height: 1.5;
-    .sign_of_jozz{
+    .sign_of_jozz,
+    .sign_of_sajda{
       width: 50px;
       height: 100px;
       font-size: 11px !important;
       left: -27%;
-      color: #000000;
       border: 8px solid transparent;
       border-image: url('../images/round-3.avif') 80 round ;
       border-radius: 50%;
@@ -1235,82 +1218,36 @@ font-size: 15px;
         border-image: url('../images/round-3.avif') 120 round ;
       }
     }
+    .sign_of_sajda{
+      height: 50px ;
+      &::before{
+        top: -65%;
+      }
+    }
   }
   p.active{
     border-radius: 10px;
 }
   div.parent-simbole{
-    position: relative;
-    display: inline-block;
     font-size: 25px;
 }
 
-span.child-simbole{
-position: absolute;
-top: 60%;
-left: 45%;
-transform: translate(-50%, -50%);
-font-size: 15px;
-}
-
 .tafsesr_box_parent{
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
-  left: 0;
-  background-color: #d8c0c0;
-  z-index: 999;
-  height: 6%;
-  font-size: 20px;
-  text-align: justify;
-  padding:10px 10px;
-  line-height: 2;
-  overflow-y: auto;
-  color: #000000;
-  border: 5px solid ;
-  border-image: url('../images/القرآن\ الكريم\ للجوال.jpeg') 20 round;
-
+  
+border-width: 10px;
 #tafsesr_box{
   margin-top: 25px !important;
   font-size: 15px !important;
-  font-family: 'Amiri', serif;
   div.parent-simbole{
-    font-size: 15px;
+    font-size:18px;
     .child-simbole{
       font-size: 12px;
     }
   }
 }
 }
-.tafsesr_box_parent >div.parent-simbole{
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 30px;
-}
-.tafsesr_box_parent >div.parent-simbole:before{
-  content: '';
-  width: 100px;
-  height: 3px;
-  background-color: green;
-  top: 40px;
-  left: 42px;
-  position: absolute;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
-.tafsesr_box_parent >div.parent-simbole:after{
-  content: '';
-  width: 100px;
-  height: 3px;
-  background-color: green;
-  top: 40px;
-  right: 42px;
-  position: absolute;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-}
+
+
 .search_results{
   top: 17%;
 }
