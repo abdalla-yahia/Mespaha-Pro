@@ -96,6 +96,13 @@ setTimeout(()=>{
     sora_num:e.sura_no,
     aya_num:e.aya_no
   }));
+  //Define Sajdas Sites
+  let sajdas =[];
+  search.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+    jozz:e.jozz,
+    sora_num:e.sura_no,
+    aya_num:e.aya_no
+  }));
   let jozzSite = [];
   let jozz = 0
   parts.map(e=>{
@@ -104,7 +111,6 @@ setTimeout(()=>{
       jozz++
     }
   });
-  
   //Define Variable Of Number Of Sora In Database
   let num =localStorage.getItem('Sora_Number') || 0;
   //Define Varibals To Get Number Of Aya In Specific Sora
@@ -419,7 +425,27 @@ setTimeout(()=>{
       aya.style.padding = '5px';
       let signOfJozz = document.createElement('p');
       signOfJozz.classList.add('sign_of_jozz');
-      ;
+      let signOfSajda = document.createElement('p');
+      signOfJozz.classList.add('sign_of_jozz');
+      signOfSajda.classList.add('sign_of_sajda');
+
+       //Change Number Formats To Arabic Format
+      let map = [
+        "&\#1632;","&\#1633;","&\#1634;","&\#1635;","&\#1636;",
+        "&\#1637;","&\#1638;","&\#1639;","&\#1640;","&\#1641;"
+        ]
+    aya.innerHTML = aya.innerHTML.replace(/\d(?=[^<>]*(<|$))/g,number=> map[number]);
+        let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ']
+       word.map(word=>aya.innerHTML.match(word)&& (aya.innerHTML = aya.innerHTML.replace(word,`<span style="color:red">${word}</span>`)));
+      
+      //  ۩
+   
+      sajdas.map(e=>{
+        if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
+          signOfSajda.innerHTML = `سَجْدَة`
+          aya.prepend(signOfSajda);
+        }
+      })
   
       let info = [];
       let count = 0

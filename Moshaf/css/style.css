@@ -10,7 +10,8 @@ body{
     background-color: #ffffcc;
     color: black;
     font-family: 'Amaranth', sans-serif;
-    font-family: 'Amiri Quran', serif;
+    font-family: "Reem Kufi Fun", sans-serif;
+    font-family: 'Amiri', serif;
     position: relative;
   }
 
@@ -33,12 +34,12 @@ body{
       font-size: 80px;
       width: 50%;
       height: 150px;
-      margin:0 auto 80px auto;
+      margin:0 auto 130px auto;
       display: flex;
       justify-content: space-around;
+      font-family: 'Amiri Quran' !important;
       align-items: center;
       font-weight: 400;
-      font-style: normal;
       border: 30px solid rgb(13, 11, 11);
       border-image: url('../images/round-3.avif')  80 round ;
       &::before{
@@ -63,7 +64,6 @@ body{
       >.passmallaText {
         font-size: 50px;
         font-family: 'Amiri Quran';
-        font-family: "Reem Kufi Ink", sans-serif;
         position: absolute;
         bottom:-150%;
     }
@@ -109,14 +109,26 @@ body{
 div.parent-simbole{
     position: relative;
     display: inline-block;
-    font-size: 40px;
+    font-size: 45px;
+    font-weight: bolder;
+    font-family: "Amiri_Quran variant0";
+    color: #19a623eb;
+    background-color: transparent;
+    border-radius: 50%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    /* background-image: linear-gradient(rgba(140, 132, 132, 0.844),rgba(245, 245, 240, 0.532),rgba(140, 132, 132, 0.762)); */
+    
 }
 span.child-simbole{
 position: absolute;
-top: 60%;
-left: 45%;
+top: 52%;
+left: 46%;
 transform: translate(-50%, -50%);
 font-size: 30px;
+font-weight: bold;
+color: rgb(251, 5, 5);
 }
 p{
     font-size: 40px;
@@ -162,14 +174,46 @@ p{
         z-index: -1;
       }
     }
+    .sign_of_sajda{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      font-size: 15px;
+      font-weight: bolder;
+      font-family: 'Amiri';
+      line-height: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      left: -13.5%;
+      color: #d81414;
+      background-color: #f9f0e1;
+      border: 20px solid transparent;
+      border-image: url('../images/round-3.avif') 120 round ;
+      &::before{
+        content: '';
+        position: absolute;
+        top: -90%;
+        border: 35px solid red;
+        border-image: url('../images/round-3.avif') 90 round ;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+    
+    }
     &.active{
       background-color: rgb(33, 36, 58) !important;
       color:#ffffff;
       border-radius: 10px;
       padding: 0px;
-      font-family: 'Amiri';
+      /* font-family: 'Amiri'; */
       >div.parent-simbole{
-        font-family: 'Amiri Quran';
+        color: #1dc26a;
+      } 
+      .child-simbole{
+        color: white;
       }
   }
     &:hover:not(.active){
@@ -423,7 +467,7 @@ p{
     i{
       position: absolute;
       left: 10px;
-      top: 10px;
+      top: -15px;
       color: red;
       cursor: pointer;
       font-size: 20px;
@@ -435,13 +479,19 @@ p{
     i.mini-max{
       position: absolute;
       left: 40px !important;
-      top: 5px !important;
-      color: rgb(68, 0, 255) !important;
+      color: rgb(27, 120, 6) !important;
     }
 
 #tafsesr_box{
     margin-top: 30px;
     font-family: 'Amiri', serif;
+    >div.parent-simbole{
+      color: #182b37;
+      font-size: 30px;
+      .child-simbole{
+        font-size: 20px;
+      }
+    }
 }
 }
 .tafsesr_box_parent >div.parent-simbole{
@@ -450,13 +500,17 @@ p{
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 60px;
+    .child-simbole{
+      font-size: 25px;
+      color: #1b7dd8;
+    }
 }
 .tafsesr_box_parent >div.parent-simbole:before{
     content: '';
     width: 200px;
     height: 5px;
     background-color: green;
-    top: 82px;
+    top: 20px;
     left: 82px;
     position: absolute;
     border-top-right-radius: 50%;
@@ -467,7 +521,7 @@ p{
     width: 200px;
     height: 5px;
     background-color: green;
-    top: 82px;
+    top: 20px;
     right: 82px;
     position: absolute;
     border-top-left-radius: 50%;
@@ -1112,6 +1166,7 @@ font-size: 15px;
     }
     &.active{
       top: -30.2%;
+      /* justify-content: space-evenly; */
     }
   }
 .loop_box,.qaryea_box,.search_box{
