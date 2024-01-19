@@ -72,8 +72,8 @@ AjzaaName.map(ele =>{
 let ImageSrc = localStorage.getItem('QaryeaImageFavicon') ?
 `./images/Qarea_images/favicon/${localStorage.getItem('QaryeaImageFavicon')}.jpg`:
 './images/Qarea_images/favicon/عبدالباسط - مجود.jpg';
-qaryea_image.src = ImageSrc;
 loading.style.backgroundImage = `url(${ImageSrc})`;
+qaryea_image.src = ImageSrc;
 //MAin Functions
 setTimeout(()=>{
   if (!link) {
