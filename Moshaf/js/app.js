@@ -199,7 +199,7 @@ setTimeout(()=>{
   //Set Passmalla Text Before Every Sora But Eltawba Sora
   let passmalla = document.createElement('div')
   let passmallaText = document.createElement('span');
-  passmallaText.innerText ="بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"
+  passmallaText.innerText ="﷽"
   passmallaText.classList.add('passmallaText')
   let sora_name = document.createElement('span')
   sora_name.classList.add('sora_name','passmalla_title')
