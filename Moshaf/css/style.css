@@ -273,7 +273,12 @@ p{
       color: #000000;
     }
 }
-
+input,select{
+  cursor: pointer;
+}
+#Select_part{
+  cursor:no-drop
+}
 .navbar{
     position: fixed;
     left: 0;
@@ -367,6 +372,7 @@ p{
   .select_input,.select_btn{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
   }
   .select_input{
     padding: 5px;
@@ -386,6 +392,7 @@ p{
 }
 .loop_box{
   max-width: 10%;
+  cursor: pointer;
   .btn_loop{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #1dc26a;
