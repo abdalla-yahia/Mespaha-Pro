@@ -7,7 +7,7 @@
     <meta name="description" content=" المسبحة بتساعدك على أن تكون من الذاكرين الله كثيرا والذاكرات وفيها المصحف اللى بيساعدك انك تكون من حفظة القرآن فهي تحتوي على العديد من القراء مثل الحصري والمنشاوي وعبدالباسط وغيرهم الكثير لا تنسانا من صالح دعائكم">
     <!-- <link rel="shortcut icon" type="image/jpg" href=""> -->
     <title>المصحف </title>
-    <!--Boot Strap CDN-->
+    Boot Strap CDN
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!--Main Style File-->
@@ -17,10 +17,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
-    <!--Font Kofi Foor Bassmala-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap" rel="stylesheet">
     <!--Foont Amiri For Quran-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +89,10 @@
       </div>
       
         <div class="search_box">
-          <input ariaAutoComplete="true" class="form-control  w-100 search_input" name="search" minlength="3" maxlength="70" aria-atomic="true" type="search" placeholder="بحث ...." aria-label="Search">
+          <div class="search-icon w-100 d-flex justify-content-between bg-white">
+            <input ariaAutoComplete="true" class="form-control  w-100 search_input" name="search" minlength="3" maxlength="150" aria-atomic="true" type="search" placeholder="بحث ...." aria-label="Search">
+            <i class="fa-solid fa-search"></i>
+          </div>
           <button class="btn btn-success w-100  search_btn" type="submit">بحث</button>
         </div>
         <div class="loop_box" >
@@ -194,7 +193,7 @@
   </nav>
     <div class="search_results">
   
-      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark mute"></i>
       <div class="parent-simbole">&#x06DD;
         <span class="child-simbole">النتيجة</span>
       </div>
@@ -214,7 +213,7 @@
   
       </div>
     </div>
-    <audio class="audio" src="" controls autoplay style="display: none;"></audio>
+    <audio class="audio play" src="" controls autoplay style="display: none;"></audio>
     <audio class="audio2 " src="" controls autoplay style="display: none;"></audio>
     
     <script src="./js/app.js" id="javascript-file"></script>

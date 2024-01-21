@@ -20,7 +20,7 @@ const close_tafsesr        = document.querySelector('.tafsesr_box_parent>i.fa-xm
 const tafsesr_box_parent   = document.querySelector('.tafsesr_box_parent'           );
 const play_pause           = document.querySelector('.play_pause'                   );
 const play_pause_text      = document.querySelector('.play_pause_text'              );
-const mute                 = document.querySelector('.fa-solid'                     );
+const mute                 = document.querySelector('.fa-solid.mute'                );
 const volume               = document.querySelector('.volume'                       );
 const search_input         = document.querySelector('.search_input'                 );
 const search_btn           = document.querySelector('.search_btn'                   );
@@ -132,7 +132,6 @@ setTimeout(()=>{
     
   
   select_input.value = Qaryea;
-  // Select_jozz.value = localStorage.getItem('jozzOnDropdown');
   
   //Get the Parts Of Jozz 
   let parts =[];
@@ -570,6 +569,7 @@ audio2.addEventListener('ended',()=>{
       })
       QaryeaAudio()
       audio.play()
+      audio.classList.add('play')
         s++
       })
       
@@ -591,8 +591,9 @@ audio2.addEventListener('ended',()=>{
     let result =[]
     
     search_btn.onclick = ()=>{
-      if(search_input.value === ''){
-        return;
+      if(search_input.value === '' || search_input.value.length <3 || search_input.value.length > 150 ){
+        search_input.value = '';
+        return false;
       }
       else{
         result=[];
@@ -829,7 +830,7 @@ function PlayAndPauseAudio() {
     
     }
     else{ 
-    if(audio.classList.contains('play')){
+      if(audio.classList.contains('play')){
       audio.muted = false;
       for(let j = 0 ; j < (audio.volume*10) ; j++){
         volume_span[j].classList.add('active')
@@ -1281,8 +1282,9 @@ setTimeout(()=>{
     let result =[]
     
     search_btn.onclick = ()=>{
-      if(search_input.value === ''){
-        return;
+      if(search_input.value === '' || search_input.value.length <3 || search_input.value.length > 150 ){
+        search_input.value = '';
+        return false;
       }
       else{
         result=[];
@@ -1354,6 +1356,7 @@ setInterval(() => {
   }, 1000);
   //Play And Pause Audio
   
+  play_pause.click();
   play_pause.onclick = ()=>{
     play_pause.style.backgroundColor ='#2196f3'
     PlayAndPauseAudio()
