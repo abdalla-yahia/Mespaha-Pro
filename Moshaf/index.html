@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,9 +96,14 @@
           <input ariaAutoComplete="true" class="form-control  w-100 search_input" name="search" minlength="3" maxlength="70" aria-atomic="true" type="search" placeholder="بحث ...." aria-label="Search">
           <button class="btn btn-success w-100  search_btn" type="submit">بحث</button>
         </div>
-        <div class="loop_box">
-          <input class="input_loop w-100 " min="0" max="20" type="number" placeholder="عدد مرات الترديد ">
-          <button class="btn_loop w-100 btn btn-success">ترديد</button>
+        <div class="loop_box" >
+          <select name="" id="RepeateSelected" class="w-100 ">
+            <option selected value="اختر طريقة التلاوة">اختر طريقة التلاوة</option>
+            <option value="NoRepeate"   >بدون تكرار</option>
+            <option value="Repeate">تكرار</option>
+          </select>
+          <input  class="input_loop w-100 " min="1" max="20" type="number" value="1" placeholder="عدد مرات التكرار ">
+          <button  class="btn_loop w-100 btn btn-success"> عدد التكرار</button>
         </div>
         <div class="qaryea_box">
           <select name="" id="" class="select_input w-100">
@@ -107,6 +112,7 @@
             <option value="6236-full-quran-6236-ayah-by--alminshawi-mogawwad-192kb--verse-by-verse"  >المنشاوي - مجود</option>
             <option value="full---moshaf----128kb---mp3------------quran----6236---ayaat-----__verse--by-"  >المنشاوي-المعلم</option>
             <option value="6236_____________full-quran-6236-ayah-by--alhosary--morattal--mad-almonfasel-e"  >الحصري - مرتل</option>
+            <option value="64kb-alhosary-qasr-almonfasel-radio-6236-ayah"  >الحصري-الإذاعة</option>
             <option value="full-quran-6236-ayah-by--alhosary-mogawwad--128kb--verse-by-verse"  >الحصري - مجود  </option>
             <option value="alhosary---warsh---64kb----full--ayat--6236--aya"  >الحصري-ورش</option>
             <option value="32kb-alhosary-qaloon-ayat-full-6236-aya"  >الحصري - قالون</option>
@@ -208,7 +214,10 @@
   
       </div>
     </div>
-    <audio class="audio play" src="" controls autoplay style="display: none;"></audio>
-    <script src="./js/app.js"></script>
+    <audio class="audio" src="" controls autoplay style="display: none;"></audio>
+    <audio class="audio2 " src="" controls autoplay style="display: none;"></audio>
+    
+    <script src="./js/app.js" id="javascript-file"></script>
+  
   </body>
     </html>
