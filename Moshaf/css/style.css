@@ -288,7 +288,6 @@ input,select{
     justify-content: space-evenly;
     flex-wrap: wrap;
     transition: 1s;
-    
     i{
       color:#1b7dd8;
       cursor: pointer;
@@ -532,7 +531,7 @@ input,select{
       left: 40px !important;
       color: rgb(27, 120, 6) !important;
     }
-
+    
 #tafsesr_box{
     margin-top: 30px;
     font-family: 'Amiri', serif;
@@ -545,6 +544,7 @@ input,select{
     }
 }
 }
+
 .tafsesr_box_parent >div.parent-simbole{
     position: absolute;
     margin-top: 17px;
@@ -579,6 +579,7 @@ input,select{
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
 }
+
 .search_results{
   top: 8%;
   height: 85%;

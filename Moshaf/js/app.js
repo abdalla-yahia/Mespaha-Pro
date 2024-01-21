@@ -106,6 +106,16 @@ if(e.target.value === 'Repeate'){
   window.location.reload()
 }
 }
+
+window.onmousemove = (e)=>{
+  navbar.style.visibility = 'visible';
+  tafsesr_box_parent.style.visibility = 'visible';
+  setInterval(()=>{
+      navbar.style.visibility = 'hidden'
+      tafsesr_box_parent.style.visibility= 'hidden'
+  },3*60*1000)
+}
+
 //MAin Functions
 
 //##############################################################################################
@@ -466,6 +476,7 @@ audio2.addEventListener('ended',()=>{
       let aya = document.createElement('p');
       aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
       aya.style.padding = '5px';
+      // aya.setAttribute('download','true')
       let signOfJozz = document.createElement('p');
       signOfJozz.classList.add('sign_of_jozz');
       let signOfSajda = document.createElement('p');
