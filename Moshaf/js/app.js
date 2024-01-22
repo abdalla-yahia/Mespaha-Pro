@@ -43,8 +43,12 @@ let data= '';
 fetch('./Api/Quran.json').then(res=>res.json()).then(res=>data =res)
 let tafseer ='';
 fetch('./Api/tafseer.json').then(res=>res.json()).then(res=>tafseer =res);
-let search = '';
-fetch('./Api/Search.json').then(res=>res.json()).then(res=>search =res);
+let Quran_Hafs = '';
+fetch('./Api/Quran-hafs.json').then(res=>res.json()).then(res=>Quran_Hafs =res);
+let Quran_Warsh = '';
+fetch('./Api/Quran-warsh.json').then(res=>res.json()).then(res=>Quran_Warsh =res);
+let Quran_Qalon = '';
+fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
 //Get Audio Volume From LocalStorage
 
 if(localStorage.getItem('volume_audio')){
@@ -107,14 +111,14 @@ if(e.target.value === 'Repeate'){
 }
 }
 
-window.onmousemove = (e)=>{
-  navbar.style.visibility = 'visible';
-  tafsesr_box_parent.style.visibility = 'visible';
-  setInterval(()=>{
-      navbar.style.visibility = 'hidden'
-      tafsesr_box_parent.style.visibility= 'hidden'
-  },3*60*1000)
-}
+// window.onmousemove = (e)=>{
+//   navbar.style.visibility = 'visible';
+//   tafsesr_box_parent.style.visibility = 'visible';
+//   setInterval(()=>{
+//       navbar.style.visibility = 'hidden'
+//       tafsesr_box_parent.style.visibility= 'hidden'
+//   },3*60*1000)
+// }
 
 //MAin Functions
 
@@ -130,6 +134,8 @@ window.onmousemove = (e)=>{
 function NoRepeat() {
 
 setTimeout(()=>{
+ 
+ 
   if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
@@ -145,14 +151,14 @@ setTimeout(()=>{
   
   //Get the Parts Of Jozz 
   let parts =[];
-  search.filter(e=>e.aya_text.includes('۞') && parts.push({
+  Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
     jozz:e.jozz,
     sora_num:e.sura_no,
     aya_num:e.aya_no
   }));
   //Define Sajdas Sites
   let sajdas =[];
-  search.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+  Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
     jozz:e.jozz,
     sora_num:e.sura_no,
     aya_num:e.aya_no
@@ -177,7 +183,18 @@ setTimeout(()=>{
   let s = f-1
   let partOne = (+num+1)>99?(+num+1):(+num+1)>9?'0'+(+num+1):'00'+(+num+1)
   let partTwo = (+s)>99?(+s):(+s)>9?'0'+(+s):'00'+(+s)
-      
+  
+  //Get Count Of Aya In This Sora
+  let countOfAya = []
+  for(let i in data){
+    countOfAya.push(data[i].array.length)
+  }
+  
+  //Get Id Of Aya In This Sora
+  let idOfAya = 0
+  for(let i = 0; i <num; i++){
+    idOfAya += countOfAya[i]
+  }
     //Define Sorce Audio Of Qarea
     function QaryeaAudio(){
       if(Qaryea === 'alhosary---warsh---64kb----full--ayat--6236--aya'){
@@ -469,13 +486,24 @@ audio2.addEventListener('ended',()=>{
     }
 
 })
-
   //Set Ayat Text Information In Child
-  for(let i in (data[num].array)){
+
+  for(let i in data[num].array){
+    
+    let sub = idOfAya + +i
+    const TextOfAya_Hafs =(Quran_Hafs[sub].aya_text)? (Quran_Hafs[sub].aya_text).slice(0,-2):''
+    const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):''
+    const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):''
+    
+    //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
+    let TEXT_OF_AYA =(select_input.options[select_input.selectedIndex].text).includes('ورش')?TextOfAya_Warsh:
+    (select_input.options[select_input.selectedIndex].text).includes('قالون') ?TextOfAya_Qalon:TextOfAya_Hafs
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
-      aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
+      // aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
+      aya.innerHTML = ` ${TEXT_OF_AYA}  ${TEXT_OF_AYA && `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`}`;
       aya.style.padding = '5px';
+      
       // aya.setAttribute('download','true')
       let signOfJozz = document.createElement('p');
       signOfJozz.classList.add('sign_of_jozz');
@@ -489,16 +517,18 @@ audio2.addEventListener('ended',()=>{
         "&\#1637;","&\#1638;","&\#1639;","&\#1640;","&\#1641;"
         ]
     aya.innerHTML = aya.innerHTML.replace(/\d(?=[^<>]*(<|$))/g,number=> map[number]);
-        let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ']
+        let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ','اَ۬للَّهَ']
        word.map(word=>aya.innerHTML.match(word)&& (aya.innerHTML = aya.innerHTML.replace(word,`<span style="color:red">${word}</span>`)));
       
       //  ۩
    
       sajdas.map(e=>{
+        if(data[num].array[i]){
         if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
           signOfSajda.innerHTML = `سَجْدَة`
           aya.prepend(signOfSajda);
         }
+      }
       })
   
       let info = [];
@@ -553,10 +583,13 @@ audio2.addEventListener('ended',()=>{
           Object.keys(ele)[0] == e.jozz-1 ? jozzName = Object.values(ele)[0] :'';
           
         })
+        if(data[num].array[i]){
         if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
           signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
-          aya.prepend(signOfJozz)}
+          aya.prepend(signOfJozz)
         }
+        }
+      }
         )
         //Set Tafseer For This Aya 
         Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[f-1].aya} </span> </div> ${tafSora[f-1].text}`;
@@ -609,13 +642,13 @@ audio2.addEventListener('ended',()=>{
       else{
         result=[];
         search_box_content.innerHTML='';
-    for(let i in search){
-        search[i].aya_text_emlaey.includes(search_input.value)&&
+    for(let i in Quran_Hafs){
+      Quran_Hafs[i].aya_text_emlaey.includes(search_input.value)&&
         result.push({
-        aya: search[i].aya_text_emlaey,
-        num:search[i].sura_no,
-        f:search[i].aya_no,
-        Sora: search[i].sura_name_ar
+        aya: Quran_Hafs[i].aya_text_emlaey,
+        num:Quran_Hafs[i].sura_no,
+        f:Quran_Hafs[i].aya_no,
+        Sora: Quran_Hafs[i].sura_name_ar
         })
       }
     }
@@ -895,14 +928,14 @@ setTimeout(()=>{
   
   //Get the Parts Of Jozz 
   let parts =[];
-  search.filter(e=>e.aya_text.includes('۞') && parts.push({
+  Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
     jozz:e.jozz,
     sora_num:e.sura_no,
     aya_num:e.aya_no
   }));
   //Define Sajdas Sites
   let sajdas =[];
-  search.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+  Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
     jozz:e.jozz,
     sora_num:e.sura_no,
     aya_num:e.aya_no
@@ -927,7 +960,16 @@ setTimeout(()=>{
   let s = f-1
   let partOne = (+num+1)>99?(+num+1):(+num+1)>9?'0'+(+num+1):'00'+(+num+1)
   let partTwo = (+s)>99?(+s):(+s)>9?'0'+(+s):'00'+(+s)
-  
+   //Get Count Of Aya In This Sora
+   let countOfAya = []
+   for(let i in data){
+     countOfAya.push(data[i].array.length)
+   }
+   //Get Id Of Aya In This Sora
+   let idOfAya = 0
+   for(let i = 0; i <num; i++){
+     idOfAya += countOfAya[i]
+   }
   //Define Sorce Audio Of Qarea
   function QaryeaAudio(){
       if(Qaryea === 'alhosary---warsh---64kb----full--ayat--6236--aya'){
@@ -1161,10 +1203,20 @@ setTimeout(()=>{
   
   //Set Ayat Text Information In Child
   for(let i in (data[num].array)){
+    let sub = idOfAya + +i
+    const TextOfAya_Hafs =(Quran_Hafs[sub].aya_text)? (Quran_Hafs[sub].aya_text).slice(0,-2):''
+    const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):''
+    const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):''
+    
+    //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
+    let TEXT_OF_AYA =(select_input.options[select_input.selectedIndex].text).includes('ورش')?TextOfAya_Warsh:
+    (select_input.options[select_input.selectedIndex].text).includes('قالون') ?TextOfAya_Qalon:TextOfAya_Hafs
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
-      aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
+      // aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
+      aya.innerHTML = ` ${TEXT_OF_AYA}  ${TEXT_OF_AYA && `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`}`;
       aya.style.padding = '5px';
+      
       let signOfJozz = document.createElement('p');
       signOfJozz.classList.add('sign_of_jozz');
       let signOfSajda = document.createElement('p');
@@ -1177,7 +1229,7 @@ setTimeout(()=>{
         "&\#1637;","&\#1638;","&\#1639;","&\#1640;","&\#1641;"
         ]
     aya.innerHTML = aya.innerHTML.replace(/\d(?=[^<>]*(<|$))/g,number=> map[number]);
-        let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ']
+        let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ','اَ۬للَّهَ']
        word.map(word=>aya.innerHTML.match(word)&& (aya.innerHTML = aya.innerHTML.replace(word,`<span style="color:red">${word}</span>`)));
       
       //  ۩
@@ -1300,13 +1352,13 @@ setTimeout(()=>{
       else{
         result=[];
         search_box_content.innerHTML='';
-    for(let i in search){
-        search[i].aya_text_emlaey.includes(search_input.value)&&
+    for(let i in Quran_Hafs){
+      Quran_Hafs[i].aya_text_emlaey.includes(search_input.value)&&
         result.push({
-        aya: search[i].aya_text_emlaey,
-        num:search[i].sura_no,
-        f:search[i].aya_no,
-        Sora: search[i].sura_name_ar
+        aya: Quran_Hafs[i].aya_text_emlaey,
+        num:Quran_Hafs[i].sura_no,
+        f:Quran_Hafs[i].aya_no,
+        Sora: Quran_Hafs[i].sura_name_ar
         })
       }
     }
