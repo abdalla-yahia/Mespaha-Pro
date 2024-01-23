@@ -34,7 +34,9 @@ const select_btn           = document.querySelector('.select_btn'               
 const qaryea_image         = document.querySelector('.qaryea_image'                 );
 const Select_jozz          = document.querySelector('#Select_jozz'                  );
 const Select_part          = document.querySelector('#Select_part'                  );
-const loading              = document.querySelector('.loading'                      );
+// const loading              = document.querySelector('.loading'                      );
+const next                 = document.querySelector('.next'                         );
+const prev                 = document.querySelector('.prev'                         );
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
 
@@ -88,7 +90,7 @@ AjzaaName.map(ele =>{
 let ImageSrc = localStorage.getItem('QaryeaImageFavicon') ?
 `./images/Qarea_images/favicon/${localStorage.getItem('QaryeaImageFavicon')}.jpg`:
 './images/Qarea_images/favicon/عبدالباسط - مجود.jpg';
-loading.style.backgroundImage = `url(${ImageSrc})`;
+// loading.style.backgroundImage = `url(${ImageSrc})`;
 qaryea_image.src = ImageSrc;
 
 if(localStorage.getItem('RepeateFunctioMethod')){
@@ -151,18 +153,57 @@ setTimeout(()=>{
   
   //Get the Parts Of Jozz 
   let parts =[];
-  Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
-    jozz:e.jozz,
-    sora_num:e.sura_no,
-    aya_num:e.aya_no
-  }));
-  //Define Sajdas Sites
+  if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+    parts=[];
+    Quran_Warsh.filter(e=>e.aya_text.includes('۞') && parts.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+    }));
+  }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+    parts=[];
+    Quran_Qalon.filter(e=>{
+      if(e.aya_text) 
+    e.aya_text.includes('۞')&& 
+    parts.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+    })
+  });
+  }else{
+    parts=[];
+    Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+    }));
+  }
+  
+  //Get Sajdas Sites
   let sajdas =[];
-  Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
-    jozz:e.jozz,
-    sora_num:e.sura_no,
-    aya_num:e.aya_no
-  }));
+  if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+ Quran_Warsh.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+    }));
+  }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+ Quran_Qalon.filter(e=>{
+  if(e.aya_text) 
+   e.aya_text.includes('۩') && sajdas.push({
+     jozz:e.jozz,
+     sora_num:e.sura_no,
+     aya_num:e.aya_no
+    })
+  });
+  }else{
+    Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+    }));
+  }
   let jozzSite = [];
   let jozz = 0
   parts.map(e=>{
@@ -183,7 +224,19 @@ setTimeout(()=>{
   let s = f-1
   let partOne = (+num+1)>99?(+num+1):(+num+1)>9?'0'+(+num+1):'00'+(+num+1)
   let partTwo = (+s)>99?(+s):(+s)>9?'0'+(+s):'00'+(+s)
-  
+  next.addEventListener('click',()=>{
+    num++;
+    localStorage.setItem('Sora_Number',num)
+    localStorage.setItem('Aya_Number',1)
+    window.location.reload()
+  })
+  prev.addEventListener('click',()=>{
+    num--;
+    localStorage.setItem('Sora_Number',num)
+    localStorage.setItem('Aya_Number',1)
+    window.location.reload()
+  })
+
   //Get Count Of Aya In This Sora
   let countOfAya = []
   for(let i in data){
@@ -534,44 +587,115 @@ audio2.addEventListener('ended',()=>{
       let info = [];
       let count = 0
       let hezp = 1
-
-      parts.map((e,i)=>{
-      
-        if(count === 0){
-          info.push({
-            index: i,
-            robaName:'ربع الحزب',
-            hezp: hezp
-          })
-          
-        }else if(count ===1){
-          info.push({
-            index: i,
-            robaName:' نصف الحزب',
-            hezp: hezp
-          })
+      if((select_input.options[select_input.selectedIndex].text).includes('ورش')||
+      (select_input.options[select_input.selectedIndex].text).includes('قالون')
+      ){
+        parts.map((e,i)=>{
         
-        }else if(count ===2){
-          info.push({
-            index: i,
-            robaName:'ثلاثة أرباع الحزب',
-            hezp: hezp
-          })
+          if(count === 0){
+            info.push({
+              index: i,
+              robaName:'ثمن الحزب',
+              hezp: hezp
+            })
+            
+          }else if(count ===1){
+            info.push({
+              index: i,
+              robaName:' ربع الحزب',
+              hezp: hezp
+            })
           
-        }else {
-          hezp++
-          info.push({
-            index: i,
-            robaName:'الحزب',
-            hezp: hezp
-          })
-        }
-        count++
-        if(count > 3) {
-          count = 0
-        }
-      
-      })
+          }else if(count ===2){
+            info.push({
+              index: i,
+              robaName:'ثمن الحزب',
+              hezp: hezp
+            })
+            
+          }else if(count ===3){
+            info.push({
+              index: i,
+              robaName:'نصف الحزب',
+              hezp: hezp
+            })
+          }
+          else if(count ===4){
+            info.push({
+              index: i,
+              robaName:'ثمن الحزب',
+              hezp: hezp
+            })
+          }
+          else if(count ===5){
+            info.push({
+              index: i,
+              robaName:'ثلاثة أرباع الحزب',
+              hezp: hezp
+            })
+          }
+          else if(count ===6){
+            
+            info.push({
+              index: i,
+              robaName:' ثمن الحزب',
+              hezp: hezp
+            })
+          }
+          else{
+            hezp++
+            info.push({
+              index: i,
+              robaName:'الحزب',
+              hezp: hezp
+            })
+          }
+          count++
+          if(count > 7) {
+            count = 0
+          }
+        
+        })
+      }else{
+
+        parts.map((e,i)=>{
+        
+          if(count === 0){
+            info.push({
+              index: i,
+              robaName:'ربع الحزب',
+              hezp: hezp
+            })
+            
+          }else if(count ===1){
+            info.push({
+              index: i,
+              robaName:' نصف الحزب',
+              hezp: hezp
+            })
+          
+          }else if(count ===2){
+            info.push({
+              index: i,
+              robaName:'ثلاثة أرباع الحزب',
+              hezp: hezp
+            })
+            
+          }else {
+            hezp++
+            info.push({
+              index: i,
+              robaName:'الحزب',
+              hezp: hezp
+            })
+          }
+          count++
+          if(count > 3) {
+            count = 0
+          }
+        
+        })
+      }
       parts.map((e,index)=>{
         let signName='';
         let hezpNumber='';
@@ -584,10 +708,24 @@ audio2.addEventListener('ended',()=>{
           
         })
         if(data[num].array[i]){
-        if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
-          signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
-          aya.prepend(signOfJozz)
-        }
+          if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+              if(e.aya_num == data[num].array[i].id-1 && e.sora_num === +num+1){
+                signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                aya.prepend(signOfJozz)
+              }
+            }
+         else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+              if(e.aya_num == data[num].array[i].id && e.sora_num === +num+1){
+                signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                aya.prepend(signOfJozz)
+              }
+            }
+            else{
+              if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
+                signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                aya.prepend(signOfJozz)
+              }
+          }
         }
       }
         )
@@ -926,20 +1064,59 @@ setTimeout(()=>{
   select_input.value = Qaryea;
   // Select_jozz.value = localStorage.getItem('jozzOnDropdown');
   
-  //Get the Parts Of Jozz 
-  let parts =[];
-  Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
-    jozz:e.jozz,
-    sora_num:e.sura_no,
-    aya_num:e.aya_no
-  }));
-  //Define Sajdas Sites
-  let sajdas =[];
-  Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
-    jozz:e.jozz,
-    sora_num:e.sura_no,
-    aya_num:e.aya_no
-  }));
+   //Get the Parts Of Jozz 
+   let parts =[];
+   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+     parts=[];
+     Quran_Warsh.filter(e=>e.aya_text.includes('۞') && parts.push({
+       jozz:e.jozz,
+       sora_num:e.sura_no,
+       aya_num:e.aya_no
+     }));
+   }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+     parts=[];
+     Quran_Qalon.filter(e=>{
+       if(e.aya_text) 
+     e.aya_text.includes('۞')&& 
+     parts.push({
+       jozz:e.jozz,
+       sora_num:e.sura_no,
+       aya_num:e.aya_no
+     })
+   });
+   }else{
+     parts=[];
+     Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
+       jozz:e.jozz,
+       sora_num:e.sura_no,
+       aya_num:e.aya_no
+     }));
+   }
+   
+   //Get Sajdas Sites
+   let sajdas =[];
+   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+  Quran_Warsh.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+       jozz:e.jozz,
+       sora_num:e.sura_no,
+       aya_num:e.aya_no
+     }));
+   }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+  Quran_Qalon.filter(e=>{
+   if(e.aya_text) 
+    e.aya_text.includes('۩') && sajdas.push({
+      jozz:e.jozz,
+      sora_num:e.sura_no,
+      aya_num:e.aya_no
+     })
+   });
+   }else{
+     Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+       jozz:e.jozz,
+       sora_num:e.sura_no,
+       aya_num:e.aya_no
+     }));
+   }
   let jozzSite = [];
   let jozz = 0
   parts.map(e=>{
@@ -1232,72 +1409,161 @@ setTimeout(()=>{
         let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ','اَ۬للَّهَ']
        word.map(word=>aya.innerHTML.match(word)&& (aya.innerHTML = aya.innerHTML.replace(word,`<span style="color:red">${word}</span>`)));
       
-      //  ۩
-   
-      sajdas.map(e=>{
-        if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
-          signOfSajda.innerHTML = `سَجْدَة`
-          aya.prepend(signOfSajda);
-        }
-      })
-  
-      let info = [];
-      let count = 0
-      let hezp = 1
-
-      parts.map((e,i)=>{
-      
-        if(count === 0){
-          info.push({
-            index: i,
-            robaName:'ربع الحزب',
-            hezp: hezp
-          })
-          
-        }else if(count ===1){
-          info.push({
-            index: i,
-            robaName:' نصف الحزب',
-            hezp: hezp
-          })
+            //  ۩
+            sajdas.map(e=>{
+              if(data[num].array[i]){
+              if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
+                signOfSajda.innerHTML = `سَجْدَة`
+                aya.prepend(signOfSajda);
+              }
+            }
+            })
         
-        }else if(count ===2){
-          info.push({
-            index: i,
-            robaName:'ثلاثة أرباع الحزب',
-            hezp: hezp
-          })
-          
-        }else {
-          hezp++
-          info.push({
-            index: i,
-            robaName:'الحزب',
-            hezp: hezp
-          })
-        }
-        count++
-        if(count > 3) {
-          count = 0
-        }
+            let info = [];
+            let count = 0
+            let hezp = 1
+            if((select_input.options[select_input.selectedIndex].text).includes('ورش')||
+            (select_input.options[select_input.selectedIndex].text).includes('قالون')
+            ){
+              parts.map((e,i)=>{
+              
+                if(count === 0){
+                  info.push({
+                    index: i,
+                    robaName:'ثمن الحزب',
+                    hezp: hezp
+                  })
+                  
+                }else if(count ===1){
+                  info.push({
+                    index: i,
+                    robaName:' ربع الحزب',
+                    hezp: hezp
+                  })
+                
+                }else if(count ===2){
+                  info.push({
+                    index: i,
+                    robaName:'ثمن الحزب',
+                    hezp: hezp
+                  })
+                  
+                }else if(count ===3){
+                  info.push({
+                    index: i,
+                    robaName:'نصف الحزب',
+                    hezp: hezp
+                  })
+                }
+                else if(count ===4){
+                  info.push({
+                    index: i,
+                    robaName:'ثمن الحزب',
+                    hezp: hezp
+                  })
+                }
+                else if(count ===5){
+                  info.push({
+                    index: i,
+                    robaName:'ثلاثة أرباع الحزب',
+                    hezp: hezp
+                  })
+                }
+                else if(count ===6){
+                  
+                  info.push({
+                    index: i,
+                    robaName:' ثمن الحزب',
+                    hezp: hezp
+                  })
+                }
+                else{
+                  hezp++
+                  info.push({
+                    index: i,
+                    robaName:'الحزب',
+                    hezp: hezp
+                  })
+                }
+                count++
+                if(count > 7) {
+                  count = 0
+                }
+              
+              })
+            }else{
       
-      })
-      parts.map((e,index)=>{
-        let signName='';
-        let hezpNumber='';
-        let jozzName = '';
-        info.map(ele =>{
-          ele.index === index ? (signName = ele.robaName,hezpNumber = ele.hezp) :'';
-        })
-        AjzaaName.map(ele =>{
-          Object.keys(ele)[0] == e.jozz-1 ? jozzName = Object.values(ele)[0] :'';
-          
-        })
-        if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
-          signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
-          aya.prepend(signOfJozz)}
-        }
-          )
+              parts.map((e,i)=>{
+              
+                if(count === 0){
+                  info.push({
+                    index: i,
+                    robaName:'ربع الحزب',
+                    hezp: hezp
+                  })
+                  
+                }else if(count ===1){
+                  info.push({
+                    index: i,
+                    robaName:' نصف الحزب',
+                    hezp: hezp
+                  })
+                
+                }else if(count ===2){
+                  info.push({
+                    index: i,
+                    robaName:'ثلاثة أرباع الحزب',
+                    hezp: hezp
+                  })
+                  
+                }else {
+                  hezp++
+                  info.push({
+                    index: i,
+                    robaName:'الحزب',
+                    hezp: hezp
+                  })
+                }
+                count++
+                if(count > 3) {
+                  count = 0
+                }
+              
+              })
+            }
+            parts.map((e,index)=>{
+              let signName='';
+              let hezpNumber='';
+              let jozzName = '';
+              info.map(ele =>{
+                ele.index === index ? (signName = ele.robaName,hezpNumber = ele.hezp) :'';
+              })
+              AjzaaName.map(ele =>{
+                Object.keys(ele)[0] == e.jozz-1 ? jozzName = Object.values(ele)[0] :'';
+                
+              })
+              if(data[num].array[i]){
+                if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
+                    if(e.aya_num == data[num].array[i].id-1 && e.sora_num === +num+1){
+                      signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                      aya.prepend(signOfJozz)
+                    }
+                  }
+               else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+                    if(e.aya_num == data[num].array[i].id && e.sora_num === +num+1){
+                      signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                      aya.prepend(signOfJozz)
+                    }
+                  }
+                  else{
+                    if(e.aya_num === data[num].array[i].id && e.sora_num === +num+1){
+                      signOfJozz.innerHTML = `الجزء <span style='color:red'> ${jozzName}</span> <span style='color:blue'> ${signName} </span><span style="color:#1dc26a">${hezpNumber}</span>`
+                      aya.prepend(signOfJozz)
+                    }
+                }
+              }
+            }
+              )
       //Set Tafseer For This Aya 
       Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[f-1].aya} </span> </div> ${tafSora[f-1].text}`;
       //When Prees On Aya Playing Sound Of It
