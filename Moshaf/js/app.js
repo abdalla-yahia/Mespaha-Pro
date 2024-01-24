@@ -88,8 +88,8 @@ AjzaaName.map(ele =>{
   
 });
 let ImageSrc = localStorage.getItem('QaryeaImageFavicon') ?
-`./images/Qarea_images/favicon/${localStorage.getItem('QaryeaImageFavicon')}.jpg`:
-'./images/Qarea_images/favicon/عبدالباسط - مجود.jpg';
+`./images/Qarea_images/favicon/${localStorage.getItem('QaryeaImageFavicon')}.png`:
+'./images/Qarea_images/favicon/عبدالباسط - مجود.png';
 // loading.style.backgroundImage = `url(${ImageSrc})`;
 qaryea_image.src = ImageSrc;
 
@@ -113,14 +113,7 @@ if(e.target.value === 'Repeate'){
 }
 }
 
-// window.onmousemove = (e)=>{
-//   navbar.style.visibility = 'visible';
-//   tafsesr_box_parent.style.visibility = 'visible';
-//   setInterval(()=>{
-//       navbar.style.visibility = 'hidden'
-//       tafsesr_box_parent.style.visibility= 'hidden'
-//   },3*60*1000)
-// }
+
 
 //MAin Functions
 
