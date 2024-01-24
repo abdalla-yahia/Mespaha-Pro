@@ -44,11 +44,10 @@ const Makatea_Dawea  = document.querySelector('.videos_ifram>audio');
 const Button_Random  = document.querySelector('.videos_ifram>button');
 
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
-
+function getMenshawyAudio(){
 let randCity =Math.floor(Math.random() * 5) 
 let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
 let city =country[randCity]
-
 let RandomNum =
 city==='Egypt'? Math.floor(Math.random() * 44):
 city==='Syria'? Math.floor(Math.random() * 14):
@@ -57,18 +56,15 @@ city==='Libia'? Math.floor(Math.random() * 37):
 Math.floor(Math.random() * 87);
 let subSrc = RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum;
 Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
+}
+getMenshawyAudio()
 Makatea_Dawea.addEventListener('ended',()=>{
-  let RandomNum = Math.floor(Math.random() * 177);
-  let subSrc = RandomNum <=9?'00'+ RandomNum+'-' : RandomNum <=99 ?'0'+RandomNum+'-':RandomNum+'-';
-  Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
+  getMenshawyAudio()
   Makatea_Dawea.play();
 });
 Button_Random.onclick=()=>{
-  let RandomNum = Math.floor(Math.random() * 177);
-  let subSrc = RandomNum <=9?'00'+ RandomNum+'-' : RandomNum <=99 ?'0'+RandomNum+'-':RandomNum+'-';
-  Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
+  getMenshawyAudio()
   Makatea_Dawea.play();
-  console.log(Makatea_Dawea.src)
 }
 let date = new Date()
 let dd   = date.getDate() - 1
