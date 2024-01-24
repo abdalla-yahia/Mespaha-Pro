@@ -265,12 +265,12 @@ const speech = new SpeechSynthesisUtterance()
 //Set Time  Of Notifacation Audio Of 'Saly Ala Mohamed'
  setInterval(() => {
   audio.play();
-  notifaction.style.display = "block";
+  audio.volume = .5;
   notifaction.style.display = "block";
   setTimeout(() => {
     notifaction.style.display = "none";
   }, 7 * 1000);
-}, 10 * 60 * 1000);
+}, 20 * 60 * 1000);
 
 window.localStorage.getItem("الذكر")
   ? (span.innerHTML = window.localStorage.getItem("الذكر"))
