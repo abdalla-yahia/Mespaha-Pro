@@ -56,6 +56,9 @@ city==='Libia'? Math.floor(Math.random() * 37):
 Math.floor(Math.random() * 87);
 let subSrc = RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum;
 Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
+Button_Random.innerText = city === 'Egypt'? 'تلاوات نادرة للمنشاوي من مصر' :
+city === 'Syria'?' تلاوات نادرة للمنشاوي من سوريا':city === 'Kuwait'?' تلاوات نادرة للمنشاوي من الكويت':
+city === 'Libia'?' تلاوات نادرة للمنشاوي من ليبيا':' تلاوات نادرة للمنشاوي متنوعة';
 }
 getMenshawyAudio()
 Makatea_Dawea.addEventListener('ended',()=>{
@@ -66,6 +69,7 @@ Button_Random.onclick=()=>{
   getMenshawyAudio()
   Makatea_Dawea.play();
 }
+
 let date = new Date()
 let dd   = date.getDate() - 1
     
