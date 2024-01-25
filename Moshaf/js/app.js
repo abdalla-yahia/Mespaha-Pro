@@ -95,7 +95,7 @@ AjzaaName.map(ele =>{
 });
 let ImageSrc = localStorage.getItem('QaryeaImageFavicon') ?
 `./images/Qarea_images/favicon/${localStorage.getItem('QaryeaImageFavicon')}.png`:
-'./images/Qarea_images/favicon/عبدالباسط - مجود.png';
+'./images/Qarea_images/favicon/33.png';
 // loading.style.backgroundImage = `url(${ImageSrc})`;
 qaryea_image.src = ImageSrc;
 
@@ -239,7 +239,7 @@ setTimeout(()=>{
       link.type = 'image/jpg'
       link.style.borderRadius ='50%';
     };
-    link.href = ImageSrc ;
+    link.href = ImageSrc ||'./images/Qarea_images/favicon/33.png' ;
     document.head.appendChild(link);
     
   

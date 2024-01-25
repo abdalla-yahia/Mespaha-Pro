@@ -282,7 +282,16 @@ p span {
   
 }
 
-
+.moshaf{
+  position: relative;
+  &::before{
+    content: 'القرآن الكريم';
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Amiri';
+    color: #dc0c90;
+  }
+}
 button,
 .tasbeh {
   padding: 20px 10px;
