@@ -51,6 +51,12 @@ let Quran_Warsh = '';
 fetch('./Api/Quran-warsh.json').then(res=>res.json()).then(res=>Quran_Warsh =res);
 let Quran_Qalon = '';
 fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
+let Quran_Shuba = '';
+fetch('./Api/Quran-Shuba.json').then(res=>res.json()).then(res=>Quran_Shuba =res);
+let Quran_Sousi = '';
+fetch('./Api/Quran-Sousi.json').then(res=>res.json()).then(res=>Quran_Sousi =res);
+let Quran_Douri = '';
+fetch('./Api/Quran-Douri.json').then(res=>res.json()).then(res=>Quran_Douri =res);
 //Get Audio Volume From LocalStorage
 
 if(localStorage.getItem('volume_audio')){
@@ -112,7 +118,102 @@ if(e.target.value === 'Repeate'){
   window.location.reload()
 }
 }
+//Get Audio If Its Ajzaa
+function getAudioFromAjzaa(one,two){
+  let elhosary='';
+  if((one+two) <= '002141'){
+    elhosary = '01.zip'
+  }
+  else if((one+two) <= '002252'){
+    elhosary = '02.zip'
+  }
+  else if((one+two) <= '003092'){
+    elhosary = '03.zip'
+  }
+  else if((one+two) <= '004023'){
+    elhosary = '04.zip'
+  }
+  else if((one+two) <= '004147'){
+    elhosary = '05.zip'
+  }
+  else if((one+two) <= '005081'){
+    elhosary = '06.zip'
+  }
+  else if((one+two) <= '006110'){
+    elhosary = '07.zip'
+  }
+  else if((one+two) <= '007087'){
+    elhosary = '08.zip'
+  }
+  else if((one+two) <= '008040'){
+    elhosary = '09.zip'
+  }
+  else if((one+two) <= '009092'){
+    elhosary = '10.zip'
+  }
+  else if((one+two) <= '011005'){
+    elhosary = '11.zip'
+  }
+  else if((one+two) <= '012052'){
+    elhosary = '12.zip'
+  }
+  else if((one+two) <= '014052'){
+    elhosary = '13.zip'
+  }
+  else if((one+two) <= '016128'){
+    elhosary = '14.zip'
+  }
+  else if((one+two) <= '018074'){
+    elhosary = '15.zip'
+  }
+  else if((one+two) <= '020135'){
+    elhosary = '16.zip'
+  }
+  else if((one+two) <= '022078'){
+    elhosary = '17.zip'
+  }
+  else if((one+two) <= '025020'){
+    elhosary = '18.zip'
+  }
+  else if((one+two) <= '027055'){
+    elhosary = '19.zip'
+  }
+  else if((one+two) <= '029045'){
+    elhosary = '20.zip'
+  }
+  else if((one+two) <= '033030'){
+    elhosary = '21.zip'
+  }
+  else if((one+two) <= '036027'){
+    elhosary = '22.zip'
+  }
+  else if((one+two) <= '039031'){
+    elhosary = '23.zip'
+  }
+  else if((one+two) <= '041046'){
+    elhosary = '24.zip'
+  }
+  else if((one+two) <= '045037'){
+    elhosary = '25.zip'
+  }
+  else if((one+two) <= '051030'){
+    elhosary = '26.zip'
+  }
+  else if((one+two) <= '057029'){
+    elhosary = '27.zip'
+  }
+  else if((one+two) <= '066012'){
+    elhosary = '28.zip'
+  }
+  else if((one+two) <= '077050'){
+    elhosary = '29.zip'
+  }
+  else if((one+two) <= '114006'){
+    elhosary = '30.zip'
+  }
 
+  return elhosary;
+} 
 
 
 //MAin Functions
@@ -181,7 +282,8 @@ setTimeout(()=>{
       sora_num:e.sura_no,
       aya_num:e.aya_no
     }));
-  }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
+  }
+  else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
  Quran_Qalon.filter(e=>{
   if(e.aya_text) 
    e.aya_text.includes('۩') && sajdas.push({
@@ -190,7 +292,9 @@ setTimeout(()=>{
      aya_num:e.aya_no
     })
   });
-  }else{
+  }
+  
+  else{
     Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
@@ -241,6 +345,7 @@ setTimeout(()=>{
   for(let i = 0; i <num; i++){
     idOfAya += countOfAya[i]
   }
+
     //Define Sorce Audio Of Qarea
     function QaryeaAudio(){
       if(Qaryea === 'alhosary---warsh---64kb----full--ayat--6236--aya'){
@@ -264,7 +369,73 @@ setTimeout(()=>{
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
           
       }
+      else if(Qaryea === 'alhozaifi__by__shoa3bah__56kb___ayat__6236_ayah__full'){
+        let elhosary = 'alhozaifi__by__shoa3bah__56kb___ayat__6236_ayah__full.zip'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === '245745247247247247247247457y__96kb/full--quran--6236-aya--by--soofy_by__soosy__96kb.zip'){
+        let elhosary = 'full--quran--6236-aya--by--soofy_by__soosy__96kb'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '09.zip'){
+          elhosary ='09.zip/09'
+        }
+        else if(elhosary == '11.zip'){
+          elhosary ='11.zip/11'
+        }
+        else if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
       
+      }
+      else if(Qaryea === '96kb--quran--by--foad--alkhamry---by--sho3bah--6236---ayaat-----__verse--by---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '96kb--quran--by--alhozifi--by--qaloon---6236---ayaat-----__verse--by---verse--'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '128kb--quran--ahmad--khedr--altrabolsy---by---qaloon-----6236---ayaat-----__ve'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
       else{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio.src =`https://archive.org/download/${Qaryea}/${partOne}.zip/${partOne+partTwo}.mp3`;
@@ -293,6 +464,73 @@ setTimeout(()=>{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
           
+      }
+      else if(Qaryea === 'alhozaifi__by__shoa3bah__56kb___ayat__6236_ayah__full'){
+        let elhosary = 'alhozaifi__by__shoa3bah__56kb___ayat__6236_ayah__full.zip'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === '245745247247247247247247457y__96kb/full--quran--6236-aya--by--soofy_by__soosy__96kb.zip'){
+        let elhosary = 'full--quran--6236-aya--by--soofy_by__soosy__96kb'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '09.zip'){
+          elhosary ='09.zip/09'
+        }
+        else if(elhosary == '11.zip'){
+          elhosary ='11.zip/11'
+        }
+        else if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '96kb--quran--by--foad--alkhamry---by--sho3bah--6236---ayaat-----__verse--by---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '96kb--quran--by--alhozifi--by--qaloon---6236---ayaat-----__verse--by---verse--'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '128kb--quran--ahmad--khedr--altrabolsy---by---qaloon-----6236---ayaat-----__ve'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
       }
       else{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
@@ -537,13 +775,21 @@ audio2.addEventListener('ended',()=>{
   for(let i in data[num].array){
     
     let sub = idOfAya + +i
-    const TextOfAya_Hafs =(Quran_Hafs[sub].aya_text)? (Quran_Hafs[sub].aya_text).slice(0,-2):''
-    const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):''
-    const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):''
+    const TextOfAya_Hafs =(Quran_Hafs[sub].aya_text)? (Quran_Hafs[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Shuba = (Quran_Shuba[sub].aya_text)? (Quran_Shuba[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Sousi = (Quran_Sousi[sub].aya_text)? (Quran_Sousi[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Douri = (Quran_Douri[sub].aya_text)? (Quran_Douri[sub].aya_text).slice(0,-2):'';
     
     //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
-    let TEXT_OF_AYA =(select_input.options[select_input.selectedIndex].text).includes('ورش')?TextOfAya_Warsh:
-    (select_input.options[select_input.selectedIndex].text).includes('قالون') ?TextOfAya_Qalon:TextOfAya_Hafs
+    // let TEXT_OF_AYA =
+    (select_input.options[select_input.selectedIndex].text).includes('ورش')?(TEXT_OF_AYA=TextOfAya_Warsh,ss.style.filter = 'hue-rotate(225deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('قالون') ?(TEXT_OF_AYA=TextOfAya_Qalon,ss.style.filter = 'hue-rotate(180deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('شعبة') ?(TEXT_OF_AYA=TextOfAya_Shuba,ss.style.filter = 'hue-rotate(135deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA=TextOfAya_Sousi,ss.style.filter = 'hue-rotate(90deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA=TextOfAya_Douri,ss.style.filter = 'hue-rotate(45deg)'):
+    (TEXT_OF_AYA=TextOfAya_Hafs)
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
       // aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
@@ -564,7 +810,7 @@ audio2.addEventListener('ended',()=>{
         ]
     aya.innerHTML = aya.innerHTML.replace(/\d(?=[^<>]*(<|$))/g,number=> map[number]);
         let word = ['اللَّهُ','وَاللَّهُ','ٱللَّهُ','ٱللَّهَ','اللَّهَ','اللَّهِ','ٱللَّهِ','للَّهِ','وَلِلَّهِ','فَلِلَّهِ','ٱللَّهِۚ','ٱللَّهِ','اَ۬للَّهَ','ٱللَّهِۗ',
-      'رَّبِّكَ','رَّبِّكَۗ','رَبِّ','رَّبِّهِمۡۖ','رَبَّكُمُ','رَّبِّهِۦ','رَبِّهِمۡ','رَّبِّهِمۡ','رَّبِّهِمۡ','رَبُّنَا','رَّبِّكُمۡ','وَرَبُّكُمۡ','رَبِّكُمۡۚ','رَبَّكَ','رَّبِّكُمۡۚ','رَبِّهِ','رَبُّهُ','رَبُّهُ','رَبَّنَا','إِنَّكَ',' لَهُ ','لَّهُ','هُوَ','وَهُوَ']
+      'رَّبِّكَ','رَّبِّكَۗ','رَبِّ','رَّبِّهِمۡۖ','رَبَّكُمُ','رَّبِّهِۦ','رَبِّهِمۡ','رَّبِّهِمۡ','رَّبِّهِمۡ','رَبُّنَا','رَّبِّكُمۡ','وَرَبُّكُمۡ','رَبِّكُمۡۚ','رَبَّكَ','رَّبِّكُمۡۚ','رَبِّهِ','رَبُّهُ','رَبُّهُ','رَبَّنَا',' لَهُ ','لَّهُ','هُوَ','وَهُوَ']
         word.map(word=>aya.innerHTML.match(word)&& (aya.innerHTML = aya.innerHTML.replace(word,`<span style="color:red">${word}</span>`)));
       
       //  ۩
@@ -1163,6 +1409,61 @@ setTimeout(()=>{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
           
+      }
+      else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '09.zip'){
+          elhosary ='09.zip/09'
+        }
+        else if(elhosary == '11.zip'){
+          elhosary ='11.zip/11'
+        }
+        else if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '96kb--quran--by--foad--alkhamry---by--sho3bah--6236---ayaat-----__verse--by---'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '96kb--quran--by--alhozifi--by--qaloon---6236---ayaat-----__verse--by---verse--'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
+      }
+      else if(Qaryea === '128kb--quran--ahmad--khedr--altrabolsy---by---qaloon-----6236---ayaat-----__ve'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        if(elhosary == '23.zip'){
+          elhosary ='23.zip/23'
+        }
+        else if(elhosary == '24.zip'){
+          elhosary ='24.zip/24'
+        }
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+      
       }
       else{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)

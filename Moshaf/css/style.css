@@ -1,4 +1,9 @@
 
+:root {
+  --border-image:url('../images/round-3.avif');
+  --background-color:#f9f0e1
+
+}
 *{
   padding: 0;
   margin: 0;
@@ -105,14 +110,15 @@ margin: 150px auto;
     margin-top: 110px;
     margin-bottom: 25%;
     position: relative;
-    padding: 20px;
+    padding: 5px;
     text-align: justify;
     line-height: 2.3;
-    background-color: #f9f0e1;
+    background-color: var(--background-color);
     border: 60px solid transparent;
-    border-image: url('../images/round-3.avif') 170 round ;
+    filter: hue-rotate(0deg);
+    border-image: var(--border-image) 170 round ;
     .passmalla {
-      background-color: #f9f0e1;
+      background-color: var(--background-color);
       position: relative;
       font-size: 80px;
       width: 50%;
@@ -124,13 +130,13 @@ margin: 150px auto;
       align-items: center;
       font-weight: 400;
       border: 30px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif')  80 round ;
+      border-image: var(--border-image)  80 round ;
       &::before{
         content: '';
         position: absolute;
         right: -18%;
         border: 70px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         transform: rotate(45deg);
         z-index: -2;
       }
@@ -139,7 +145,7 @@ margin: 150px auto;
         position: absolute;
         left: -18%;
         border: 70px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         transform: rotate(45deg);
         z-index: -2;
       }
@@ -169,13 +175,13 @@ margin: 150px auto;
       background-color: transparent;
       line-height: 1.2;
       border: 20px solid transparent;
-      border-image:url('../images/round-3.avif') 120 round;
+      border-image:var(--border-image) 120 round;
       &::before{
         content: '';
         position: absolute;
         right: -80%;
         border: 28px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         transform: rotate(45deg);
         z-index: -1;
       }
@@ -184,7 +190,7 @@ margin: 150px auto;
         position: absolute;
         left: -80%;
         border: 28px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         transform: rotate(45deg);
         z-index: -1;
       }
@@ -197,14 +203,14 @@ div.parent-simbole{
     display: inline-block;
     font-size: 45px;
     font-weight: bolder;
-    /* font-family: "Amiri_Quran variant0"; */
-    color: #19a623eb;
+    color: #205615eb;
     background-color: transparent;
     border-radius: 50%;
     height: 50px;
     text-align: center;
     line-height: 50px;
     text-shadow: 1px 1px 2px #1b8cd8;
+    
 }
 span.child-simbole{
 position: absolute;
@@ -239,14 +245,14 @@ p{
       color: #000000;
       background-color: #f9f0e1;
       border: 20px solid transparent;
-      border-image: url('../images/round-3.avif') 120 round ;
+      border-image: var(--border-image) 120 round ;
       border-radius: 50%;
       &::before{
         content: '';
         position: absolute;
         top: -50%;
         border: 35px solid red;
-        border-image: url('../images/round-3.avif') 90 round ;
+        border-image: var(--border-image) 90 round ;
         transform: rotate(45deg);
         z-index: -1;
       }
@@ -255,7 +261,7 @@ p{
         position: absolute;
         bottom: -50%;
         border: 35px solid red;
-        border-image: url('../images/round-3.avif') 90 round ;
+        border-image: var(--border-image) 90 round ;
         transform: rotate(45deg);
         z-index: -1;
       }
@@ -739,7 +745,7 @@ input,select{
   padding: 5px;
   .passmalla {
     border: 20px solid rgb(13, 11, 11);
-    border-image: url('../images/round-3.avif')  60 round ;
+    border-image: var(--border-image)  60 round ;
     >.passmallaText {
       font-size: 50px;
     bottom: -100%;
@@ -769,16 +775,16 @@ input,select{
       left: -16%;
       color: #000000;
       border: 18px solid transparent;
-      border-image: url('../images/round-3.avif') 120 round ;
+      border-image: var(--border-image) 120 round ;
       &::before{
         top: -45%;
         border: 32px solid red;
-        border-image: url('../images/round-3.avif') 80 round ;
+        border-image: var(--border-image) 80 round ;
       }
       &::after{
         bottom: -45%;
         border: 32px solid red;
-        border-image: url('../images/round-3.avif') 80 round ;
+        border-image: var(--border-image) 80 round ;
       }
     }
     .sign_of_sajda{
@@ -841,7 +847,7 @@ input,select{
     line-height: 2;
     .passmalla {
       border: 20px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif')  60 round ;
+      border-image: var(--border-image)  60 round ;
       >.passmallaText {
         font-size: 40px;
       bottom: -100%;
@@ -858,16 +864,16 @@ input,select{
         font-size: 14px;
         line-height: 1.5;
         border: 15px solid transparent;
-        border-image: url('../images/round-3.avif') 70 round ;
+        border-image: var(--border-image) 70 round ;
         &::before{
           top: -35%;
           border: 28px solid red;
-          border-image: url('../images/round-3.avif') 120 round ;
+          border-image: var(--border-image) 120 round ;
         }
         &::after{
           bottom: -35%;
           border: 28px solid red;
-          border-image: url('../images/round-3.avif') 120 round ;
+          border-image: var(--border-image) 120 round ;
         }
       }
       .sign_of_sajda{
@@ -925,7 +931,7 @@ input,select{
     .passmalla {
       width: 80%;
       border: 20px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif')  60 round ;
+      border-image: var(--border-image)  60 round ;
       >.passmallaText {
         font-size: 30px;
       bottom: -100%;
@@ -946,16 +952,16 @@ input,select{
       font-size: 12px;
       left: -13.5%;
       border: 8px solid transparent;
-      border-image: url('../images/round-3.avif') 70 round ;
+      border-image: var(--border-image) 70 round ;
       &::before{
         top: -38%;
         border: 25px solid red;
-        border-image: url('../images/round-3.avif') 90 round ;
+        border-image: var(--border-image) 90 round ;
       }
       &::after{
         bottom: -38%;
         border: 25px solid red;
-        border-image: url('../images/round-3.avif') 90 round ;
+        border-image: var(--border-image) 90 round ;
       }
     }
     .sign_of_sajda{
@@ -1003,7 +1009,7 @@ input,select{
     .passmalla {
       width: 80%;
       border: 20px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif')  60 round ;
+      border-image: var(--border-image)  60 round ;
       >.passmallaText {
         font-size: 30px;
       bottom: -100%;
@@ -1028,16 +1034,16 @@ input,select{
         left: -20%;
         color: #000000;
         border: 12px solid transparent;
-        border-image: url('../images/round-3.avif') 70 round ;
+        border-image: var(--border-image) 70 round ;
         &::before{
           top: -35%;
           border: 25px solid red;
-          border-image: url('../images/round-3.avif') 120 round ;
+          border-image: var(--border-image) 120 round ;
         }
         &::after{
           bottom: -35%;
           border: 25px solid red;
-          border-image: url('../images/round-3.avif') 120 round ;
+          border-image: var(--border-image) 120 round ;
         }
       }
       .sign_of_sajda{
@@ -1110,21 +1116,21 @@ input,select{
     text-align: justify;
     line-height: 2.5;
     border: 30px solid transparent;
-    border-image:url('../images/round-3.avif') 140 round  ;
+    border-image:var(--border-image) 140 round  ;
    
     .passmalla {
       width: 80%;
       border: 20px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif')  60 round ;
+      border-image: var(--border-image)  60 round ;
       &::before{
         right: -22%;
         border: 50px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
       }
       &::after{
         left: -22%;
         border: 50px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
       }
     >.passmallaText {
         font-size: 25px;
@@ -1133,18 +1139,18 @@ input,select{
     .passmalla_title{
       font-size: 13px ;
       border: 12px solid transparent;
-      border-image:url('../images/round-3.avif') 120 round;
+      border-image:var(--border-image) 120 round;
       z-index: 1;
       &::before{
         right: -50%;
         border: 18px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         z-index: -1;
       }
       &::after{
         left: -50%;
         border: 18px solid transparent;
-        border-image:url('../images/round-3.avif') 120 round;
+        border-image:var(--border-image) 120 round;
         z-index: -1;
       }
     }
@@ -1169,17 +1175,17 @@ input,select{
       flex-wrap: wrap;
       left: -26%;
       border:11px solid transparent;
-      border-image: url('../images/round-3.avif') 120 round ;
+      border-image: var(--border-image) 120 round ;
       
       &::before{
         top: -30%;
         border: 20px solid red;
-        border-image: url('../images/round-3.avif') 120 round ;
+        border-image: var(--border-image) 120 round ;
       }
       &::after{
         bottom: -30%;
         border: 20px solid red;
-        border-image: url('../images/round-3.avif') 120 round ;
+        border-image: var(--border-image) 120 round ;
       }
     }
     .sign_of_sajda{
@@ -1257,12 +1263,12 @@ input,select{
     text-align: justify;
     line-height: 2;
     border: 20px solid transparent;
-    border-image:url('../images/round-3.avif') 160 round  ;
+    border-image:var(--border-image) 160 round  ;
     .passmalla {
       width: 80%;
       height: 100px;
       border: 15px solid rgb(13, 11, 11);
-      border-image: url('../images/round-3.avif') 120 round ;
+      border-image: var(--border-image) 120 round ;
       margin-bottom: 70px !important;
     >.passmallaText {
         font-size: 18px;
@@ -1271,7 +1277,7 @@ input,select{
     .passmalla_title{
       font-size: 13px ;
       border: 2px solid transparent;
-      border-image:url('../images/round-3.avif') 120 round;
+      border-image:var(--border-image) 120 round;
       z-index: 1;
       &::before,
       &::after{
@@ -1297,17 +1303,17 @@ input,select{
       font-size: 11px !important;
       left: -27%;
       border: 8px solid transparent;
-      border-image: url('../images/round-3.avif') 80 round ;
+      border-image: var(--border-image) 80 round ;
       border-radius: 50%;
       &::before{
         top: -30%;
         border: 19px solid red;
-        border-image: url('../images/round-3.avif') 120 round ;
+        border-image: var(--border-image) 120 round ;
       }
       &::after{
         bottom: -30%;
         border: 19px solid red;
-        border-image: url('../images/round-3.avif') 120 round ;
+        border-image: var(--border-image) 120 round ;
       }
     }
     .sign_of_sajda{
