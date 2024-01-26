@@ -779,16 +779,16 @@ audio2.addEventListener('ended',()=>{
     const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):'';
     const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):'';
     const TextOfAya_Shuba = (Quran_Shuba[sub].aya_text)? (Quran_Shuba[sub].aya_text).slice(0,-2):'';
-    // const TextOfAya_Sousi = (Quran_Sousi[sub].aya_text)? (Quran_Sousi[sub].aya_text).slice(0,-2):'';
-    // const TextOfAya_Douri = (Quran_Douri[sub].aya_text)? (Quran_Douri[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Sousi = (Quran_Sousi[sub].aya_text)? (Quran_Sousi[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Douri = (Quran_Douri[sub].aya_text)? (Quran_Douri[sub].aya_text).slice(0,-2):'';
     
     //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
     // let TEXT_OF_AYA =
     (select_input.options[select_input.selectedIndex].text).includes('ورش')?(TEXT_OF_AYA=TextOfAya_Warsh,ss.style.filter = 'hue-rotate(225deg)'):
     (select_input.options[select_input.selectedIndex].text).includes('قالون') ?(TEXT_OF_AYA=TextOfAya_Qalon,ss.style.filter = 'hue-rotate(180deg)'):
     (select_input.options[select_input.selectedIndex].text).includes('شعبة') ?(TEXT_OF_AYA=TextOfAya_Shuba,ss.style.filter = 'hue-rotate(135deg)'):
-    // (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA=TextOfAya_Sousi,ss.style.filter = 'hue-rotate(90deg)'):
-    // (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA=TextOfAya_Douri,ss.style.filter = 'hue-rotate(45deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA=TextOfAya_Sousi,ss.style.filter = 'hue-rotate(90deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA=TextOfAya_Douri,ss.style.filter = 'hue-rotate(45deg)'):
     (TEXT_OF_AYA=TextOfAya_Hafs)
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
