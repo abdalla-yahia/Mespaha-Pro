@@ -775,8 +775,8 @@ audio2.addEventListener('ended',()=>{
   for(let i in data[num].array){
     
     let sub = idOfAya + +i
-    const TextOfAya_Hafs =(Quran_Hafs[sub].aya_text)? (Quran_Hafs[sub].aya_text).slice(0,-2):'';
-    const TextOfAya_Warsh =(Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Hafs  = ( Quran_Hafs[sub].aya_text)? ( Quran_Hafs[sub].aya_text).slice(0,-2):'';
+    const TextOfAya_Warsh = (Quran_Warsh[sub].aya_text)? (Quran_Warsh[sub].aya_text).slice(0,-2):'';
     const TextOfAya_Qalon = (Quran_Qalon[sub].aya_text)? (Quran_Qalon[sub].aya_text).slice(0,-2):'';
     const TextOfAya_Shuba = (Quran_Shuba[sub].aya_text)? (Quran_Shuba[sub].aya_text).slice(0,-2):'';
     const TextOfAya_Sousi = (Quran_Sousi[sub].aya_text)? (Quran_Sousi[sub].aya_text).slice(0,-2):'';
@@ -784,11 +784,11 @@ audio2.addEventListener('ended',()=>{
     
     //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
     // let TEXT_OF_AYA =
-    (select_input.options[select_input.selectedIndex].text).includes('ورش')?(TEXT_OF_AYA=TextOfAya_Warsh,ss.style.filter = 'hue-rotate(225deg)'):
-    (select_input.options[select_input.selectedIndex].text).includes('قالون') ?(TEXT_OF_AYA=TextOfAya_Qalon,ss.style.filter = 'hue-rotate(180deg)'):
-    (select_input.options[select_input.selectedIndex].text).includes('شعبة') ?(TEXT_OF_AYA=TextOfAya_Shuba,ss.style.filter = 'hue-rotate(135deg)'):
-    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA=TextOfAya_Sousi,ss.style.filter = 'hue-rotate(90deg)'):
-    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA=TextOfAya_Douri,ss.style.filter = 'hue-rotate(45deg)'):
+    (select_input.options[select_input.selectedIndex].text).includes('ورش'   ) ?(TEXT_OF_AYA =TextOfAya_Warsh,ss.setAttribute('moshaf','مصحف ورش ')):
+    (select_input.options[select_input.selectedIndex].text).includes('قالون' ) ?(TEXT_OF_AYA =TextOfAya_Qalon,ss.setAttribute('moshaf','مصحف قالون ')):
+    (select_input.options[select_input.selectedIndex].text).includes('شعبة'  ) ?(TEXT_OF_AYA =TextOfAya_Shuba,ss.setAttribute('moshaf','مصحف شعبة ')):
+    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA =TextOfAya_Sousi,ss.setAttribute('moshaf','مصحف السوسي ')):
+    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA =TextOfAya_Douri,ss.setAttribute('moshaf','مصحف الدوري ')):
     (TEXT_OF_AYA=TextOfAya_Hafs)
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
@@ -1069,7 +1069,7 @@ input_loop.setAttribute('disabled', 'disabled')
 btn_loop.setAttribute('disabled', 'disabled')
  
 
-},3000)
+},3500)
 
 setInterval(() => {
   isAudioPlaying()
@@ -1973,7 +1973,7 @@ setTimeout(()=>{
 }
 
 
-},3000)
+},3500)
 
 setInterval(() => {
     isAudioPlaying()

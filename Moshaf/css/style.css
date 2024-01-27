@@ -196,6 +196,22 @@ margin: 150px auto;
       }
     }
     }
+    &::before{
+    content: attr(moshaf);
+    position: fixed;
+    width: 27%;
+    height: 50px;
+    background-color: var(--background-color);
+    top: -0.3%;
+    left: 50%;
+    transform: translate(-50%, 3px);
+    text-align: center;
+    color: rgb(178, 42, 42);
+    border-width: 10px;
+    border-style: solid;
+    border-color: initial;
+    border-image: var(--border-image) 70 round;
+    }
  
 }
 .group-hafs ~ optgroup,
