@@ -1,4 +1,4 @@
-const volume_span          = document.querySelectorAll(".volume_span"               );
+const volume_span          = document.querySelectorAll('.volume_span'               );
 const spans2               = document.querySelectorAll('.spans>span.active'         );
 const spans                = document.querySelectorAll('.spans>span'                );
 const ss                   = document.querySelector('.ss'                           );
@@ -42,23 +42,26 @@ const RepeateSelected      = document.querySelector('#RepeateSelected'          
 
 //Fetch The Data From Api Folder
 let data= '';
-fetch('./Api/Quran.json').then(res=>res.json()).then(res=>data =res)
 let tafseer ='';
-fetch('./Api/tafseer.json').then(res=>res.json()).then(res=>tafseer =res);
 let Quran_Hafs = '';
-fetch('./Api/Quran-hafs.json').then(res=>res.json()).then(res=>Quran_Hafs =res);
 let Quran_Warsh = '';
-fetch('./Api/Quran-warsh.json').then(res=>res.json()).then(res=>Quran_Warsh =res);
 let Quran_Qalon = '';
-fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
 let Quran_Shuba = '';
-fetch('./Api/Quran-Shuba.json').then(res=>res.json()).then(res=>Quran_Shuba =res);
 let Quran_Sousi = '';
-fetch('./Api/Quran-Sousi.json').then(res=>res.json()).then(res=>Quran_Sousi =res);
 let Quran_Douri = '';
-fetch('./Api/Quran-Douri.json').then(res=>res.json()).then(res=>Quran_Douri =res);
-//Get Audio Volume From LocalStorage
+const GetDataBase=  async ()=>{
+  await fetch('./Api/tafseer.json'     ).then(res=>res.json()).then(res=>tafseer     =res);
+  await fetch('./Api/Quran.json'       ).then(res=>res.json()).then(res=>data        =res);
+  await fetch('./Api/Quran-hafs.json'  ).then(res=>res.json()).then(res=>Quran_Hafs  =res);
+  await fetch('./Api/Quran-warsh.json' ).then(res=>res.json()).then(res=>Quran_Warsh =res);
+  await fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
+  await fetch('./Api/Quran-Shuba.json' ).then(res=>res.json()).then(res=>Quran_Shuba =res);
+  await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
+  await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
+}
+GetDataBase()
 
+//Get Audio Volume From LocalStorage
 if(localStorage.getItem('volume_audio')){
 
   audio.volume = +localStorage.getItem('volume_audio')
@@ -249,14 +252,14 @@ setTimeout(()=>{
   let parts =[];
   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
     parts=[];
-    Quran_Warsh.filter(e=>e.aya_text.includes('۞') && parts.push({
+    Quran_Warsh&& Quran_Warsh.filter(e=>e.aya_text.includes('۞') && parts.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
     }));
   }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
     parts=[];
-    Quran_Qalon.filter(e=>{
+    Quran_Qalon&& Quran_Qalon.filter(e=>{
       if(e.aya_text) 
     e.aya_text.includes('۞')&& 
     parts.push({
@@ -267,7 +270,7 @@ setTimeout(()=>{
   });
   }else{
     parts=[];
-    Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
+    Quran_Hafs&& Quran_Hafs.filter(e=>e.aya_text.includes('۞') && parts.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
@@ -277,14 +280,14 @@ setTimeout(()=>{
   //Get Sajdas Sites
   let sajdas =[];
   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
- Quran_Warsh.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+    Quran_Warsh&& Quran_Warsh.filter(e=>e.aya_text.includes('۩') && sajdas.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
     }));
   }
   else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
- Quran_Qalon.filter(e=>{
+    Quran_Qalon&&Quran_Qalon.filter(e=>{
   if(e.aya_text) 
    e.aya_text.includes('۩') && sajdas.push({
      jozz:e.jozz,
@@ -295,7 +298,7 @@ setTimeout(()=>{
   }
   
   else{
-    Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+    Quran_Hafs&&Quran_Hafs.filter(e=>e.aya_text.includes('۩') && sajdas.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
@@ -379,6 +382,13 @@ setTimeout(()=>{
         let elhosary = 'full--quran--6236-aya--by--soofy_by__soosy__96kb'
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === 'alfirdwsiy1433_gmai555555555555555555555555555555hhhhhhhhhhhhhhh'){
+        let elhosary = 'مصحف عبد الحكيم عبد اللطيف برواية شعبة مقسم ايات كامل 6236 اية.zip'
+        let elhosary2 = '%D9%85%D8%B5%D8%AD%D9%81%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%AD%D9%83%D9%8A%D9%85%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%84%D8%B7%D9%8A%D9%81%20%D8%A8%D8%B1%D9%88%D8%A7%D9%8A%D8%A9%20%D8%B4%D8%B9%D8%A8%D8%A9%20%D9%85%D9%82%D8%B3%D9%85%20%D8%A7%D9%8A%D8%A7%D8%AA%20%D9%83%D8%A7%D9%85%D9%84%206236%20%D8%A7%D9%8A%D8%A9%2F'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${elhosary2}${partOne+partTwo}.mp3`;
           
       }
       else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
@@ -475,6 +485,13 @@ setTimeout(()=>{
         let elhosary = 'full--quran--6236-aya--by--soofy_by__soosy__96kb'
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === 'alfirdwsiy1433_gmai555555555555555555555555555555hhhhhhhhhhhhhhh'){
+        let elhosary = 'مصحف عبد الحكيم عبد اللطيف برواية شعبة مقسم ايات كامل 6236 اية.zip'
+        let elhosary2 = '%D9%85%D8%B5%D8%AD%D9%81%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%AD%D9%83%D9%8A%D9%85%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%84%D8%B7%D9%8A%D9%81%20%D8%A8%D8%B1%D9%88%D8%A7%D9%8A%D8%A9%20%D8%B4%D8%B9%D8%A8%D8%A9%20%D9%85%D9%82%D8%B3%D9%85%20%D8%A7%D9%8A%D8%A7%D8%AA%20%D9%83%D8%A7%D9%85%D9%84%206236%20%D8%A7%D9%8A%D8%A9%2F'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${elhosary2}${partOne+partTwo}.mp3`;
           
       }
       else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
@@ -584,7 +601,7 @@ setTimeout(()=>{
   }
    
   //Define Varibals To Get Tafseer Of Aya In Specific Sora
-  let tafSora = tafseer.filter(e=>e.number == (+num+1) );
+  let tafSora =tafseer&& tafseer.filter(e=>e.number == (+num+1) );
   //Set Information Of Sora In Navbar
   Name_Sora.innerText =`سورة ${data[num].name}`;
   document.title = `سورة ${data[num].name}`;
@@ -1408,6 +1425,13 @@ setTimeout(()=>{
         let elhosary = '64kb - alhosary--qasr--almonfasel----radio  -6236--ayah.zip'
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
+          
+      }
+      else if(Qaryea === 'alfirdwsiy1433_gmai555555555555555555555555555555hhhhhhhhhhhhhhh'){
+        let elhosary = 'مصحف عبد الحكيم عبد اللطيف برواية شعبة مقسم ايات كامل 6236 اية.zip'
+        let elhosary2 = '%D9%85%D8%B5%D8%AD%D9%81%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%AD%D9%83%D9%8A%D9%85%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%84%D8%B7%D9%8A%D9%81%20%D8%A8%D8%B1%D9%88%D8%A7%D9%8A%D8%A9%20%D8%B4%D8%B9%D8%A8%D8%A9%20%D9%85%D9%82%D8%B3%D9%85%20%D8%A7%D9%8A%D8%A7%D8%AA%20%D9%83%D8%A7%D9%85%D9%84%206236%20%D8%A7%D9%8A%D8%A9%2F'
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${elhosary2}${partOne+partTwo}.mp3`;
           
       }
       else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
