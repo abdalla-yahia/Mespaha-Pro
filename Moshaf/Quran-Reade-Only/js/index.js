@@ -6,7 +6,7 @@ const audio =  document.getElementById('audio')
 const Mute = document.querySelector('.fa-solid')
 
 //Get the current Page Number
-let pageNum = localStorage.getItem('page_num_reader')||0;
+let pageNum = localStorage.getItem('page_num_reader')||605;
 //Get the Page Number Of Jozz
 let AjzaaName = [{603:'الأول'}, {583:'الثاني'}, {563:'الثالث'}, {543:'الرابع'}, {523:'الخامس'},{503:'السادس'}
 , {484:'السابع'}, {463:'الثامن'}, {443:'التاسع'}, {423:'العاشر'}, {404:'الحادي عشر'}, {383:'الثاني عشر'}, 
