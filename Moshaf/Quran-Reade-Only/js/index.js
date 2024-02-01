@@ -68,7 +68,7 @@ for(let i = 605; i >= 0; i--) {
     book.appendChild(div);
     if(i === 0){
         div.setAttribute('data-density', 'hard');
-        img.src = './Images/cover-2.jpg'
+        img.src = './Images/front.png'
     }
 }
 //Main Variable To Get instance From PageFlip Class
