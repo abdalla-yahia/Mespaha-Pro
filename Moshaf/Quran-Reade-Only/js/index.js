@@ -88,7 +88,7 @@ const pageFlip = new St.PageFlip(book,
         mobileScrollSupport: false, // disable content scrolling on mobile devices
     
 
-        startPage: +localStorage.getItem("Current_page"),
+        startPage: +localStorage.getItem("Current_page") || 605,
     }
     );
 //Get All Pages 
