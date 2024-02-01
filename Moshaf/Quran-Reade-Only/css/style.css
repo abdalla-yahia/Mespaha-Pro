@@ -12,9 +12,11 @@ body{
 #book {
     margin: 5px auto;
     .my-page{
-       width: 100%;
-       height: 100%;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
+        border-left: 2px solid rgb(128, 128, 128);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
         img{
             object-fit: fill;
             width: 100%;
