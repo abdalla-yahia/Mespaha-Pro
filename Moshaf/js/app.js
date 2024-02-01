@@ -49,7 +49,7 @@ let Quran_Qalon = '';
 let Quran_Shuba = '';
 let Quran_Sousi = '';
 let Quran_Douri = '';
-const GetDataBase=  async ()=>{
+async function GetDataBase(){
   await fetch('./Api/tafseer.json'     ).then(res=>res.json()).then(res=>tafseer     =res);
   await fetch('./Api/Quran.json'       ).then(res=>res.json()).then(res=>data        =res);
   await fetch('./Api/Quran-hafs.json'  ).then(res=>res.json()).then(res=>Quran_Hafs  =res);

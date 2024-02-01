@@ -222,7 +222,7 @@ margin: 150px auto;
     background-color: rgb(197, 195, 195);
     color: #000000;
     &:checked{
-      background-color: #1dc26a ;
+      background-color: #de8b05 ;
       color: #ffffff;
     }
   }

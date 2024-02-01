@@ -1,0 +1,458 @@
+[
+    {
+		"sura_name_ar" : "الفَاتِحة",
+        "page":604
+    },
+    {
+		"sura_name_ar" : "البَقَرَة",
+        "page":603
+    },
+    {
+		"sura_name_ar" : "آل عِمران",
+        "page":555
+    },
+    {
+        "sura_name_ar" : "النِّسَاء",
+        "page":528
+    },
+    {
+        "sura_name_ar" : "المَائدة",
+        "page":499
+    },
+    {
+        "sura_name_ar" : "الأنعَام",
+        "page":477
+    },
+    {
+        "sura_name_ar" : "الأعرَاف",
+        "page":454
+    },
+    {
+        "sura_name_ar" : "الأنفَال",
+        "page":428
+    },
+    {
+        "sura_name_ar" : "التوبَة",
+        "page":418
+    },
+    {
+        "sura_name_ar" : "يُونس",
+        "page":397
+    },
+    {
+        "sura_name_ar" : "هُود",
+        "page":384
+    },
+    {
+        "sura_name_ar" : "يُوسُف",
+        "page":370
+    },
+    {
+        "sura_name_ar" : "الرَّعد",
+        "page":356
+    },
+    {
+        "sura_name_ar" : "إبراهِيم",
+        "page":350
+    },
+    {
+        "sura_name_ar" : "الحِجر",
+        "page":343
+    },
+    {
+        "sura_name_ar" : "النَّحل",
+        "page":338
+    },
+    {
+        "sura_name_ar" : "الإسرَاء",
+        "page":323
+    },
+    {
+        "sura_name_ar" : "الكَهف",
+        "page":312
+    },
+    {
+        "sura_name_ar" : "مَريَم",
+        "page":300
+    },
+    {
+        "sura_name_ar" : "طه",
+        "page":293
+    },
+    {
+        "sura_name_ar" : "الأنبيَاء",
+        "page":283
+    },
+    {
+        "sura_name_ar" : "الحج",
+        "page":273
+    },
+    {
+        "sura_name_ar" : "المؤمنُون",
+        "page":263
+    },
+    {
+        "sura_name_ar" : "النور",
+        "page":255
+    },
+    {
+        "sura_name_ar" : "الفُرقَان",
+        "page":246
+    },
+    {
+        "sura_name_ar" : "الشعراء",
+        "page":238
+    },
+    {
+        "sura_name_ar" : "النَّمل",
+        "page":228
+    },
+    {
+        "sura_name_ar" : "القَصَص",
+        "page":220
+    },
+    {
+        "sura_name_ar" : "العَنكبُوت",
+        "page":209
+    },
+    {
+        "sura_name_ar" : "الرُّوم",
+        "page":201
+    },
+    {
+        "sura_name_ar" : "لُقمَان",
+        "page":194
+    },
+    {
+        "sura_name_ar" : "السَّجدة",
+        "page":190
+    },
+    {
+        "sura_name_ar" : "الأحزَاب",
+        "page":187
+    },
+    {
+        "sura_name_ar" : "سَبإ",
+        "page":177
+    },
+    {
+        "sura_name_ar" : "فَاطِر",
+        "page":171
+    },
+    {
+        "sura_name_ar" : "يسٓ",
+        "page":165
+    },
+    {
+        "sura_name_ar" : "الصَّافَات",
+        "page":159
+    },
+    {
+        "sura_name_ar" : "صٓ",
+        "page":152
+    },
+    {
+        "sura_name_ar" : "الزُّمَر",
+        "page":147
+    },
+    {
+        "sura_name_ar" : "غَافِر",
+        "page":138
+    },
+    {
+        "sura_name_ar" : "فُصِّلَت",
+        "page":128
+    },
+    {
+        "sura_name_ar" : "الشُّوري",
+        "page":122
+    },
+    {
+        "sura_name_ar" : "الزُّخرُف",
+        "page":116
+    },
+    {
+        "sura_name_ar" : "الدُّخان",
+        "page":109
+    },
+    {
+        "sura_name_ar" : "الجاثِية",
+        "page":106
+    },
+    {
+        "sura_name_ar" : "الأحقَاف",
+        "page":103
+    },
+    {
+        "sura_name_ar" : "مُحمد",
+        "page":98
+    },
+    {
+        "sura_name_ar" : "الفَتح",
+        "page":94
+    },
+    {
+        "sura_name_ar" : "الحُجُرَات",
+        "page":90
+    },
+    {
+        "sura_name_ar" : "قٓ",
+        "page":87
+    },
+    {
+        "sura_name_ar" : "الذَّاريَات",
+        "page":85
+    },
+    {
+        "sura_name_ar" : "الطُّور",
+        "page":82
+    },
+    {
+        "sura_name_ar" : "النَّجم",
+        "page":79
+    },
+    {
+        "sura_name_ar" : "القَمَر",
+        "page":77
+    },
+    {
+        "sura_name_ar" : "الرَّحمٰن",
+        "page":74
+    },
+    {
+        "sura_name_ar" : "الوَاقِعة",
+        "page":71
+    },
+    {
+        "sura_name_ar" : "الحدِيد",
+        "page":68
+    },
+    {
+        "sura_name_ar" : "المُجَادلة",
+        "page":63
+    },
+    {
+        "sura_name_ar" : "الحَشر",
+        "page":60
+    },
+    {
+        "sura_name_ar" : "المُمتَحنَة",
+        "page":56
+    },
+    {
+        "sura_name_ar" : "الصَّف",
+        "page":54
+    },
+    {
+        "sura_name_ar" : "الجُمعَة",
+        "page":52
+    },
+    {
+        "sura_name_ar" : "المُنَافِقُونَ",
+        "page":51
+    },
+    {
+        "sura_name_ar" : "التغَابُن",
+        "page":49
+    },
+    {
+        "sura_name_ar" : "الطَّلَاق",
+        "page":47
+    },
+    {
+        "sura_name_ar" : "التَّحرِيم",
+        "page":45
+    },
+    {
+        "sura_name_ar" : "المُلك",
+        "page":43
+    },
+    {
+        "sura_name_ar" : "القَلَم",
+        "page":41
+    },
+    {
+        "sura_name_ar" : "الحَاقة",
+        "page":39
+    },
+    {
+        "sura_name_ar" : "المَعَارج",
+        "page":37
+    },
+    {
+        "sura_name_ar" : "نُوح",
+        "page":35
+    },
+    {
+        "sura_name_ar" : "الجِن",
+        "page":33
+    },
+    {
+        "sura_name_ar" : "المُزمل",
+        "page":31
+    },
+    {
+        "sura_name_ar" : "المُدثر",
+        "page":30
+    },
+    {
+        "sura_name_ar" : "القِيَامة",
+        "page":28
+    },
+    {
+        "sura_name_ar" : "الإنسَان",
+        "page":27
+    },
+    {
+        "sura_name_ar" : "المُرسَلات",
+        "page":25
+    },
+    {
+        "sura_name_ar" : "النَّبَإ",
+        "page":23
+    },
+    {
+        "sura_name_ar" : "النَّازعَات",
+        "page":22
+    },
+    {
+        "sura_name_ar" : "عَبَسَ",
+        "page":20
+    },
+    {
+        "sura_name_ar" : "التَّكوير",
+        "page":19
+    },
+    {
+        "sura_name_ar" : "الانفِطَار",
+        "page":18
+    },
+    {
+        "sura_name_ar" : "المُطَففين",
+        "page":18
+    },
+    {
+        "sura_name_ar" : "الانشِقَاق",
+        "page":16
+    },
+    {
+        "sura_name_ar" : "البُرُوج",
+        "page":15
+    },
+    {
+        "sura_name_ar" : "الطَّارق",
+        "page":14
+    },
+    {
+        "sura_name_ar" : "الأعلى",
+        "page":14
+    },
+    {
+        "sura_name_ar" : "الغَاشِية",
+        "page":13
+    },
+    {
+        "sura_name_ar" : "الفَجر",
+        "page":12
+    },
+    {
+        "sura_name_ar" : "البَلَد",
+        "page":11
+    },
+    {
+        "sura_name_ar" : "الشَّمس",
+        "page":10
+    },
+    {
+        "sura_name_ar" : "اللَّيل",
+        "page":10
+    },
+    {
+        "sura_name_ar" : "الضُّحى",
+        "page":9
+    },
+    {
+        "sura_name_ar" : "الشَّرح",
+        "page":9
+    },
+    {
+        "sura_name_ar" : "التِّين",
+        "page":8
+    },
+    {
+        "sura_name_ar" : "العَلَق",
+        "page":8
+    },
+    {
+        "sura_name_ar" : "القَدر",
+        "page":7
+    },
+    {
+        "sura_name_ar" : "البَينَة",
+        "page":7
+    },
+    {
+        "sura_name_ar" : "الزَّلزَلة",
+        "page":6
+    },
+    {
+        "sura_name_ar" : "العَاديَات",
+        "page":6
+    },
+    {
+        "sura_name_ar" : "القَارعَة",
+        "page":5
+    },
+    {
+        "sura_name_ar" : "التَّكاثُر",
+        "page":5
+    },
+    {
+        "sura_name_ar" : "العَصر",
+        "page":4
+    },
+    {
+        "sura_name_ar" : "الهُمَزة",
+        "page":4
+    },
+    {
+        "sura_name_ar" : "الفِيل",
+        "page":4
+    },
+    {
+        "sura_name_ar" : "قُرَيش",
+        "page":3
+    },
+    {
+        "sura_name_ar" : "المَاعُون",
+        "page":3
+    },
+    {
+        "sura_name_ar" : "الكَوثر",
+        "page":3
+    },
+    {
+        "sura_name_ar" : "الكافِرون",
+        "page":2
+    },
+    {
+        "sura_name_ar" : "النَّصر",
+        "page":2
+    },
+    {
+        "sura_name_ar" : "المَسَد",
+        "page":2
+    },
+    {
+        "sura_name_ar" : "الإخلَاص",
+        "page":1
+    },
+    {
+        "sura_name_ar" : "الفَلَق",
+        "page":1
+    },
+    {
+        "sura_name_ar" : "النَّاس",
+        "page":1
+    }
+]
