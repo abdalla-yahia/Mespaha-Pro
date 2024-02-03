@@ -326,34 +326,37 @@ setTimeout(()=>{
   let s = f-1
   let partOne = (+num+1)>99?(+num+1):(+num+1)>9?'0'+(+num+1):'00'+(+num+1)
   let partTwo = (+s)>99?(+s):(+s)>9?'0'+(+s):'00'+(+s)
+  //Next Sora Button Events
   if(num >=113){
     next.style.visibility = 'hidden';
-  }
-  let nextSora = data[+num + 1].name
-  nextIcon.addEventListener('mouseenter', ()=>{
-    nextIcon.setAttribute('title',`السورة التالية   ${ nextSora}`)
-  })
+  }else{
+    let nextSora = data[+num + 1].name
+    nextIcon.addEventListener('mouseenter', ()=>{
+      nextIcon.setAttribute('title',`السورة التالية   ${ nextSora}`)
+    })
   next.addEventListener('click',()=>{
     num++;
     localStorage.setItem('Sora_Number',num)
     localStorage.setItem('Aya_Number',1)
     window.location.reload()
   })
+}
+//Previous Sora Button Events
   if(num <=0){
     prev.style.visibility = 'hidden';
+  }else {
+    let prevSora = data[+num - 1].name
+    prevIcon.addEventListener('mouseenter', ()=>{
+      prevIcon.setAttribute('title',` السورة السابقة  ${ prevSora} `)
+    })
+    prev.addEventListener('click',()=>{
+      num--;
+      localStorage.setItem('Sora_Number',num)
+      localStorage.setItem('Aya_Number',1)
+      window.location.reload()
+    })
+    
   }
-  
-  let prevSora = data[+num - 1].name
-  prevIcon.addEventListener('mouseenter', ()=>{
-    prevIcon.setAttribute('title',` السورة السابقة  ${ prevSora} `)
-  })
-  prev.addEventListener('click',()=>{
-    num--;
-    localStorage.setItem('Sora_Number',num)
-    localStorage.setItem('Aya_Number',1)
-    window.location.reload()
-  })
-
   //Get Count Of Aya In This Sora
   let countOfAya = []
   for(let i in data){
