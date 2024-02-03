@@ -233,4 +233,3 @@ select_Moshaf.onchange = (e)=>{
     }
 }
 
-

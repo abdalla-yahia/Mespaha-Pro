@@ -34,9 +34,11 @@ const select_btn           = document.querySelector('.select_btn'               
 const qaryea_image         = document.querySelector('.qaryea_image'                 );
 const Select_jozz          = document.querySelector('#Select_jozz'                  );
 const Select_part          = document.querySelector('#Select_part'                  );
-// const loading              = document.querySelector('.loading'                      );
+// const loading           = document.querySelector('.loading'                      );
 const next                 = document.querySelector('.next'                         );
+const nextIcon             = document.querySelector('.next>.fa-angles-left'         );
 const prev                 = document.querySelector('.prev'                         );
+const prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
 
@@ -324,11 +326,26 @@ setTimeout(()=>{
   let s = f-1
   let partOne = (+num+1)>99?(+num+1):(+num+1)>9?'0'+(+num+1):'00'+(+num+1)
   let partTwo = (+s)>99?(+s):(+s)>9?'0'+(+s):'00'+(+s)
+  if(num >=113){
+    next.style.visibility = 'hidden';
+  }
+  let nextSora = data[+num + 1].name
+  nextIcon.addEventListener('mouseenter', ()=>{
+    nextIcon.setAttribute('title',`السورة التالية   ${ nextSora}`)
+  })
   next.addEventListener('click',()=>{
     num++;
     localStorage.setItem('Sora_Number',num)
     localStorage.setItem('Aya_Number',1)
     window.location.reload()
+  })
+  if(num <=0){
+    prev.style.visibility = 'hidden';
+  }
+  
+  let prevSora = data[+num - 1].name
+  prevIcon.addEventListener('mouseenter', ()=>{
+    prevIcon.setAttribute('title',` السورة السابقة  ${ prevSora} `)
   })
   prev.addEventListener('click',()=>{
     num--;
@@ -801,12 +818,12 @@ audio2.addEventListener('ended',()=>{
     
     //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
     // let TEXT_OF_AYA =
-    (select_input.options[select_input.selectedIndex].text).includes('ورش'   ) ?(TEXT_OF_AYA =TextOfAya_Warsh,ss.setAttribute('moshaf','مصحف ورش ')):
-    (select_input.options[select_input.selectedIndex].text).includes('قالون' ) ?(TEXT_OF_AYA =TextOfAya_Qalon,ss.setAttribute('moshaf','مصحف قالون ')):
-    (select_input.options[select_input.selectedIndex].text).includes('شعبة'  ) ?(TEXT_OF_AYA =TextOfAya_Shuba,ss.setAttribute('moshaf','مصحف شعبة ')):
-    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA =TextOfAya_Sousi,ss.setAttribute('moshaf','مصحف السوسي ')):
-    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA =TextOfAya_Douri,ss.setAttribute('moshaf','مصحف الدوري ')):
-    (TEXT_OF_AYA=TextOfAya_Hafs)
+    (select_input.options[select_input.selectedIndex].text).includes('ورش'   ) ?(TEXT_OF_AYA =TextOfAya_Warsh,document.body.setAttribute('moshaf','مصحف ورش ')):
+    (select_input.options[select_input.selectedIndex].text).includes('قالون' ) ?(TEXT_OF_AYA =TextOfAya_Qalon,document.body.setAttribute('moshaf','مصحف قالون ')):
+    (select_input.options[select_input.selectedIndex].text).includes('شعبة'  ) ?(TEXT_OF_AYA =TextOfAya_Shuba,document.body.setAttribute('moshaf','مصحف شعبة ')):
+    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA =TextOfAya_Sousi,document.body.setAttribute('moshaf','مصحف السوسي ')):
+    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA =TextOfAya_Douri,document.body.setAttribute('moshaf','مصحف الدوري ')):
+    (TEXT_OF_AYA=TextOfAya_Hafs,document.body.setAttribute('moshaf','مصحف حفص '))
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
       // aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
@@ -1089,14 +1106,15 @@ btn_loop.setAttribute('disabled', 'disabled')
 },3500)
 
 setInterval(() => {
-  isAudioPlaying()
+   isAudioPlaying()
 }, 1000);
-
+// isAudioPlaying();
   //Play And Pause Audio
   play_pause.click()
   play_pause.onclick = ()=>{
     play_pause.style.backgroundColor ='#2196f3'
-    PlayAndPauseAudio()
+    PlayAndPauseAudio();
+    isAudioPlaying();
   }
 window.addEventListener('mousemove',(element)=>{
   
@@ -1105,6 +1123,7 @@ window.addEventListener('mousemove',(element)=>{
         if(e.keyCode === 32 && search_input.value == '' &&element.target.classList.contains('search_input')===false){
           e.preventDefault();
           PlayAndPauseAudio()
+          isAudioPlaying();
           }
         
       } 
@@ -1147,10 +1166,12 @@ window.addEventListener('mousemove',(element)=>{
   })
   // Mute Button Events
   mute.onclick = ()=>{
+    console.log('muted')
     if(mute.classList.contains('fa-volume-high')){
       mute.classList.remove('fa-volume-high');
       mute.classList.add('fa-volume-xmark');
       audio.muted = true;
+      audio2.muted = true;
       volume_span.forEach(e=>{
         e.classList.remove('active')
       })
@@ -1158,6 +1179,7 @@ window.addEventListener('mousemove',(element)=>{
       mute.classList.remove('fa-volume-xmark');
       mute.classList.add('fa-volume-high');
       audio.muted = false;
+      audio2.muted = false;
       for(let j = 0 ; j < (audio.volume*10) ; j++){
         volume_span[j].classList.add('active')
     }
@@ -1210,7 +1232,6 @@ window.addEventListener('mousemove',(element)=>{
 function isAudioPlaying(){
   if(audio.paused && audio2.paused){
     play_pause.style.backgroundColor ='#2196f3'
-    // audio.classList.toggle('play')
     play_pause_text.innerText = 'تشغيل'
     spans.forEach(e=>{
       e.classList.remove('active');
@@ -1231,6 +1252,7 @@ function isAudioPlaying(){
       mute.classList.remove('fa-volume-xmark');
       mute.classList.add('fa-volume-high');
       audio.muted = false;
+      audio2.muted = false;
       for(let j = 0 ; j < (audio.volume*10) ; j++){
           volume_span[j].classList.add('active')
       }
@@ -1259,7 +1281,6 @@ function PlayAndPauseAudio() {
     play_pause_text.innerText = 'تشغيل'
     spans.forEach(e=>{
       e.classList.remove('active');
-
     })
     mute.classList.remove('fa-volume-high');
     mute.classList.add('fa-volume-xmark');
