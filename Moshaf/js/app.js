@@ -417,6 +417,7 @@ setTimeout(()=>{
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${elhosary2}${partOne+partTwo}.mp3`;
           
       }
+ 
       else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         let elhosary= getAudioFromAjzaa(partOne,partTwo)
@@ -471,6 +472,11 @@ setTimeout(()=>{
         }
         audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
       
+      }
+      else if(Qaryea === '128kb----6236--ayah---quran-128'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
       }
       else{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
@@ -520,6 +526,7 @@ setTimeout(()=>{
         audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${elhosary2}${partOne+partTwo}.mp3`;
           
       }
+  
       else if(Qaryea === '96kb___--quran--by---mefta7--alsaltany--by--aldory--an---aby---amr-----6236---'){
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
         let elhosary= getAudioFromAjzaa(partOne,partTwo)
@@ -574,6 +581,11 @@ setTimeout(()=>{
         }
         audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
       
+      }
+      else if(Qaryea === '128kb----6236--ayah---quran-128'){
+        partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+        let elhosary= getAudioFromAjzaa(partOne,partTwo)
+        audio2.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
       }
       else{
         partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
@@ -1562,6 +1574,11 @@ setTimeout(()=>{
       }
       audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
     
+    }
+    else if(Qaryea === '128kb----6236--ayah---quran-128'){
+      partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
+      let elhosary= getAudioFromAjzaa(partOne,partTwo)
+      audio.src =`https://archive.org/download/${Qaryea}/${elhosary}/${partOne+partTwo}.mp3`;
     }
     else{
       partTwo = (+s+1)>99?(+s+1):(+s+1)>9?'0'+(+s+1):'00'+(+s+1)
