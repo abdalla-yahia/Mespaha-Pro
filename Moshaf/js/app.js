@@ -821,12 +821,12 @@ audio2.addEventListener('ended',()=>{
     
     //Change Text Of Moshaf To Different Rwaya When Change Qaryea 
 
-    (select_input.options[select_input.selectedIndex].text).includes('ورش'   ) ?(TEXT_OF_AYA =(Quran_Warsh[+idOfAya + +i].aya_text)? (Quran_Warsh[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف ورش ')):
-    (select_input.options[select_input.selectedIndex].text).includes('قالون' ) ?(TEXT_OF_AYA =(Quran_Qalon[+idOfAya + +i].aya_text)? (Quran_Qalon[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف قالون ')):
-    (select_input.options[select_input.selectedIndex].text).includes('شعبة'  ) ?(TEXT_OF_AYA =(Quran_Shuba[+idOfAya + +i].aya_text)? (Quran_Shuba[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف شعبة ')):
-    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA =(Quran_Sousi[+idOfAya + +i].aya_text)? (Quran_Sousi[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف السوسي ')):
-    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA =(Quran_Douri[+idOfAya + +i].aya_text)? (Quran_Douri[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف الدوري ')):
-                                                                                 (TEXT_OF_AYA=(  Quran_Hafs[+idOfAya + +i].aya_text)? ( Quran_Hafs[+idOfAya + +i].aya_text).slice(0,-2):window.location.reload(),document.body.setAttribute('moshaf','مصحف حفص '))
+    (select_input.options[select_input.selectedIndex].text).includes('ورش'   ) ?(TEXT_OF_AYA =(Quran_Warsh[+idOfAya + +i].aya_text)? (Quran_Warsh[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف ورش ')):
+    (select_input.options[select_input.selectedIndex].text).includes('قالون' ) ?(TEXT_OF_AYA =(Quran_Qalon[+idOfAya + +i].aya_text)? (Quran_Qalon[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف قالون ')):
+    (select_input.options[select_input.selectedIndex].text).includes('شعبة'  ) ?(TEXT_OF_AYA =(Quran_Shuba[+idOfAya + +i].aya_text)? (Quran_Shuba[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف شعبة ')):
+    (select_input.options[select_input.selectedIndex].text).includes('السوسي') ?(TEXT_OF_AYA =(Quran_Sousi[+idOfAya + +i].aya_text)? (Quran_Sousi[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف السوسي ')):
+    (select_input.options[select_input.selectedIndex].text).includes('الدوري') ?(TEXT_OF_AYA =(Quran_Douri[+idOfAya + +i].aya_text)? (Quran_Douri[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف الدوري ')):
+                                                                                 (TEXT_OF_AYA =( Quran_Hafs[+idOfAya + +i].aya_text)? ( Quran_Hafs[+idOfAya + +i].aya_text).slice(0,-2):'',document.body.setAttribute('moshaf','مصحف حفص '))
     //Create Element To Set Text Of Aya Inside It
       let aya = document.createElement('p');
       // aya.innerHTML = ` ${data[num].array[i].ar}  <div class='parent-simbole' > &#x06DD; <span class='child-simbole'> ${data[num].array[i].id} </span> </div>`;
@@ -1106,7 +1106,7 @@ input_loop.setAttribute('disabled', 'disabled')
 btn_loop.setAttribute('disabled', 'disabled')
  
 
-},3500)
+},4000)
 
 setInterval(() => {
    isAudioPlaying()
@@ -2067,7 +2067,7 @@ setTimeout(()=>{
 }
 
 
-},3500)
+},4000)
 
 setInterval(() => {
     isAudioPlaying()
