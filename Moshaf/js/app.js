@@ -254,11 +254,14 @@ setTimeout(()=>{
   let parts =[];
   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
     parts=[];
-    Quran_Warsh&& Quran_Warsh.filter(e=>e.aya_text.includes('۞') && parts.push({
+    Quran_Warsh&& Quran_Warsh.filter(e=>{
+      if(e.aya_text) 
+      e.aya_text.includes('۞') && parts.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
-    }));
+    })
+  });
   }else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
     parts=[];
     Quran_Qalon&& Quran_Qalon.filter(e=>{
@@ -282,11 +285,14 @@ setTimeout(()=>{
   //Get Sajdas Sites
   let sajdas =[];
   if((select_input.options[select_input.selectedIndex].text).includes('ورش')){
-    Quran_Warsh&& Quran_Warsh.filter(e=>e.aya_text.includes('۩') && sajdas.push({
+    Quran_Warsh&& Quran_Warsh.filter(e=>{
+      if(e.aya_text) 
+      e.aya_text.includes('۩') && sajdas.push({
       jozz:e.jozz,
       sora_num:e.sura_no,
       aya_num:e.aya_no
-    }));
+    })
+  });
   }
   else if((select_input.options[select_input.selectedIndex].text).includes('قالون')){
     Quran_Qalon&&Quran_Qalon.filter(e=>{
