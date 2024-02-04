@@ -1269,6 +1269,12 @@ input,select{
 
 }
 @media (max-width: 520px) {
+  body{
+    &::before{
+      width: 20%;
+      left: 10%;
+    }
+  }
   .navbar{
     top:-5%;
     flex-wrap: wrap;
@@ -1289,15 +1295,11 @@ input,select{
   max-width: 25%;
 }
 .ss{
-    position: relative;
     max-width: 80%;
-    margin: 20px;
-    margin-top: 70px;
     margin-bottom: 25%;
-    padding: 10px !important;
+    padding: 5px !important;
     text-align: justify;
-    line-height: 2;
-    border: 20px solid transparent;
+    border: 15px solid transparent;
     border-image:var(--border-image) 160 round  ;
     .passmalla {
       width: 80%;
@@ -1321,16 +1323,10 @@ input,select{
 
     }
   }
-    div.parent-simbole{
-      font-size: 20px;
-  }
-  span.child-simbole{
-  font-size: 15px;
-  }
 }
   p{
-    font-size: 24px !important;
-    line-height: 3px !important;
+    font-size: 15px !important;
+    margin: 0;
     .sign_of_jozz,
     .sign_of_sajda{
       width: 50px;
@@ -1362,8 +1358,11 @@ input,select{
     border-radius: 10px;
 }
   div.parent-simbole{
-    font-size: 18px !important;
+    font-size: 12px !important;
     margin: 0 !important;
+    .child-simbole{
+      font-size: 8px;
+    }
 }
 
 .tafsesr_box_parent{
