@@ -176,14 +176,14 @@ const pageFlip = new St.PageFlip(book,
         height: 650, // base page height
         size: "stretch",
         // set threshold values:
-        minWidth: 315,
+        minWidth: 300,
         maxWidth: 1000,
-        minHeight: 420,
-        maxHeight: 1350,
-
+        // minHeight: 650,
+        // maxHeight: 1350,
+        autoSize:true,
         maxShadowOpacity: 0.5, // Half shadow intensity
         showCover: true,
-        mobileScrollSupport: false, // disable content scrolling on mobile devices
+        mobileScrollSupport: true, // disable content scrolling on mobile devices
     
 
         startPage: +localStorage.getItem("Current_page") || 605,
