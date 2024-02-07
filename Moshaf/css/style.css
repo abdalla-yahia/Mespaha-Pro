@@ -353,7 +353,21 @@ input,select{
     z-index: 999;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    
+    .progrees {
+      width: 0%;
+      height: 5px;
+      background-color: #1b7dd8;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      &::before {
+        content: attr(data-progress);
+        color: #ffffff;
+        top: -300%;
+        right: 0;
+        position: absolute;
+      }
+    }
     i{
       color:#1b7dd8;
       cursor: pointer;

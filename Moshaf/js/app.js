@@ -41,6 +41,7 @@ const prev                 = document.querySelector('.prev'                     
 const prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
+const progrees             = document.querySelector('.progrees'                     );
 
 //Fetch The Data From Api Folder
 let data= '';
@@ -374,7 +375,8 @@ setTimeout(()=>{
   for(let i = 0; i <num; i++){
     idOfAya += countOfAya[i]
   }
-
+  progrees.style.width =(((+f-1) / data[num].array.length) * 100 ) + '%';
+  progrees.setAttribute('data-progress',progrees.style.width)
     //Define Sorce Audio Of Qarea
     function QaryeaAudio(){
       if(Qaryea === 'alhosary---warsh---64kb----full--ayat--6236--aya'){
@@ -748,7 +750,9 @@ setTimeout(()=>{
 //###########################################################################################
 
 counter = input_loop.value
-audio.addEventListener('play', ()=>{
+audio.addEventListener('play', ()=>{ 
+  progrees.style.width =((s / data[num].array.length) * 100 ) + '%';
+  progrees.setAttribute('data-progress',Math.floor((s / data[num].array.length)*100)+'%')
   QaryeaAudio2()
 
   if(ss.children[+z]){
@@ -759,7 +763,7 @@ audio.addEventListener('play', ()=>{
         window.scrollTo({
             top:(ss.children[z].offsetTop)-250,
             behavior:'smooth'
-        })
+        }) 
       }
       
     audio2.classList.remove('play')
@@ -789,6 +793,8 @@ audio.addEventListener('ended',()=>{
 }
 });
 audio2.addEventListener('play', ()=>{
+  progrees.style.width =((s / data[num].array.length) * 100 ) + '%';
+  progrees.setAttribute('data-progress',Math.floor((s / data[num].array.length)*100)+'%')
   QaryeaAudio()
   if(ss.children[+z]){
     Sora_Aya.value = +z-1
@@ -806,6 +812,7 @@ audio2.addEventListener('play', ()=>{
     audio.pause()
 })
 audio2.addEventListener('ended',()=>{
+  
       ss.childNodes.forEach(el=>el.classList.remove('active'))
       if(ss.children[+z+1]){
           z++
