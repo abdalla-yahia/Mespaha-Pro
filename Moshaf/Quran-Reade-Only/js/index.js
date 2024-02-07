@@ -181,7 +181,7 @@ const pageFlip = new St.PageFlip(book,
         minHeight: 550,
         maxHeight: 1350,
         autoSize:true,
-        maxShadowOpacity: 0.5, // Half shadow intensity
+        maxShadowOpacity:.7, // Half shadow intensity
         showCover: true,
         mobileScrollSupport: true, // disable content scrolling on mobile devices
     
