@@ -178,8 +178,8 @@ const pageFlip = new St.PageFlip(book,
         // set threshold values:
         minWidth: 300,
         maxWidth: 1000,
-        // minHeight: 650,
-        // maxHeight: 1350,
+        minHeight: 550,
+        maxHeight: 1350,
         autoSize:true,
         maxShadowOpacity: 0.5, // Half shadow intensity
         showCover: true,

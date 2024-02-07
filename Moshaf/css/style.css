@@ -353,7 +353,7 @@ input,select{
     z-index: 999;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    transition: 1s;
+    
     i{
       color:#1b7dd8;
       cursor: pointer;
@@ -937,7 +937,8 @@ input,select{
   }
 }
   .navbar{
-    top:0%;
+    background-color: #242424de !important;
+    top:-5%;
     #navbarSupportedContent {
       ul{
         min-width: 50% ;
@@ -950,7 +951,7 @@ input,select{
       }
     }
     &.active{
-      top: -14.5%;
+      top: -28%;
     }
   }
   .search_results{
@@ -1019,6 +1020,10 @@ input,select{
 }
   .navbar{
     top:0%;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+    }
     #navbarSupportedContent {
       >form{
         min-width: 100%;
@@ -1093,6 +1098,10 @@ input,select{
     top:0%;
     flex-wrap: wrap;
     justify-content: space-around;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+    }
     #navbarSupportedContent {
       >form{
         min-width: 100%;
@@ -1128,6 +1137,10 @@ input,select{
 @media (max-width: 660px) {
   .navbar{
     top:-5%;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+    }
     #navbarSupportedContent {
       >form{
         min-width: 100%;
@@ -1278,6 +1291,11 @@ input,select{
   .navbar{
     top:-5%;
     flex-wrap: wrap;
+    transition: .5s;
+    opacity: 0;
+    &:hover{
+      opacity: 1;
+    }
     #navbarSupportedContent {
       >form{
         min-width: 100%;

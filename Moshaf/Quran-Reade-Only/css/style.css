@@ -14,6 +14,15 @@ nav{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: .5s;
+    opacity: 0;
+    &:hover{
+        opacity: 1;
+    }
     background-color: rgb(12, 8, 33);
     select,input,.btn-back{
         width: 15%;
@@ -32,12 +41,13 @@ nav{
     &::before{
         content: '←';
         position: absolute;
-        top: 50%;
+        top: 85%;
         left: 10%;
         color: red;
-        font-size: 25px;
+        font-size: 30px;
         font-weight: bold;
         transform: translate(50%,-50%);
+        z-index: 1;
     }
     >a{
         text-decoration: none;
@@ -49,10 +59,10 @@ nav{
 #book {
     margin: 5px auto;
     max-width: 100% !important;
- 
+    min-height: calc(100% +  100px);
     .my-page{
         width: 100%;
-        min-height: 100%;
+        min-height: calc(100% +  100px);
         overflow: hidden;
         border-left: 2px solid rgb(128, 128, 128);
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
@@ -68,33 +78,74 @@ nav{
         }
     }
 }
+@media (max-width:750px) {
+        
+        #book {
+            height: calc(100vh + 0px) !important;
+            .stf__wrapper.--portrait,
+            .stf__block{
+                min-height:calc(100%) !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                overflow-y: hidden;
+                .my-page{
+                    top: 5% !important;
+                    min-height: 100% !important;
+                    >img{
+                        object-fit: fill;
+                        height: 100% !important;
+                    }
+                }
+            }
+    
+        }
+}
+@media (max-width:599px) {
+        body{
+            overflow: hidden;
+        }
+        #book {
+            height: calc(100vh) !important;
+            .stf__wrapper.--portrait,
+            .stf__block{
+                min-height:calc(100%) !important;
+                top: 0;
+                overflow-y: hidden;
+                .my-page{
+                    top: 5%;
+                    min-height: 100% !important;
+                    
+                    >img{
+                        object-fit: fill;
+                        height: 100% !important;
+                    }
+                }
+            }
+    
+        }
+}
 @media (max-width:500px) {
-  
-    nav{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 99;
-    }
+ 
     #book {
-        height: calc(100vh + 180px) !important;
+        height: calc(100vh) !important;
         .stf__wrapper.--portrait,
         .stf__block{
-            margin-top: -120px;
-            min-height:calc(100vh + 210px) !important;
+            max-height:calc(100%) !important;
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
             overflow-y: hidden;
-        }
-
-        .my-page{
-            min-height: 100% !important;
-            >img{
-                object-fit: fill;
-                height: 70% !important;
+            .my-page{
+                height: 100% !important;
+                
+                >img{
+                    object-fit: fill;
+                    height: 100% !important;
+                }
             }
         }
+
     }
 }
 #audio{
