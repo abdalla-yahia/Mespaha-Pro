@@ -97,12 +97,12 @@ let img = document.getElementsByTagName('img');
 }
 function Get_Two(){
     let img = document.getElementsByTagName('img');
-    for(let i = 0,j=608; i <= 607; i++,j--) {
+    for(let i = 0,j=608; i <= 612; i++,j--) {
         let pagenum = i>99 ?`0${i}` : i<=99&&i>9 ?`00${i}`  : `000${i}`;
         let Src_Two = `${'./Quran/Hafs3/'}${pagenum}.jpg`
     img[j] && (img[j].src =Src_Two)
-        if(i === 0){
-            img[i].src = './Images/back.png'
+        if(j === 0){
+            img[j].src = './Images/back.png'
         }
         if(i === 607){
             img[i].src = './Images/front.png'
@@ -122,7 +122,7 @@ function Get_Three(){
             img[i].src = './Images/front.png'
         }
    }
-   }
+}
 function Get_Four(){
  //Create Loop To Set Image Of Page Inside His Div
 
@@ -166,7 +166,28 @@ img[j] && (img[j].src =Src_Six)
   
 }
 }
-
+function Get_Siven(){
+    //Create Loop To Set Image Of Page Inside His Div
+    let img = document.getElementsByTagName('img');
+        for(let i = 0,j=604; i <= 612; i++,j--) {
+            let pagenum = i>99 ?`0${i}` : i<=99&&i>9 ?`00${i}`  : `000${i}`;
+            
+            let Src_Siven = `https://ia601209.us.archive.org/view_archive.php?archive=/10/items/Als7abah__2457247245724525757/als7abah__white__%26__colred_jp2.zip&file=als7abah__white__%26__colred_jp2%2Fals7abah__white__%26__colred_${pagenum}.jp2&ext=jpg`;
+        img[j] && (img[j].src =Src_Siven)
+    
+       }
+}
+function Get_Eight(){
+    //Create Loop To Set Image Of Page Inside His Div
+    let img = document.getElementsByTagName('img');
+        for(let i = 0,j=604; i <= 612; i++,j--) {
+            let pagenum = i>99 ?`0${i}` : i<=99&&i>9 ?`00${i}`  : `000${i}`;
+            
+            let Src_Eight = `https://ia803007.us.archive.org/view_archive.php?archive=/27/items/alkamel356835685683__14__qeraat/alkamel__14__qeraat_jp2.zip&file=alkamel__14__qeraat_jp2%2Falkamel__14__qeraat_${pagenum}.jp2&ext=jpg`;
+        img[j] && (img[j].src =Src_Eight)
+       
+       }
+}
 
 let Moshaf = Get_Two();
 //Main Variable To Get instance From PageFlip Class
@@ -186,7 +207,7 @@ const pageFlip = new St.PageFlip(book,
         mobileScrollSupport: true, // disable content scrolling on mobile devices
     
 
-        startPage: +localStorage.getItem("Current_page") || 605,
+        startPage: +localStorage.getItem("Current_page") || 612,
     }
     );
 //Get All Pages 
@@ -197,6 +218,7 @@ audio.volume=.5
 pageFlip.on('flip', (e) => {
     localStorage.setItem("Current_page", e.data);
     audio.play()
+    console.log(e.data)
 })
 //Change Status Of Audio Play Or Mute
 Mute.onclick = () => {
@@ -230,6 +252,12 @@ select_Moshaf.onchange = (e)=>{
     }
     else if(e.target.value === 'Src_Six'){
         Get_Six()
+    }
+    else if(e.target.value === 'Src_Siven'){
+        Get_Siven()
+    }
+    else if(e.target.value === 'Src_Eight'){
+        Get_Eight()
     }
 }
 
