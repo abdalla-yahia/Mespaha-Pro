@@ -226,10 +226,12 @@ Mute.onclick = () => {
         Mute.classList.remove('fa-volume-high');
         Mute.classList.add('fa-volume-mute');
         audio.volume =0;
+        Mute.style.color = 'gray'
     }else {
         Mute.classList.add('fa-volume-high');
         Mute.classList.remove('fa-volume-mute');
         audio.volume =.5;
+        Mute.style.color = '#fff'
     }
 }
 //Change Type Of Moshaf
