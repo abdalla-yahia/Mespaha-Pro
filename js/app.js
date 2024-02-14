@@ -41,7 +41,9 @@ const spans = document.querySelectorAll('.spans>span');
 const mute = document.querySelector('.fa-solid');
 const volume = document.querySelector('.volume');
 const Makatea_Dawea  = document.querySelector('.videos_ifram>audio');
-const Button_Random  = document.querySelector('.videos_ifram>button');
+const Button_Random_Menshawy  = document.querySelector('.videos_ifram>.menshawy');
+const Button_Random_Abdelbaset  = document.querySelector('.videos_ifram>.abdelbaset');
+const Button_Random_Altablawy  = document.querySelector('.videos_ifram>.altablawy');
 
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
 function getMenshawyAudio(){
@@ -56,7 +58,7 @@ city==='Libia'? Math.floor(Math.random() * 37):
 Math.floor(Math.random() * 87);
 let subSrc = RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum;
 Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
-Button_Random.innerText = city === 'Egypt'? 'تلاوات نادرة للمنشاوي من مصر' :
+Button_Random_Menshawy.innerText = city === 'Egypt'? 'تلاوات نادرة للمنشاوي من مصر' :
 city === 'Syria'?' تلاوات نادرة للمنشاوي من سوريا':city === 'Kuwait'?' تلاوات نادرة للمنشاوي من الكويت':
 city === 'Libia'?' تلاوات نادرة للمنشاوي من ليبيا':' تلاوات نادرة للمنشاوي متنوعة';
 }
@@ -65,11 +67,36 @@ Makatea_Dawea.addEventListener('ended',()=>{
   getMenshawyAudio()
   Makatea_Dawea.play();
 });
-Button_Random.onclick=()=>{
+Button_Random_Menshawy.onclick=()=>{
   getMenshawyAudio()
   Makatea_Dawea.play();
 }
 
+function getAbdellbasetAudio(){
+  let RandomNum =(max=222,min=764)=>Math.floor(Math.random() * (max - min) + min);
+  let num = RandomNum()
+  Makatea_Dawea.src = `https://archive.org/download/abdelbasit_486/${RandomNum(222,764)}.mp3`;
+  }
+  getAbdellbasetAudio()
+  Button_Random_Abdelbaset.onclick=()=>{
+    getAbdellbasetAudio()
+    Makatea_Dawea.play();
+  }
+
+  function getAlTablawyAudio(){
+    let randCity =Math.floor(Math.random() * 5) 
+    let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
+    let city =country[randCity]
+    let RandomNum = Math.floor(Math.random() * 859)
+    let subSrc = (RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum) 
+    let subSrc2 = subSrc + '-_up_by_muslem'; 
+    Makatea_Dawea.src = `https://archive.org/download/Mohamad_Mahmoud_Tablaoui_uP_bY_mUSLEm/${subSrc2}.mp3`;
+    }
+    getAlTablawyAudio()
+    Button_Random_Altablawy.onclick=()=>{
+      getAlTablawyAudio()
+      Makatea_Dawea.play();
+    }
 let date = new Date()
 let dd   = date.getDate() - 1
     
