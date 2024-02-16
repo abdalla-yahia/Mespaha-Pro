@@ -84,9 +84,7 @@ function getAbdellbasetAudio(){
   }
 
   function getAlTablawyAudio(){
-    let randCity =Math.floor(Math.random() * 5) 
-    let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
-    let city =country[randCity]
+
     let RandomNum = Math.floor(Math.random() * 859)
     let subSrc = (RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum) 
     let subSrc2 = subSrc + '-_up_by_muslem'; 
