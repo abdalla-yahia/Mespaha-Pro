@@ -375,7 +375,8 @@ setTimeout(()=>{
   for(let i = 0; i <num; i++){
     idOfAya += countOfAya[i]
   }
-  data[num].array&&(progrees.style.width =(((+f-1) / data[num].array.length) * 100 ) + '%');
+  
+  data[num]&&(progrees.style.width =(((+f-1) / data[num].array.length) * 100 ) + '%');
   progrees.setAttribute('data-progress',progrees.style.width)
     //Define Sorce Audio Of Qarea
     function QaryeaAudio(){
