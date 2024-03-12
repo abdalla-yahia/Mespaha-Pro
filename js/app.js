@@ -406,7 +406,7 @@ times_span[0].innerHTML = `<div style="height:350px;"><span class="getDay" style
     10px 10px 10px rgba(0, 0, 0, 0.2);border-radius:15px
 ;font-family: 'Amiri', serif;color:red;display:flex;justify-content:center;align-items:center;flex-direction: column;gap:2px;background:#ddd;height:250px;text-align:center;font-size:80px;position: relative">${getDay} <span style="font-size:25px;color:green;letter-spacing:10px">${getDayEn}</span></span><span style=" text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
     2px 2px 5px rgba(0, 0, 0, 0.2),
-    2px 2px 5px rgba(0, 0, 0, 0.2);color:red;">${getDate-1}</span><span style="font-family: 'Amiri', serif;"> ${getMonths}</span> <span style="color:green;font-family: 'Amiri', serif;">${getYers}</span>  <span style="color:red">هـ</span></div>`;
+    2px 2px 5px rgba(0, 0, 0, 0.2);color:red;">${getDate}</span><span style="font-family: 'Amiri', serif;"> ${getMonths}</span> <span style="color:green;font-family: 'Amiri', serif;">${getYers}</span>  <span style="color:red">هـ</span></div>`;
 
 setInterval(() => {
   let date = new Date();
