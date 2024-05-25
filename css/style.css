@@ -16,6 +16,59 @@ body {
   position: relative;
 
 }
+.sites {
+  width: 150px;
+  height: auto;
+  padding: 20px 30px;
+  background-color: #dbe4ec;
+  position: fixed;
+  top: 150px;
+  left: -10px;
+  z-index: 100;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .google{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    img{
+      margin-bottom: -10px;
+    }
+    .gsc-results-wrapper-overlay{
+      z-index: 9999;
+    }
+    .gsc-search-button{
+      display: none !important;
+    }
+    .gsc-control-cse.gsc-control-cse-ar{
+      width: 130px;
+      padding: 0 ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      .gsc-input-box{
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+    }
+    .gsc-modal-background-image.gsc-modal-background-image-visible{
+      display: none;
+    }
+  }
+  img{
+    max-width: 60px;
+    max-height: 60px;
+  }
+}
 .azan {
   width: 100%;
   height: 100%;
