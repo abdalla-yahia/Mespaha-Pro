@@ -42,6 +42,7 @@ const prevIcon             = document.querySelector('.prev>.fa-angles-right'    
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
 const progrees             = document.querySelector('.progrees'                     );
+GetDataBase()
 
 //Fetch The Data From Api Folder
 let data= '';
@@ -62,7 +63,6 @@ async function GetDataBase(){
   await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
   await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
 }
-GetDataBase()
 
 //Get Audio Volume From LocalStorage
 if(localStorage.getItem('volume_audio')){
