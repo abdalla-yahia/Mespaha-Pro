@@ -112,6 +112,8 @@ function getAbdellbasetAudio(){
       new_site_form_container.style.display="none";
     }
   })
+
+  // Quran for El Tablawy
   function getAlTablawyAudio(){
 
     let RandomNum = Math.floor(Math.random() * 859)
