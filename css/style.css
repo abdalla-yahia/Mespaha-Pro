@@ -38,6 +38,9 @@ body {
     img{
       margin-bottom: -10px;
     }
+    .gsc-input{
+      background:none !important;
+    }
     .gscb_a{
       color: red;
     }
