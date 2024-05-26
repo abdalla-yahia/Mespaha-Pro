@@ -44,6 +44,13 @@ const Makatea_Dawea  = document.querySelector('.videos_ifram>audio');
 const Button_Random_Menshawy  = document.querySelector('.videos_ifram>.menshawy');
 const Button_Random_Abdelbaset  = document.querySelector('.videos_ifram>.abdelbaset');
 const Button_Random_Altablawy  = document.querySelector('.videos_ifram>.altablawy');
+const plus_new_link  = document.querySelector('.plus-new-link');
+const new_site_form_container  = document.querySelector('.new_site_form_container');
+const done_add_site  = document.querySelector('.done_add_site');
+const Site_name  = document.querySelector('#Site_name');
+const Site_link  = document.querySelector('#Site_link');
+const sites  = document.querySelector('.sites');
+const sites_child  = document.querySelectorAll('.sites-child');
 
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
 function getMenshawyAudio(){
@@ -82,7 +89,29 @@ function getAbdellbasetAudio(){
     getAbdellbasetAudio()
     Makatea_Dawea.play();
   }
-
+  //Add New Sites
+  localStorage.getItem('Sitees_added')?sites.innerHTML=JSON.parse(localStorage.getItem('Sitees_added')):'';
+  plus_new_link.addEventListener("click",()=>{
+    new_site_form_container.style.display="block";
+    
+  })
+  done_add_site.addEventListener("click",()=>{
+    if(Site_name.value !== '' && Site_link.value !== ''){
+      let site_name = document.createElement("div");
+      site_name.classList.add(Site_name.value);
+      site_name.classList.add('sites_child');
+      let link = document.createElement("a");
+      link.href = Site_link.value;
+      let img = document.createElement("img");
+      img.src = Site_link.value + "/"+ 'favicon.ico';
+      link.appendChild(img);
+      site_name.appendChild(link);
+      sites.appendChild(site_name);
+      let storage =JSON.stringify(sites.innerHTML);
+      localStorage.setItem("Sitees_added",storage);
+      new_site_form_container.style.display="none";
+    }
+  })
   function getAlTablawyAudio(){
 
     let RandomNum = Math.floor(Math.random() * 859)

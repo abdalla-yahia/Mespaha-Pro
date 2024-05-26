@@ -38,6 +38,9 @@ body {
     img{
       margin-bottom: -10px;
     }
+    .gscb_a{
+      color: red;
+    }
     .gsc-results-wrapper-overlay{
       z-index: 9999;
     }
@@ -67,6 +70,38 @@ body {
   img{
     max-width: 60px;
     max-height: 60px;
+  }
+  .new_site_form_container{
+    .new_link_form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #67afea;
+      color: rgb(0, 34, 255);
+      input{
+        max-width: 130px;
+      }
+      .done_add_site{
+        background-color: #3bc454;
+        padding: 5px 30px;
+        border-radius: 10px;
+        margin: 5px;
+        cursor: pointer;
+      }
+    }
+    display: none;
+  }
+  .plus-new-link{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: .75;
+    cursor: pointer;
+    img{
+      max-width: 30px;
+      filter:invert(1);
+    }
   }
 }
 .azan {
