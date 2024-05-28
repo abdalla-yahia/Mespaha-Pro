@@ -52,6 +52,11 @@ const Site_link  = document.querySelector('#Site_link');
 const sites  = document.querySelector('.sites');
 const sites_child  = document.querySelectorAll('.sites-child');
 
+//Focus Google Search Input Field 
+window.addEventListener('load',()=>{
+  const Google_search  = document.querySelector('input.gsc-input').focus();
+})
+
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
 function getMenshawyAudio(){
 let randCity =Math.floor(Math.random() * 5) 

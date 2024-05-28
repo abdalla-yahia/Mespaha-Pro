@@ -40,6 +40,7 @@ body {
     }
     .gsc-input{
       background:none !important;
+      caret-color: #1dc26a;
     }
     .gscb_a{
       color: red;
