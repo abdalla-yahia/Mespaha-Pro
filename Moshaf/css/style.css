@@ -342,6 +342,9 @@ p{
 input,select{
   cursor: pointer;
 }
+.select_btn{
+  cursor:default !important;
+}
 #Select_part{
   cursor:no-drop
 }
