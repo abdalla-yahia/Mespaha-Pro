@@ -968,7 +968,7 @@ input,select{
       }
     }
     &.active{
-      top: -28%;
+      top: -32%;
     }
   }
   .search_results{
