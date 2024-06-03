@@ -238,10 +238,7 @@ function getAudioFromAjzaa(one,two){
 function NoRepeat() {
 
 setTimeout(()=>{
- 
-  setTimeout(()=>{
-    window.reload();
-  },3000)
+
   if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
@@ -252,7 +249,6 @@ setTimeout(()=>{
     link.href = ImageSrc ||'./images/Qarea_images/favicon/33.png' ;
     document.head.appendChild(link);
     
-  
   select_input.value = Qaryea;
   
   //Get the Parts Of Jozz 
@@ -316,6 +312,9 @@ setTimeout(()=>{
       sora_num:e.sura_no,
       aya_num:e.aya_no
     }));
+  }
+  if(sajdas.length <= 1){
+    window.reload();
   }
   let jozzSite = [];
   let jozz = 0
