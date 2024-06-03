@@ -42,8 +42,8 @@ const prevIcon             = document.querySelector('.prev>.fa-angles-right'    
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
 const progrees             = document.querySelector('.progrees'                     );
-GetDataBase()
 
+GetDataBase()
 //Fetch The Data From Api Folder
 let data= '';
 let tafseer ='';
@@ -239,7 +239,9 @@ function NoRepeat() {
 
 setTimeout(()=>{
  
- 
+  setTimeout(()=>{
+    window.reload();
+  },3000)
   if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
@@ -810,6 +812,7 @@ audio2.addEventListener('play', ()=>{
         })
       }
       
+
       audio.classList.remove('play')
       audio.classList.add('paused')
     audio.pause()
