@@ -117,6 +117,7 @@ function closeFullscreen() {
 fullscreen.style.opacity = '.5'
 fullscreen.addEventListener('click',()=>{
   if(iconFull.classList.contains('fa-expand')){
+    fullscreen.style.opacity = '1'
     openFullscreen()
     iconFull.classList.remove('fa-expand');
     iconFull.classList.add('fa-compress');
@@ -124,6 +125,8 @@ fullscreen.addEventListener('click',()=>{
     closeFullscreen()
     iconFull.classList.remove('fa-compress')
     iconFull.classList.add('fa-expand');
+    fullscreen.style.opacity = '.5'
+
   }
 })
 
