@@ -18,18 +18,25 @@ body {
 }
 .sites {
   width: 150px;
-  height: auto;
+  height: 80px;
   padding: 20px 30px;
-  background-color: #dbe4ec;
+  background-color: #076eff;
   position: fixed;
-  top: 150px;
-  left: -10px;
+  top: 100px;
+  left: -140px;
   z-index: 100;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  transition: .5s;
+  overflow: hidden;
+  &:hover {
+    left: -10px;
+    height: auto;
+    background-color: #dbe4ec;
+  }
   .google{
     display: flex;
     justify-content: center;

@@ -40,6 +40,7 @@ body{
       
       }
   }
+
   /* .loading{
     width: 100%;
     height: 100vh;
@@ -123,6 +124,17 @@ margin: 150px auto;
       font-size:clamp(90px,60px,30px) ;
     }
   }
+}
+.fullscreen{
+  position: fixed;
+  z-index: 9999;
+  color: rgba(43, 24, 109, 0.734);
+  bottom: 0px;
+  right: 10px;
+  width: 150px;
+  height: 150px;
+  font-size: 5rem;
+  cursor: pointer;
 }
 .ss{
   max-width: 90%;

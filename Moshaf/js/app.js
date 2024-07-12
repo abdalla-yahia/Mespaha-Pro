@@ -42,6 +42,9 @@ const prevIcon             = document.querySelector('.prev>.fa-angles-right'    
 let link                   = document.querySelector("link[rel~='icon']"             );
 const RepeateSelected      = document.querySelector('#RepeateSelected'              );
 const progrees             = document.querySelector('.progrees'                     );
+const fullscreen           = document.querySelector('.fullscreen'                   );
+let iconFull               = document.querySelector('.fullscreen i'                 );
+let elem = document.documentElement;
 
 GetDataBase()
 //Fetch The Data From Api Folder
@@ -80,6 +83,49 @@ if(localStorage.getItem('volume_audio')){
  //Set Counter Of Loop Aya Count
 let counter = localStorage.getItem('counter_aya_loop') || 0;
 
+
+/* View in fullscreen */
+function openFullscreen() {
+  navbar.style.visibility = 'hidden'
+  tafsesr_box_parent.style.visibility = 'hidden'
+  ss.style.maxWidth = '100%'
+  document.body.style.overflowX = 'hidden';
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  navbar.style.visibility = 'visible'
+  tafsesr_box_parent.style.visibility = 'visible'
+  ss.style.maxWidth = '90%'
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
+//Full Screen
+fullscreen.style.opacity = '.5'
+fullscreen.addEventListener('click',()=>{
+  if(iconFull.classList.contains('fa-expand')){
+    openFullscreen()
+    iconFull.classList.remove('fa-expand');
+    iconFull.classList.add('fa-compress');
+  }else {
+    closeFullscreen()
+    iconFull.classList.remove('fa-compress')
+    iconFull.classList.add('fa-expand');
+  }
+})
 
 //Selected Audio Qaryea Name  
 let Qaryea =localStorage.getItem('Qaryea')||'alfirdwsiy2018_gmav_201807';

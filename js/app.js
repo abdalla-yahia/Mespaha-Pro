@@ -58,33 +58,10 @@ window.addEventListener('load',()=>{
 })
 
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
-function getMenshawyAudio(){
-let randCity =Math.floor(Math.random() * 5) 
-let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
-let city =country[randCity]
-let RandomNum =
-city==='Egypt'? Math.floor(Math.random() * 44):
-city==='Syria'? Math.floor(Math.random() * 14):
-city==='Kuwait'? Math.floor(Math.random() * 7):
-city==='Libia'? Math.floor(Math.random() * 37):
-Math.floor(Math.random() * 87);
-let subSrc = RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum;
-Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
-Button_Random_Menshawy.innerText = city === 'Egypt'? 'تلاوات نادرة للمنشاوي من مصر' :
-city === 'Syria'?' تلاوات نادرة للمنشاوي من سوريا':city === 'Kuwait'?' تلاوات نادرة للمنشاوي من الكويت':
-city === 'Libia'?' تلاوات نادرة للمنشاوي من ليبيا':' تلاوات نادرة للمنشاوي متنوعة';
-}
-getMenshawyAudio()
-Makatea_Dawea.addEventListener('ended',()=>{
-  getMenshawyAudio()
-  Makatea_Dawea.play();
-});
-Button_Random_Menshawy.onclick=()=>{
-  getMenshawyAudio()
-  Makatea_Dawea.play();
-}
+
 
 function getAbdellbasetAudio(){
+  Radio_audio.pause();
   let RandomNum =(max=222,min=764)=>Math.floor(Math.random() * (max - min) + min);
   let num = RandomNum()
   Makatea_Dawea.src = `https://archive.org/download/abdelbasit_486/${RandomNum(222,764)}.mp3`;
@@ -93,6 +70,7 @@ function getAbdellbasetAudio(){
   Button_Random_Abdelbaset.onclick=()=>{
     getAbdellbasetAudio()
     Makatea_Dawea.play();
+    Radio_audio.pause();
   }
   //Add New Sites
   localStorage.getItem('Sitees_added')?sites.innerHTML=JSON.parse(localStorage.getItem('Sitees_added')):'';
@@ -120,7 +98,7 @@ function getAbdellbasetAudio(){
 
   // Quran for El Tablawy
   function getAlTablawyAudio(){
-
+    Radio_audio.pause();
     let RandomNum = Math.floor(Math.random() * 859)
     let subSrc = (RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum) 
     let subSrc2 = subSrc + '-_up_by_muslem'; 
@@ -130,7 +108,39 @@ function getAbdellbasetAudio(){
     Button_Random_Altablawy.onclick=()=>{
       getAlTablawyAudio()
       Makatea_Dawea.play();
+
     }
+    // Quran For ElMenshawy
+    function getMenshawyAudio(){
+      Radio_audio.pause();
+      let randCity =Math.floor(Math.random() * 5) 
+      let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
+      let city =country[randCity]
+      let RandomNum =
+      city==='Egypt'? Math.floor(Math.random() * 44):
+      city==='Syria'? Math.floor(Math.random() * 14):
+      city==='Kuwait'? Math.floor(Math.random() * 7):
+      city==='Libia'? Math.floor(Math.random() * 37):
+      Math.floor(Math.random() * 87);
+      let subSrc = RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum;
+      Makatea_Dawea.src = `https://ia600708.us.archive.org/10/items/Menshawy-1/${city}/${city}${subSrc}.mp3`;
+      Button_Random_Menshawy.innerText = city === 'Egypt'? 'تلاوات نادرة للمنشاوي من مصر' :
+      city === 'Syria'?' تلاوات نادرة للمنشاوي من سوريا':city === 'Kuwait'?' تلاوات نادرة للمنشاوي من الكويت':
+      city === 'Libia'?' تلاوات نادرة للمنشاوي من ليبيا':' تلاوات نادرة للمنشاوي متنوعة';
+      }
+      getMenshawyAudio()
+      Makatea_Dawea.addEventListener('ended',()=>{
+        getMenshawyAudio()
+        Makatea_Dawea.play();
+
+      });
+      Button_Random_Menshawy.onclick=()=>{
+        getMenshawyAudio()
+        Makatea_Dawea.play();
+      }
+
+//#############################################################################
+
 let date = new Date()
 let dd   = date.getDate() - 1
     
@@ -180,6 +190,7 @@ btn_radio.appendChild(option)
 })
  //Set Aspecific Radio
 btn_radio.onchange = (e)=>{
+  Makatea_Dawea.pause()
   let val=e.target.value;
   fetch(`${val}`).then(res=>Radio_audio.src = res.url);
   Radio_audio.classList.add('play');
@@ -442,7 +453,7 @@ times_span[0].innerHTML = `<div style="height:350px;"><span class="getDay" style
     10px 10px 10px rgba(0, 0, 0, 0.2);border-radius:15px
 ;font-family: 'Amiri', serif;color:red;display:flex;justify-content:center;align-items:center;flex-direction: column;gap:2px;background:#ddd;height:250px;text-align:center;font-size:80px;position: relative">${getDay} <span style="font-size:25px;color:green;letter-spacing:10px">${getDayEn}</span></span><span style=" text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
     2px 2px 5px rgba(0, 0, 0, 0.2),
-    2px 2px 5px rgba(0, 0, 0, 0.2);color:red;">${getDate}</span><span style="font-family: 'Amiri', serif;"> ${getMonths}</span> <span style="color:green;font-family: 'Amiri', serif;">${getYers}</span>  <span style="color:red">هـ</span></div>`;
+    2px 2px 5px rgba(0, 0, 0, 0.2);color:red;">${+getDate + 1}</span><span style="font-family: 'Amiri', serif;"> ${getMonths}</span> <span style="color:green;font-family: 'Amiri', serif;">${getYers}</span>  <span style="color:red">هـ</span></div>`;
 
 setInterval(() => {
   let date = new Date();
