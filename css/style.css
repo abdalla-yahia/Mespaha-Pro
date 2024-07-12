@@ -14,8 +14,8 @@ body {
   max-height: 100vh;
   user-select: none;
   position: relative;
-
 }
+
 .sites {
   width: 150px;
   height: 80px;
@@ -353,6 +353,14 @@ aside {
   justify-content: center;
   align-items: space-around;
   gap: 3;
+  audio{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+    opacity: .9;
+    z-index: 9999;
+  }
 }
 p {
   font-size: 40px;

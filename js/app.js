@@ -58,7 +58,7 @@ window.addEventListener('load',()=>{
 })
 
 localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
-
+Makatea_Dawea.play() ? Makatea_Dawea.style.visibility="visible" : Makatea_Dawea.style.visibility="hidden"
 
 function getAbdellbasetAudio(){
   Radio_audio.pause();
