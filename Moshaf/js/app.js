@@ -66,9 +66,7 @@ async function GetDataBase(){
   await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
   await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
 }
-if(data === undefined || Quran_Hafs === undefined || Quran_Warsh === undefined){
-  window.location.reload();
-}
+
 //Get Audio Volume From LocalStorage
 if(localStorage.getItem('volume_audio')){
 
@@ -287,7 +285,9 @@ function getAudioFromAjzaa(one,two){
 function NoRepeat() {
 
 setTimeout(()=>{
-
+  if(data === undefined || Quran_Hafs === undefined || Quran_Warsh === undefined){
+    window.location.reload();
+  }
   if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
