@@ -1,71 +1,107 @@
-const volume_span          = document.querySelectorAll('.volume_span'               );
-const spans2               = document.querySelectorAll('.spans>span.active'         );
-const spans                = document.querySelectorAll('.spans>span'                );
-const ss                   = document.querySelector('.ss'                           );
-const audio                = document.querySelector('.audio'                        );
-const audio2               = document.querySelector('.audio2'                       );
-const Sora                 = document.querySelector('#Sora'                         );
-const Sora_Aya             = document.querySelector('#Sora-Aya'                     );
-const Name_Sora            = document.querySelector('.name-sora'                    );
-const Number_Sora_aya      = document.querySelector('#Number_Sora_aya'              );
-const Number_Sora_words    = document.querySelector('#Number_Sora_words'            );
-const Number_Sora_letters  = document.querySelector('#Number_Sora_letters'          );
-const Sora_type            = document.querySelector('#Sora_type'                    );
-const Select_sora          = document.querySelector('#Select_sora'                  );
-const Tafsesr_box          = document.querySelector('#tafsesr_box'                  );
-const minimize_tafsesr     = document.querySelector('.tafsesr_box_parent>i.mini-max');
-const minimize_navbar      = document.querySelector('.navbar>i.mini-max'            );
-const navbar               = document.querySelector('.navbar'                       );
-const close_tafsesr        = document.querySelector('.tafsesr_box_parent>i.fa-xmark');
-const tafsesr_box_parent   = document.querySelector('.tafsesr_box_parent'           );
-const play_pause           = document.querySelector('.play_pause'                   );
-const play_pause_text      = document.querySelector('.play_pause_text'              );
-const mute                 = document.querySelector('.fa-solid.mute'                );
-const volume               = document.querySelector('.volume'                       );
-const search_input         = document.querySelector('.search_input'                 );
-const search_btn           = document.querySelector('.search_btn'                   );
-const search_results       = document.querySelector('.search_results'               );
-const close_search_results = document.querySelector('.search_results>i.fa-xmark'    );
-const search_box_content   = document.querySelector('#search_box'                   );
-const input_loop           = document.querySelector('.input_loop'                   );
-const btn_loop             = document.querySelector('.btn_loop'                     );
-const select_input         = document.querySelector('.select_input'                 );
-const select_btn           = document.querySelector('.select_btn'                   );
-const qaryea_image         = document.querySelector('.qaryea_image'                 );
-const Select_jozz          = document.querySelector('#Select_jozz'                  );
-const Select_part          = document.querySelector('#Select_part'                  );
-// const loading           = document.querySelector('.loading'                      );
-const next                 = document.querySelector('.next'                         );
-const nextIcon             = document.querySelector('.next>.fa-angles-left'         );
-const prev                 = document.querySelector('.prev'                         );
-const prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
-let link                   = document.querySelector("link[rel~='icon']"             );
-const RepeateSelected      = document.querySelector('#RepeateSelected'              );
-const progrees             = document.querySelector('.progrees'                     );
-const fullscreen           = document.querySelector('.fullscreen'                   );
-let iconFull               = document.querySelector('.fullscreen i'                 );
-let elem = document.documentElement;
+ volume_span          = document.querySelectorAll('.volume_span'               );
+ spans2               = document.querySelectorAll('.spans>span.active'         );
+ spans                = document.querySelectorAll('.spans>span'                );
+ ss                   = document.querySelector('.ss'                           );
+ audio                = document.querySelector('.audio'                        );
+ audio2               = document.querySelector('.audio2'                       );
+ Sora                 = document.querySelector('#Sora'                         );
+ Sora_Aya             = document.querySelector('#Sora-Aya'                     );
+ Name_Sora            = document.querySelector('.name-sora'                    );
+ Number_Sora_aya      = document.querySelector('#Number_Sora_aya'              );
+ Number_Sora_words    = document.querySelector('#Number_Sora_words'            );
+ Number_Sora_letters  = document.querySelector('#Number_Sora_letters'          );
+ Sora_type            = document.querySelector('#Sora_type'                    );
+ Select_sora          = document.querySelector('#Select_sora'                  );
+ Tafsesr_box          = document.querySelector('#tafsesr_box'                  );
+ minimize_tafsesr     = document.querySelector('.tafsesr_box_parent>i.mini-max');
+ minimize_navbar      = document.querySelector('.navbar>i.mini-max'            );
+ navbar               = document.querySelector('.navbar'                       );
+ close_tafsesr        = document.querySelector('.tafsesr_box_parent>i.fa-xmark');
+ tafsesr_box_parent   = document.querySelector('.tafsesr_box_parent'           );
+ play_pause           = document.querySelector('.play_pause'                   );
+ play_pause_text      = document.querySelector('.play_pause_text'              );
+ mute                 = document.querySelector('.fa-solid.mute'                );
+ volume               = document.querySelector('.volume'                       );
+ search_input         = document.querySelector('.search_input'                 );
+ search_btn           = document.querySelector('.search_btn'                   );
+ search_results       = document.querySelector('.search_results'               );
+ close_search_results = document.querySelector('.search_results>i.fa-xmark'    );
+ search_box_content   = document.querySelector('#search_box'                   );
+ input_loop           = document.querySelector('.input_loop'                   );
+ btn_loop             = document.querySelector('.btn_loop'                     );
+ select_input         = document.querySelector('.select_input'                 );
+ select_btn           = document.querySelector('.select_btn'                   );
+ qaryea_image         = document.querySelector('.qaryea_image'                 );
+ Select_jozz          = document.querySelector('#Select_jozz'                  );
+ Select_part          = document.querySelector('#Select_part'                  );
+ next                 = document.querySelector('.next'                         );
+ nextIcon             = document.querySelector('.next>.fa-angles-left'         );
+ prev                 = document.querySelector('.prev'                         );
+ prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
+ link                   = document.querySelector("link[rel~='icon']"             );
+ RepeateSelected      = document.querySelector('#RepeateSelected'              );
+ progrees             = document.querySelector('.progrees'                     );
+ fullscreen           = document.querySelector('.fullscreen'                   );
+ iconFull               = document.querySelector('.fullscreen i'                 );
+ elem = document.documentElement;
 
-GetDataBase()
-//Fetch The Data From Api Folder
-let data= '';
-let tafseer ='';
-let Quran_Hafs = '';
-let Quran_Warsh = '';
-let Quran_Qalon = '';
-let Quran_Shuba = '';
-let Quran_Sousi = '';
-let Quran_Douri = '';
-async function GetDataBase(){
-  await fetch('./Api/tafseer.json'     ).then(res=>res.json()).then(res=>tafseer     =res);
-  await fetch('./Api/Quran.json'       ).then(res=>res.json()).then(res=>data        =res);
-  await fetch('./Api/Quran-hafs.json'  ).then(res=>res.json()).then(res=>Quran_Hafs  =res);
-  await fetch('./Api/Quran-warsh.json' ).then(res=>res.json()).then(res=>Quran_Warsh =res);
-  await fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
-  await fetch('./Api/Quran-Shuba.json' ).then(res=>res.json()).then(res=>Quran_Shuba =res);
-  await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
-  await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
-}
+// Add loading state
+const loading = document.createElement('div');
+loading.classList.add('loading');
+document.body.appendChild(loading);
+
+// Improved data fetching with error handling
+async function GetDataBase() {
+  try {
+    loading.style.display = 'block';
+    const [tafseerRes, quranRes, hafsRes, warshRes, qalonRes, shubaRes, sousiRes, douriRes] = await Promise.all([
+      fetch('./Api/tafseer.json'),
+      fetch('./Api/Quran.json'),
+      fetch('./Api/Quran-hafs.json'), 
+      fetch('./Api/Quran-warsh.json'),
+      fetch('./Api/Quran-Qaloun.json'),
+      fetch('./Api/Quran-Shuba.json'),
+      fetch('./Api/Quran-Sousi.json'),
+      fetch('./Api/Quran-Douri.json')
+    ]);
+    
+    tafseer = await tafseerRes.json();
+    data = await quranRes.json();
+    Quran_Hafs = await hafsRes.json();
+    Quran_Warsh = await warshRes.json();
+    Quran_Qalon = await qalonRes.json();
+    Quran_Shuba = await shubaRes.json();
+    Quran_Sousi = await sousiRes.json();
+    Quran_Douri = await douriRes.json();
+    
+  } catch (error) {
+    console.error('Error loading data:', error);
+    alert('Failed to load Quran data. Please refresh the page.');
+    window.location.reload()
+    } finally {
+        loading.style.display = 'none';
+      }
+    }
+    GetDataBase()
+    // //Fetch The Data From Api Folder
+    // let data= '';
+    // let tafseer ='';
+    // let Quran_Hafs = '';
+    // let Quran_Warsh = '';
+// let Quran_Qalon = '';
+// let Quran_Shuba = '';
+// let Quran_Sousi = '';
+// let Quran_Douri = '';
+// async function GetDataBase(){
+//   await fetch('./Api/tafseer.json'     ).then(res=>res.json()).then(res=>tafseer     =res);
+//   await fetch('./Api/Quran.json'       ).then(res=>res.json()).then(res=>data        =res);
+//   await fetch('./Api/Quran-hafs.json'  ).then(res=>res.json()).then(res=>Quran_Hafs  =res);
+//   await fetch('./Api/Quran-warsh.json' ).then(res=>res.json()).then(res=>Quran_Warsh =res);
+//   await fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
+//   await fetch('./Api/Quran-Shuba.json' ).then(res=>res.json()).then(res=>Quran_Shuba =res);
+//   await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
+//   await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
+// }
 
 //Get Audio Volume From LocalStorage
 if(localStorage.getItem('volume_audio')){
@@ -429,7 +465,8 @@ setTimeout(()=>{
   }
   
   data[num]&&(progrees.style.width =(((+f-1) / data[num].array.length) * 100 ) + '%');
-  progrees.setAttribute('data-progress',progrees.style.width)
+  progrees.setAttribute('data-progress',progrees.style.width);
+  
     //Define Sorce Audio Of Qarea
     function QaryeaAudio(){
       if(Qaryea === 'alhosary---warsh---64kb----full--ayat--6236--aya'){
@@ -1185,7 +1222,7 @@ input_loop.setAttribute('disabled', 'disabled')
 btn_loop.setAttribute('disabled', 'disabled')
  
 
-},4000)
+},3000)
 
 setInterval(() => {
    isAudioPlaying()
@@ -2151,7 +2188,7 @@ setTimeout(()=>{
 }
 
 
-},4000)
+},2000)
 
 setInterval(() => {
     isAudioPlaying()
@@ -2342,4 +2379,51 @@ function isAudioPlaying(){
   }
 
 
+}
+// Add error boundary
+window.addEventListener('error', (e) => {
+  console.error('Global error:', e);
+  // Log to analytics service
+  
+  // Show user friendly error message
+  const errorMessage = document.createElement('div');
+  errorMessage.classList.add('error-message');
+  errorMessage.textContent = 'نعتذر : حدث خطأ في تحميل الصفحة نرجو أن تعيد تحميل الصفحة مرة أخري';
+  document.body.appendChild(errorMessage);
+});
+
+// Cleanup function to prevent memory leaks
+function cleanup() {
+  // Remove event listeners
+  elements.playPause.removeEventListener('click', togglePlayPause);
+  
+  // Stop audio
+  elements.audio.pause();
+  elements.audio2.pause();
+  
+  // Clear timeouts/intervals
+  clearTimeout(playbackTimeout);
+  
+  // Reset state
+  state.setState({
+    isPlaying: false,
+    currentAya: 1
+  });
+}
+
+// Call cleanup when needed
+window.addEventListener('beforeunload', cleanup);
+
+// Add mobile device detection and optimization
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  // Optimize for mobile
+  document.body.classList.add('mobile');
+  
+  // Add touch events
+  elements.playPause.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    togglePlayPause();
+  });
 }
