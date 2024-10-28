@@ -76,7 +76,7 @@ async function GetDataBase() {
     
   } catch (error) {
     console.error('Error loading data:', error);
-    alert('Failed to load Quran data. Please refresh the page.');
+    // alert('Failed to load Quran data. Please refresh the page.');
     window.location.reload()
     } finally {
         loading.style.display = 'none';
