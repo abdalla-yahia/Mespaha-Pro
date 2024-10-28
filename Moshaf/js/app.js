@@ -1,49 +1,49 @@
- volume_span          = document.querySelectorAll('.volume_span'               );
- spans2               = document.querySelectorAll('.spans>span.active'         );
- spans                = document.querySelectorAll('.spans>span'                );
- ss                   = document.querySelector('.ss'                           );
- audio                = document.querySelector('.audio'                        );
- audio2               = document.querySelector('.audio2'                       );
- Sora                 = document.querySelector('#Sora'                         );
- Sora_Aya             = document.querySelector('#Sora-Aya'                     );
- Name_Sora            = document.querySelector('.name-sora'                    );
- Number_Sora_aya      = document.querySelector('#Number_Sora_aya'              );
- Number_Sora_words    = document.querySelector('#Number_Sora_words'            );
- Number_Sora_letters  = document.querySelector('#Number_Sora_letters'          );
- Sora_type            = document.querySelector('#Sora_type'                    );
- Select_sora          = document.querySelector('#Select_sora'                  );
- Tafsesr_box          = document.querySelector('#tafsesr_box'                  );
- minimize_tafsesr     = document.querySelector('.tafsesr_box_parent>i.mini-max');
- minimize_navbar      = document.querySelector('.navbar>i.mini-max'            );
- navbar               = document.querySelector('.navbar'                       );
- close_tafsesr        = document.querySelector('.tafsesr_box_parent>i.fa-xmark');
- tafsesr_box_parent   = document.querySelector('.tafsesr_box_parent'           );
- play_pause           = document.querySelector('.play_pause'                   );
- play_pause_text      = document.querySelector('.play_pause_text'              );
- mute                 = document.querySelector('.fa-solid.mute'                );
- volume               = document.querySelector('.volume'                       );
- search_input         = document.querySelector('.search_input'                 );
- search_btn           = document.querySelector('.search_btn'                   );
- search_results       = document.querySelector('.search_results'               );
- close_search_results = document.querySelector('.search_results>i.fa-xmark'    );
- search_box_content   = document.querySelector('#search_box'                   );
- input_loop           = document.querySelector('.input_loop'                   );
- btn_loop             = document.querySelector('.btn_loop'                     );
- select_input         = document.querySelector('.select_input'                 );
- select_btn           = document.querySelector('.select_btn'                   );
- qaryea_image         = document.querySelector('.qaryea_image'                 );
- Select_jozz          = document.querySelector('#Select_jozz'                  );
- Select_part          = document.querySelector('#Select_part'                  );
- next                 = document.querySelector('.next'                         );
- nextIcon             = document.querySelector('.next>.fa-angles-left'         );
- prev                 = document.querySelector('.prev'                         );
- prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
- link                   = document.querySelector("link[rel~='icon']"             );
- RepeateSelected      = document.querySelector('#RepeateSelected'              );
- progrees             = document.querySelector('.progrees'                     );
- fullscreen           = document.querySelector('.fullscreen'                   );
- iconFull               = document.querySelector('.fullscreen i'                 );
- elem = document.documentElement;
+let  volume_span          = document.querySelectorAll('.volume_span'               );
+let  spans2               = document.querySelectorAll('.spans>span.active'         );
+let  spans                = document.querySelectorAll('.spans>span'                );
+let  ss                   = document.querySelector('.ss'                           );
+let  audio                = document.querySelector('.audio'                        );
+let  audio2               = document.querySelector('.audio2'                       );
+let  Sora                 = document.querySelector('#Sora'                         );
+let  Sora_Aya             = document.querySelector('#Sora-Aya'                     );
+let  Name_Sora            = document.querySelector('.name-sora'                    );
+let  Number_Sora_aya      = document.querySelector('#Number_Sora_aya'              );
+let  Number_Sora_words    = document.querySelector('#Number_Sora_words'            );
+let  Number_Sora_letters  = document.querySelector('#Number_Sora_letters'          );
+let  Sora_type            = document.querySelector('#Sora_type'                    );
+let  Select_sora          = document.querySelector('#Select_sora'                  );
+let  Tafsesr_box          = document.querySelector('#tafsesr_box'                  );
+let  minimize_tafsesr     = document.querySelector('.tafsesr_box_parent>i.mini-max');
+let  minimize_navbar      = document.querySelector('.navbar>i.mini-max'            );
+let  navbar               = document.querySelector('.navbar'                       );
+let  close_tafsesr        = document.querySelector('.tafsesr_box_parent>i.fa-xmark');
+let  tafsesr_box_parent   = document.querySelector('.tafsesr_box_parent'           );
+let  play_pause           = document.querySelector('.play_pause'                   );
+let  play_pause_text      = document.querySelector('.play_pause_text'              );
+let  mute                 = document.querySelector('.fa-solid.mute'                );
+let  volume               = document.querySelector('.volume'                       );
+let  search_input         = document.querySelector('.search_input'                 );
+let  search_btn           = document.querySelector('.search_btn'                   );
+let  search_results       = document.querySelector('.search_results'               );
+let  close_search_results = document.querySelector('.search_results>i.fa-xmark'    );
+let  search_box_content   = document.querySelector('#search_box'                   );
+let  input_loop           = document.querySelector('.input_loop'                   );
+let  btn_loop             = document.querySelector('.btn_loop'                     );
+let  select_input         = document.querySelector('.select_input'                 );
+let  select_btn           = document.querySelector('.select_btn'                   );
+let  qaryea_image         = document.querySelector('.qaryea_image'                 );
+let  Select_jozz          = document.querySelector('#Select_jozz'                  );
+let  Select_part          = document.querySelector('#Select_part'                  );
+let  next                 = document.querySelector('.next'                         );
+let  nextIcon             = document.querySelector('.next>.fa-angles-left'         );
+let  prev                 = document.querySelector('.prev'                         );
+let  prevIcon             = document.querySelector('.prev>.fa-angles-right'        );
+let  link                 = document.querySelector("link[rel~='icon']"             );
+let  RepeateSelected      = document.querySelector('#RepeateSelected'              );
+let  progrees             = document.querySelector('.progrees'                     );
+let  fullscreen           = document.querySelector('.fullscreen'                   );
+let  iconFull             = document.querySelector('.fullscreen i'                 );
+let  elem                 = document.documentElement;
 
 // Add loading state
 const loading = document.createElement('div');
@@ -1222,7 +1222,7 @@ input_loop.setAttribute('disabled', 'disabled')
 btn_loop.setAttribute('disabled', 'disabled')
  
 
-},3000)
+},2500)
 
 setInterval(() => {
    isAudioPlaying()
@@ -2389,6 +2389,8 @@ window.addEventListener('error', (e) => {
   const errorMessage = document.createElement('div');
   errorMessage.classList.add('error-message');
   errorMessage.textContent = 'نعتذر : حدث خطأ في تحميل الصفحة نرجو أن تعيد تحميل الصفحة مرة أخري';
+  errorMessage.style ='text-align:center;'
+  window.location.reload()
   document.body.appendChild(errorMessage);
 });
 
