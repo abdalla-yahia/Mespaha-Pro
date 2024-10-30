@@ -22,21 +22,21 @@ body{
       content: attr(moshaf);
       position: fixed;
       width: 9%;
-      background-color: var(--background-color);
+      background-color: #73c4ca;
       top: 0%;
-      left: 48%;
+      left: 46%;
       z-index: 9999;
       display: flex;
       justify-content: center;
       transform: translate(-50%, 3px);
       text-align: center;
-      color: rgb(1, 12, 129);
+      color: red;
       font-family: "Reem Kufi Fun", sans-serif;
       border-width: 10px;
       border-style: solid;
       border-color: initial;
       font-weight: bold;
-      border-image: var(--border-image) 70 round;
+      border-image: var(--border-image) 100 round;
       
       }
   }
@@ -555,10 +555,10 @@ input,select{
 
 .spans{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
   height: 40px;
-  width: 20%;
+  width: 15%;
   gap: 0px;
   span{
       width: 5px;
@@ -572,7 +572,7 @@ input,select{
         height: 0%;
         background-color: #1dc26a;
         bottom: 0%;
-        left: 40%;
+        left: 30%;
         transform: translate(-50%,0);
       }
   &.active {
