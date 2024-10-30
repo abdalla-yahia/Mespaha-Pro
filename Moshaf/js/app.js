@@ -75,33 +75,13 @@ async function GetDataBase() {
     Quran_Douri = await douriRes.json();
     
   } catch (error) {
-    console.error('Error loading data:', error);
-    // alert('Failed to load Quran data. Please refresh the page.');
-    window.location.reload()
+    throw new Error('Error loading data:', error);
     } finally {
         loading.style.display = 'none';
       }
     }
     GetDataBase()
-    // //Fetch The Data From Api Folder
-    // let data= '';
-    // let tafseer ='';
-    // let Quran_Hafs = '';
-    // let Quran_Warsh = '';
-// let Quran_Qalon = '';
-// let Quran_Shuba = '';
-// let Quran_Sousi = '';
-// let Quran_Douri = '';
-// async function GetDataBase(){
-//   await fetch('./Api/tafseer.json'     ).then(res=>res.json()).then(res=>tafseer     =res);
-//   await fetch('./Api/Quran.json'       ).then(res=>res.json()).then(res=>data        =res);
-//   await fetch('./Api/Quran-hafs.json'  ).then(res=>res.json()).then(res=>Quran_Hafs  =res);
-//   await fetch('./Api/Quran-warsh.json' ).then(res=>res.json()).then(res=>Quran_Warsh =res);
-//   await fetch('./Api/Quran-Qaloun.json').then(res=>res.json()).then(res=>Quran_Qalon =res);
-//   await fetch('./Api/Quran-Shuba.json' ).then(res=>res.json()).then(res=>Quran_Shuba =res);
-//   await fetch('./Api/Quran-Sousi.json' ).then(res=>res.json()).then(res=>Quran_Sousi =res);
-//   await fetch('./Api/Quran-Douri.json' ).then(res=>res.json()).then(res=>Quran_Douri =res);
-// }
+    
 
 //Get Audio Volume From LocalStorage
 if(localStorage.getItem('volume_audio')){
@@ -321,9 +301,7 @@ function getAudioFromAjzaa(one,two){
 function NoRepeat() {
 
 setTimeout(()=>{
-  if(data === undefined || Quran_Hafs === undefined || Quran_Warsh === undefined){
-    window.location.reload();
-  }
+
   if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
@@ -851,7 +829,7 @@ audio.addEventListener('play', ()=>{
         Tafsesr_box.innerHTML = `<div class='parent-simbole' > &#x06DD; <span class='child-simbole'>${tafSora[Sora_Aya.value].aya} </span> </div> ${tafSora[Sora_Aya.value].text}`;
         localStorage.setItem('Aya_Number',z)
         window.scrollTo({
-            top:(ss.children[z].offsetTop)-250,
+            top:(ss.children[z].offsetTop)-100,
             behavior:'smooth'
         }) 
       }
