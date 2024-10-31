@@ -180,7 +180,7 @@ let dd   = date.getDate() - 1
 let radiosData= await Radios().then(res=>res)
 //Add Radio Quran Kareem Radio Of Alqahera
 let Quran = document.createElement('option')
-Quran.value = 'https://stream.radiojar.com/8s5u5tpdtwzuv';
+Quran.value = 'https://n13.radiojar.com/8s5u5tpdtwzuv?rj-ttl=5&rj-tok=AAABkuMe2cEAhYFssZqylTL-ew';
 Quran.innerText = 'إذاعة القرأن الكريم من القاهرة'
 btn_radio.appendChild(Quran)
 //Add Multibale of Radio Quran
