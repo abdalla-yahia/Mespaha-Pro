@@ -56,22 +56,6 @@ const sites_child  = document.querySelectorAll('.sites-child');
 window.addEventListener('load',()=>{
   const Google_search  = document.querySelector('input.gsc-input').focus();
 })
-
-localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
-Makatea_Dawea.play() ? Makatea_Dawea.style.visibility="visible" : Makatea_Dawea.style.visibility="hidden"
-
-function getAbdellbasetAudio(){
-  Radio_audio.pause();
-  let RandomNum =(max=222,min=764)=>Math.floor(Math.random() * (max - min) + min);
-  let num = RandomNum()
-  Makatea_Dawea.src = `https://archive.org/download/abdelbasit_486/${RandomNum(222,764)}.mp3`;
-  }
-  getAbdellbasetAudio()
-  Button_Random_Abdelbaset.onclick=()=>{
-    getAbdellbasetAudio()
-    Makatea_Dawea.play();
-    Radio_audio.pause();
-  }
   //Add New Sites
   localStorage.getItem('Sitees_added')?sites.innerHTML=JSON.parse(localStorage.getItem('Sitees_added')):'';
   plus_new_link.addEventListener("click",()=>{
@@ -95,10 +79,23 @@ function getAbdellbasetAudio(){
       new_site_form_container.style.display="none";
     }
   })
+localStorage.getItem('volume_audio')?Radio_audio.volume = +localStorage.getItem('volume_audio'):Radio_audio.volume=1
+// Makatea_Dawea.play() ? Makatea_Dawea.style.visibility="visible" : Makatea_Dawea.style.visibility="hidden"
+
+function getAbdellbasetAudio(){
+  let RandomNum =(max=222,min=764)=>Math.floor(Math.random() * (max - min) + min);
+  Makatea_Dawea.src = `https://archive.org/download/abdelbasit_486/${RandomNum(222,764)}.mp3`;
+  }
+  getAbdellbasetAudio()
+  Button_Random_Abdelbaset.onclick=()=>{
+    getAbdellbasetAudio()
+    Makatea_Dawea.play();
+    
+  }
+
 
   // Quran for El Tablawy
   function getAlTablawyAudio(){
-    Radio_audio.pause();
     let RandomNum = Math.floor(Math.random() * 859)
     let subSrc = (RandomNum <=9?'00'+ RandomNum : RandomNum <=99 ?'0'+RandomNum:RandomNum) 
     let subSrc2 = subSrc + '-_up_by_muslem'; 
@@ -112,7 +109,7 @@ function getAbdellbasetAudio(){
     }
     // Quran For ElMenshawy
     function getMenshawyAudio(){
-      Radio_audio.pause();
+      
       let randCity =Math.floor(Math.random() * 5) 
       let country= ['Egypt','Syria','Kuwait','Libia','Variable'];
       let city =country[randCity]
@@ -181,18 +178,28 @@ let dd   = date.getDate() - 1
 
 //Get Radios 
 let radiosData= await Radios().then(res=>res)
-
+//Add Radio Quran Kareem Radio Of Alqahera
+let Quran = document.createElement('option')
+Quran.value = 'https://stream.radiojar.com/8s5u5tpdtwzuv';
+Quran.innerText = 'إذاعة القرأن الكريم من القاهرة'
+btn_radio.appendChild(Quran)
+//Add Multibale of Radio Quran
 radiosData.radios && radiosData.radios.map(e=>{
   let option = document.createElement('option')
   option.value = e.url
-option.innerText = e.name
+  option.innerText = e.name
 btn_radio.appendChild(option)
 })
  //Set Aspecific Radio
-btn_radio.onchange = (e)=>{
-  Makatea_Dawea.pause()
+btn_radio.onchange =async (e)=>{
   let val=e.target.value;
-  fetch(`${val}`).then(res=>Radio_audio.src = res.url);
+  try {
+    await fetch(`${val}`).then(res=>Radio_audio.src = res.url);
+    Radio_audio.play()
+    Radio_audio.muted = false;
+  } catch (error) {
+    throw new Error(error.message)
+  }
   Radio_audio.classList.add('play');
   play_pause.style.backgroundColor = '#1dc26a';
   play_pause_text.innerText= 'توقف';
@@ -205,6 +212,7 @@ btn_radio.onchange = (e)=>{
   for(let j = 0 ; j < (Radio_audio.volume*10) ; j++){
     volume_span[j].classList.add('active')
   }
+  
 }
   //Play And Pause Radio
   play_pause.onclick = ()=>{
